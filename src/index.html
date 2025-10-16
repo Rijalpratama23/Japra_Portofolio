@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="asset/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+    <title>Rijal Portofolio</title>
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <link href="./output.css" rel="stylesheet" />
+    <style>
+      .typewriter-animation {
+        display: inline-block;
+        position: relative;
+      }
+
+      .typewriter-animation::after {
+        content: '';
+        position: absolute;
+        right: -2px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background-color: #fbbf24;
+        animation: blink-caret 0.75s step-end infinite;
+      }
+
+      @keyframes blink-caret {
+        from,
+        to {
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+      }
+      .h-dvh {
+        height: 100dvh;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HEADER SECTION -->
+    <header class="container mx-auto fixed z-50">
+      <div class="w-full flex justify-between h-20 py-2 px-4 sm:px-10 md:px-20 bg-neutral-800 border-b-2 border-yellow-300">
+        <div class="w-16 md:w-24 flex justify-center items-center">
+          <a href="" class="hover:text-yellow-300 transition-colors duration-300">
+            <img src="asset/logo.png" alt="picture" class="w-12 md:w-20" />
+          </a>
+        </div>
+
+        <!-- menu untuk dekstop -->
+        <nav class="hidden md:flex justify-center items-center">
+          <ul class="flex">
+            <li class="mx-3 lg:mx-6">
+              <a href="#" class="font-bold text-white text-base lg:text-lg hover:text-yellow-300 transition-colors duration-300">Home</a>
+            </li>
+            <li class="mx-3 lg:mx-6">
+              <a href="#about" class="font-bold text-white text-base lg:text-lg hover:text-yellow-300 transition-colors duration-300">About</a>
+            </li>
+            <li class="mx-3 lg:mx-6">
+              <a href="#skill" class="font-bold text-white text-base lg:text-lg hover:text-yellow-300 transition-colors duration-300">Skill</a>
+            </li>
+            <li class="mx-3 lg:mx-6">
+              <a href="#portofolio" class="font-bold text-white text-base lg:text-lg hover:text-yellow-300 transition-colors duration-300">Portofolio</a>
+            </li>
+            <li class="mx-3 lg:mx-6">
+              <a href="#contact" class="font-bold text-white text-base lg:text-lg hover:text-yellow-300 transition-colors duration-300">Contact</a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- menu untuk mobile -->
+        <nav id="navbarMobile" class="linknavigasi absolute md:hidden mt-45 shadow-xl flex-col hover:shadow-yellow-300 bg-stone-600 w-50 left-0 rounded-lg transform -translate-x-full transition-transform duration-300 ease-in-out z-40">
+          <ul class="block p-5 ml-0">
+            <li class="mt-4 lg:mx-6">
+              <a href="#" class="font-bold flex items-center gap-3 text-white text-base lg:text-lg hover:text-yellow-300 transition-colors duration-300"><i class="fa-solid fa-house text-xl font-semibold flex items-center"></i>Home</a>
+            </li>
+            <li class="mt-8 lg:mx-6">
+              <a href="#about" class="font-bold text-white flex items-center gap-3 text-base lg:text-lg hover:text-yellow-300 transition-colors duration-300"
+                ><i class="fa-solid fa-address-card text-xl font-semibold flex items-center"></i>About</a
+              >
+            </li>
+            <li class="mt-8 lg:mx-6">
+              <a href="#skill" class="font-bold flex items-center gap-3 text-white text-base lg:text-lg hover:text-yellow-300 transition-colors duration-300"><i class="fa-solid fa-code text-xl font-semibold flex items-center"></i>Skill</a>
+            </li>
+            <li class="mt-8 lg:mx-6">
+              <a href="#portofolio" class="font-bold flex items-center gap-3 text-white text-base lg:text-lg hover:text-yellow-300 transition-colors duration-300"
+                ><i class="fa-solid fa-diagram-project text-xl font-semibold flex items-center"></i>Portofolio</a
+              >
+            </li>
+            <li class="mt-8 mb-4 lg:mx-6">
+              <a href="#contact" class="font-bold flex items-center gap-3 text-white text-base lg:text-lg hover:text-yellow-300 transition-colors duration-300"
+                ><i class="fa-solid fa-phone text-xl font-semibold flex items-center"></i>Contact</a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <div id="hamburgerMenu" class="hamburger-menu flex md:hidden justify-center items-center">
+          <i class="fa-solid fa-bars font-bold text-lg text-white hover:text-yellow-300 transition-colors duration-300 cursor-pointer"></i>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="mx-auto h-screen md:h-screen pt-32 md:pt-52 px-4 sm:px-10 md:px-20 bg-neutral-700">
+      <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+        <div class="content-paragraf p-2 md:p-5 order-2 md:order-1 text-center md:text-left" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="400">
+          <div class="kontent1 pb-3">
+            <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
+              Hallo I'm Rijal Pratama <br />
+              I'm a <span class="text-yellow-300 typewriter-animation">Frontend Developer</span>
+            </h1>
+          </div>
+          <div class="kontent2 w-full md:w-98 pb-5 text-white">
+            <p class="text-base md:text-lg">I am a Software Engineering (FrontEnd development). Welcome to my website. all about me/my history can be seen here!</p>
+          </div>
+          <div class="media-social flex gap-4 md:gap-6 text-2xl md:text-3xl justify-center md:justify-start">
+            <a href="https://web.facebook.com/rijal.pratama.1865904?locale=id_ID" class="group transition-transform duration-300 group-hover:scale-105" target="_blank"
+              ><i class="fa-brands fa-facebook text-blue-600 group-hover:scale-120" target="_blank"></i
+            ></a>
+            <a href="https://www.instagram.com/rijalprtmaa_a/" class="group transition-transform duration-300 group-hover:scale-105" target="_blank"
+              ><i class="fa-brands fa-instagram text-2xl md:text-3xl bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 rounded-4xl text-white group-hover:scale-120"></i
+            ></a>
+            <a href="https://github.com/Rijalpratama23" class="group transition-transform duration-300 group-hover:scale-105" target="_blank"><i class="fa-brands fa-github text-white group-hover:scale-120"></i></a>
+            <a href="https://www.linkedin.com/in/rijal-pratama-6a4a28327/" class="group transition-transform duration-300 group-hover:scale-105" target="_blank"><i class="fa-brands fa-linkedin text-blue-500 group-hover:scale-120"></i></a>
+          </div>
+        </div>
+
+        <div
+          class="content-img mb-8 md:mb-0 order-1 md:order-2 shadow-2xl border-2 transition-all duration-300 delay-100 border-yellow-300 hover:shadow-yellow-300/50 rounded-full group w-48 h-48 md:w-auto md:h-auto"
+          data-aos="fade-up"
+          data-aos-duratios="1000"
+        >
+          <img src="asset/gambar 1.jpg" alt="picture1" class="rounded-full w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <div class="mx-auto min-h-screen pt-20 md:pt-35 px-4 sm:px-10 md:px-20 bg-neutral-800" id="about">
+      <h2 class="text-center font-bold text-2xl md:text-3xl text-white pt-8 md:pt-0"><span class="text-yellow-300">About</span> Me</h2>
+      <div class="container mx-auto mt-10 md:mt-20 flex flex-col md:flex-row justify-between items-center gap-8 md:gap-13">
+        <div class="content-img w-48 h-48 md:w-auto md:h-auto shadow-2xl border-2 border-yellow-300 transition-all duration-300 delay-100 hover:shadow-yellow-300/50 rounded-full group" data-aos="fade-down"
+          data-aos-duratios="1000">
+          <img src="asset/gambar 2 - Copy.jpg" alt="picture" class="rounded-full w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer" />
+        </div>
+        <div class="content2 w-full md:w-200 text-center md:text-left" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
+          <p class="text-base md:text-xl text-white">
+            Hello I am Rijal Pratama, I am a FrontEnd developer with 2 years of experience. I have a strong ability to create attractive and functional interfaces. With basic skills in HTML, CSS, and JavaScript, I am also ready to work in a
+            team. Besides that, I have a strong desire to continue learning web development in the future.
+          </p>
+          <div class="flex justify-center md:justify-start mt-6 md:mt-8 group">
+            <a href="https://drive.google.com/file/d/1t-QgiCpSbLDbqUOFxvDmjVNGxZulzZ1h/view?usp=sharing" target="_blank" class="group"
+              ><button class="text-base md:text-lg font-bold bg-yellow-300 p-2 md:p-3 rounded-lg cursor-pointer hover:bg-yellow-400 transition-colors duration-300">Download CV!</button></a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SKILL SECTION -->
+    <div class="mx-auto min-h-screen pt-20 md:pt-35 px-4 sm:px-10 md:px-20 bg-neutral-700" id="skill">
+      <div class="block justify-center">
+        <div class="container-text text-center mb-8 md:mb-13 text-gray-300 pt-8 md:pt-0" data-aos="fade-down" data-aos-duration="800" data-aos-easing="ease-out-back">
+          <p class="text-base md:text-xl font-semibold">~skills and tools that I have mastered~</p>
+          <h2 class="text-2xl md:text-3xl font-bold text-white mt-2">My <span class="text-yellow-300">Skill</span></h2>
+          <p class="text-base md:text-xl font-semibold mt-2">
+            the tools I use to build a professional website and <br class="hidden sm:block" />
+            deliver an interactive experience.
+          </p>
+        </div>
+        <div class="container-cta flex justify-center" data-aos="fade-in" data-aos-duration="600" data-aos-easing="ease-out-cubic" data-aos-delay="100">
+          <div class="container-content flex flex-wrap p-4 md:p-10 justify-center items-center w-full md:w-230 gap-4 md:gap-10">
+            <a href="" class="group">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108" />
+            </a>
+
+            <a href="" class="group">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108" />
+            </a>
+
+            <a href="" class="group"
+              ><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108"
+            /></a>
+
+            <a href="" class="group">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108" />
+            </a>
+
+            <a href="" class="group">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108" />
+            </a>
+
+            <a href="" class="group"
+              ><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108"
+            /></a>
+
+            <a href="" class="group">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/reactnative/reactnative-original-wordmark.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108" />
+            </a>
+
+            <a href="" class="group">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108" />
+            </a>
+            <a href="" class="group"
+              ><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108"
+            /></a>
+            <a href="" class="group">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PORTOFOLIO SECTION -->
+    <div class="mx-auto min-h-screen pb-10 pt-20 md:pt-35 px-4 sm:px-10 md:px-20 bg-neutral-800" id="portofolio">
+      <div class="pt-8 md:pt-0">
+        <div class="text-center">
+          <p class="text-gray-300" data-aos="fade-down"
+             data-aos-duration="800"
+             data-aos-easing="ease-out-cubic">~Latest Project~</p>
+          <h2 class="text-2xl md:text-3xl font-bold text-white mt-2">My <span class="text-yellow-300">Portofolio</span></h2>
+        </div>
+        <div class="mt-8 md:mt-16 text-cente">
+          <div class="container-content flex flex-wrap justify-center gap-12 mx-5 my-5">
+            <div class="content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4">
+              <img src="asset/moneytracker.png" alt="picture" class="text-center" />
+              <h4 class="text-center font-bold">Money Tracker</h4>
+              <p class="text-center">This application is built using HTML, CSS, and JavaScript. Manage your money, from expenses to income, using this website.</p>
+              <a href="https://money-trancker.vercel.app/" target="_blank" class="text-center flex justify-center"
+                ><button class="text-lg flex font-semibold m-3 p-3 bg-yellow-300 rounded-lg cursor-pointer hover:shadow-xl hover:bg-yellow-400 gap-2.5 justify-center items-center">
+                  <i class="fa-solid fa-magnifying-glass"></i>Read More!
+                </button></a
+              >
+            </div>
+            <div class="content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4">
+              <img src="asset/kopi.png" alt="picture" class="text-center" />
+              <h4 class="text-center font-bold">E-commerce Coffe</h4>
+              <p class="text-center">This application was built using React Js & TailwindCSS, an e-commerce coffee website, equipped with payment features, making it very easy for company owners.</p>
+              <a href="https://e-commerce-coffe-apps.vercel.app/#home" target="_blank" class="text-center flex justify-center"
+                ><button class="text-lg flex font-semibold m-3 p-3 bg-yellow-300 rounded-lg cursor-pointer hover:shadow-xl hover:bg-yellow-400 gap-2.5 justify-center items-center">
+                  <i class="fa-solid fa-magnifying-glass"></i>Read More!
+                </button></a
+              >
+            </div>
+            <div class="content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4">
+              <img src="asset/todoApp.png" alt="picture" class="text-center" />
+              <h4 class="text-center font-bold">Toto App</h4>
+              <p class="text-center">This application is built using HTML, CSS, and JavaScript. It's a todo list application, perfect for keeping a list of daily activities.</p>
+              <a href="https://todo-app-five-ruby-57.vercel.app/" target="_blank" class="text-center flex justify-center"
+                ><button class="text-lg flex font-semibold m-3 p-3 bg-yellow-300 rounded-lg cursor-pointer hover:shadow-xl hover:bg-yellow-400 gap-2.5 justify-center items-center">
+                  <i class="fa-solid fa-magnifying-glass"></i>Read More!
+                </button></a
+              >
+            </div>
+            <div class="content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4">
+              <img src="asset/kalkulator.png" alt="picture" class="text-center" />
+              <h4 class="text-center font-bold">Kalkulator App</h4>
+              <p class="text-center">This application is built using HTML, CSS, JavaScript, and a little local storage implementation.</p>
+              <a href="https://app-kalkulator.vercel.app/" target="_blank" class="text-center flex justify-center"
+                ><button class="text-lg flex font-semibold m-3 p-3 bg-yellow-300 rounded-lg cursor-pointer hover:shadow-xl hover:bg-yellow-400 gap-2.5 justify-center items-center">
+                  <i class="fa-solid fa-magnifying-glass"></i>Read More!
+                </button></a
+              >
+            </div>
+            <div class="content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4">
+              <img src="asset/pzn_cloning.png" alt="picture" class="text-center" />
+              <h4 class="text-center font-bold">(cloningUI) Web Programer Zaman Now</h4>
+              <p class="text-center">This application was built using HTML and CSS, and was created solely for layout practice purposes.</p>
+              <a href="https://money-trancker.vercel.app/" target="_blank" class="text-center flex justify-center"
+                ><button class="text-lg flex font-semibold m-3 p-3 bg-yellow-300 rounded-lg cursor-pointer hover:shadow-xl hover:bg-yellow-400 gap-2.5 justify-center items-center">
+                  <i class="fa-solid fa-magnifying-glass"></i>Read More!
+                </button></a
+              >
+            </div>
+            <div class="content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4">
+              <img src="asset/portofolioreact.png" alt="picture" class="text-center" />
+              <h4 class="text-center font-bold">Personal Portofolio_(ReactJs)</h4>
+              <p class="text-center">
+                This portfolio is built using React JS and TailwindCSS using the vite package.This portfolio was built using React JS and TailwindCSS using the Vite package. This design is suitable for formal portfolios.
+              </p>
+              <a href="https://portofolio-rijal-react.vercel.app/" target="_blank" class="text-center flex justify-center"
+                ><button class="text-lg flex font-semibold m-3 p-3 bg-yellow-300 rounded-lg cursor-pointer hover:shadow-xl hover:bg-yellow-400 gap-2.5 justify-center items-center">
+                  <i class="fa-solid fa-magnifying-glass"></i>Read More!
+                </button></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTACT SECTION -->
+    <div class="mx-auto py-12 md:py-20 px-4 sm:px-10 md:px-20 bg-neutral-700" id="contact">
+      <div class="lg:flex flex-col md:flex-row justify-between">
+        <div class="content1 w-full md:w-70 text-center md:text-left mb-8 md:mb-0">
+          <h2 class="text-2xl md:text-3xl font-bold text-yellow-300">Contact <span class="text-white">Me</span></h2>
+          <p class="text-base md:text-lg text-white mt-2">Have an idea or a project?Hit me up — let's make it real & want to work together.</p>
+        </div>
+        <div class="content2 text-center">
+          <div class="flex items-center pl-4 md:pl-8 m-3 md:m-5 p-2 md:p-3 bg-gray-300 rounded-2xl gap-1.5 hover:text-blue-500 justify-center md:justify-start">
+            <i class="fa-solid fa-envelope text-xl md:text-2xl lg:text-3xl"></i>
+            <a href=""><p class="font-semibold text-center text-sm md:text-base lg:text-lg">rijalpratama216@gmail.com</p></a>
+          </div>
+          <div class="media-social flex gap-4 md:gap-6 text-3xl md:text-4xl lg:text-5xl m-3 md:m-5 p-2 md:p-3 justify-center">
+            <a href="https://web.facebook.com/rijal.pratama.1865904?locale=id_ID" class="group transition-transform duration-300 group-hover:scale-105" target="_blank"
+              ><i class="fa-brands fa-facebook text-blue-600 group-hover:scale-120"></i
+            ></a>
+            <a href="https://www.instagram.com/rijalprtmaa_a/" class="group transition-transform duration-300 group-hover:scale-105" target="_blank"
+              ><i class="fa-brands fa-instagram bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 rounded-4xl text-white group-hover:scale-120"></i
+            ></a>
+            <a href="https://github.com/Rijalpratama23" class="group transition-transform duration-300 group-hover:scale-105" target="_blank"><i class="fa-brands fa-github text-white group-hover:scale-120"></i></a>
+            <a href="https://www.linkedin.com/in/rijal-pratama-6a4a28327/" class="group transition-transform duration-300 group-hover:scale-105" target="_blank"><i class="fa-brands fa-linkedin text-blue-500 group-hover:scale-120"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER SECTION -->
+    <footer class="footer">
+      <div class="bg-yellow-300 h-12 md:h-15 flex justify-center items-center">
+        <a href=""><p class="text-sm md:text-lg font-semibold text-center px-4">&copy; 2024 Rijal Pratama. All rights reserved.</p></a>
+      </div>
+    </footer>
+
+    <!-- javascript link -->
+    <script src="js/script.js"></script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>
