@@ -144,8 +144,7 @@
     <div class="mx-auto min-h-screen pt-20 md:pt-35 px-4 sm:px-10 md:px-20 bg-neutral-800" id="about">
       <h2 class="text-center font-bold text-2xl md:text-3xl text-white pt-8 md:pt-0"><span class="text-yellow-300">About</span> Me</h2>
       <div class="container mx-auto mt-10 md:mt-20 flex flex-col md:flex-row justify-between items-center gap-8 md:gap-13">
-        <div class="content-img w-48 h-48 md:w-auto md:h-auto shadow-2xl border-2 border-yellow-300 transition-all duration-300 delay-100 hover:shadow-yellow-300/50 rounded-full group" data-aos="fade-down"
-          data-aos-duratios="1000">
+        <div class="content-img w-48 h-48 md:w-auto md:h-auto shadow-2xl border-2 border-yellow-300 transition-all duration-300 delay-100 hover:shadow-yellow-300/50 rounded-full group" data-aos="fade-down" data-aos-duratios="1000">
           <img src="asset/gambar 2 - Copy.jpg" alt="picture" class="rounded-full w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer" />
         </div>
         <div class="content2 w-full md:w-200 text-center md:text-left" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
@@ -221,74 +220,82 @@
     <div class="mx-auto min-h-screen pb-10 pt-20 md:pt-35 px-4 sm:px-10 md:px-20 bg-neutral-800" id="portofolio">
       <div class="pt-8 md:pt-0">
         <div class="text-center">
-          <p class="text-gray-300" data-aos="fade-down"
-             data-aos-duration="800"
-             data-aos-easing="ease-out-cubic">~Latest Project~</p>
+          <p class="text-gray-300" data-aos="fade-down" data-aos-duration="800" data-aos-easing="ease-out-cubic">~Latest Project~</p>
           <h2 class="text-2xl md:text-3xl font-bold text-white mt-2">My <span class="text-yellow-300">Portofolio</span></h2>
         </div>
-        <div class="mt-8 md:mt-16 text-cente">
+
+        <div class="flex justify-center gap-4 mt-8" data-aos="fade-in">
+          <button onclick="filterProjects('all', this)" class="filter-btn px-5 py-2 bg-yellow-300 text-black font-bold rounded-lg shadow-md hover:bg-yellow-400 hover:scale-105 transition-all duration-300 ring-2 ring-yellow-300 md:p-3 p-2">All</button>
+          <button onclick="filterProjects('dinamis', this)" class="filter-btn px-5 py-2 bg-neutral-600 text-white font-bold rounded-lg shadow-md hover:bg-neutral-500 hover:scale-105 transition-all duration-300 md:p-3 p-2">Dinamis</button>
+          <button onclick="filterProjects('statis', this)" class="filter-btn px-5 py-2 bg-neutral-600 text-white font-bold rounded-lg shadow-md hover:bg-neutral-500 hover:scale-105 transition-all duration-300 md:p-3 p-2">Statis</button>
+        </div>
+
+        <div class="mt-8 md:mt-12 text-center">
           <div class="container-content flex flex-wrap justify-center gap-12 mx-5 my-5">
-            <div class="content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4">
+            <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4" data-category="dinamis">
               <img src="asset/moneytracker.png" alt="picture" class="text-center" />
               <h4 class="text-center font-bold">Money Tracker</h4>
-              <p class="text-center">This application is built using HTML, CSS, and JavaScript. Manage your money, from expenses to income, using this website.</p>
-              <a href="https://money-trancker.vercel.app/" target="_blank" class="text-center flex justify-center"
-                ><button class="text-lg flex font-semibold m-3 p-3 bg-yellow-300 rounded-lg cursor-pointer hover:shadow-xl hover:bg-yellow-400 gap-2.5 justify-center items-center">
+              <p class="text-center">This application is built using HTML, CSS, and JavaScript. Manage your money, from expenses to income.</p>
+              <a href="https://money-trancker.vercel.app/" target="_blank" class="text-center flex justify-center">
+                <button class="text-lg flex font-semibold m-3 p-3 bg-yellow-300 rounded-lg cursor-pointer hover:shadow-xl hover:bg-yellow-400 gap-2.5 justify-center items-center">
                   <i class="fa-solid fa-magnifying-glass"></i>Read More!
-                </button></a
-              >
+                </button>
+              </a>
             </div>
-            <div class="content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4">
+
+            <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4" data-category="dinamis">
               <img src="asset/kopi.png" alt="picture" class="text-center" />
               <h4 class="text-center font-bold">E-commerce Coffe</h4>
-              <p class="text-center">This application was built using React Js & TailwindCSS, an e-commerce coffee website, equipped with payment features, making it very easy for company owners.</p>
-              <a href="https://e-commerce-coffe-apps.vercel.app/#home" target="_blank" class="text-center flex justify-center"
-                ><button class="text-lg flex font-semibold m-3 p-3 bg-yellow-300 rounded-lg cursor-pointer hover:shadow-xl hover:bg-yellow-400 gap-2.5 justify-center items-center">
+              <p class="text-center">This application was built using React Js & TailwindCSS, equipped with payment features.</p>
+              <a href="https://e-commerce-coffe-apps.vercel.app/#home" target="_blank" class="text-center flex justify-center">
+                <button class="text-lg flex font-semibold m-3 p-3 bg-yellow-300 rounded-lg cursor-pointer hover:shadow-xl hover:bg-yellow-400 gap-2.5 justify-center items-center">
                   <i class="fa-solid fa-magnifying-glass"></i>Read More!
-                </button></a
-              >
+                </button>
+              </a>
             </div>
-            <div class="content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4">
+
+            <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4" data-category="dinamis">
               <img src="asset/todoApp.png" alt="picture" class="text-center" />
               <h4 class="text-center font-bold">Toto App</h4>
-              <p class="text-center">This application is built using HTML, CSS, and JavaScript. It's a todo list application, perfect for keeping a list of daily activities.</p>
-              <a href="https://todo-app-five-ruby-57.vercel.app/" target="_blank" class="text-center flex justify-center"
-                ><button class="text-lg flex font-semibold m-3 p-3 bg-yellow-300 rounded-lg cursor-pointer hover:shadow-xl hover:bg-yellow-400 gap-2.5 justify-center items-center">
+              <p class="text-center">This application is built using HTML, CSS, and JavaScript. It's a todo list application.</p>
+              <a href="https://todo-app-five-ruby-57.vercel.app/" target="_blank" class="text-center flex justify-center">
+                <button class="text-lg flex font-semibold m-3 p-3 bg-yellow-300 rounded-lg cursor-pointer hover:shadow-xl hover:bg-yellow-400 gap-2.5 justify-center items-center">
                   <i class="fa-solid fa-magnifying-glass"></i>Read More!
-                </button></a
-              >
+                </button>
+              </a>
             </div>
-            <div class="content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4">
+
+            <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4" data-category="dinamis">
               <img src="asset/kalkulator.png" alt="picture" class="text-center" />
               <h4 class="text-center font-bold">Kalkulator App</h4>
               <p class="text-center">This application is built using HTML, CSS, JavaScript, and a little local storage implementation.</p>
-              <a href="https://app-kalkulator.vercel.app/" target="_blank" class="text-center flex justify-center"
-                ><button class="text-lg flex font-semibold m-3 p-3 bg-yellow-300 rounded-lg cursor-pointer hover:shadow-xl hover:bg-yellow-400 gap-2.5 justify-center items-center">
+              <a href="https://app-kalkulator.vercel.app/" target="_blank" class="text-center flex justify-center">
+                <button class="text-lg flex font-semibold m-3 p-3 bg-yellow-300 rounded-lg cursor-pointer hover:shadow-xl hover:bg-yellow-400 gap-2.5 justify-center items-center">
                   <i class="fa-solid fa-magnifying-glass"></i>Read More!
-                </button></a
-              >
+                </button>
+              </a>
             </div>
-            <div class="content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4">
+
+            <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4" data-category="statis">
               <img src="asset/pzn_cloning.png" alt="picture" class="text-center" />
-              <h4 class="text-center font-bold">(cloningUI) Web Programer Zaman Now</h4>
-              <p class="text-center">This application was built using HTML and CSS, and was created solely for layout practice purposes.</p>
-              <a href="https://money-trancker.vercel.app/" target="_blank" class="text-center flex justify-center"
-                ><button class="text-lg flex font-semibold m-3 p-3 bg-yellow-300 rounded-lg cursor-pointer hover:shadow-xl hover:bg-yellow-400 gap-2.5 justify-center items-center">
+              <h4 class="text-center font-bold">(cloningUI) Web Programer</h4>
+              <p class="text-center">This application was built using HTML and CSS, created solely for layout practice purposes.</p>
+              <a href="https://money-trancker.vercel.app/" target="_blank" class="text-center flex justify-center">
+                <button class="text-lg flex font-semibold m-3 p-3 bg-yellow-300 rounded-lg cursor-pointer hover:shadow-xl hover:bg-yellow-400 gap-2.5 justify-center items-center">
                   <i class="fa-solid fa-magnifying-glass"></i>Read More!
-                </button></a
-              >
+                </button>
+              </a>
             </div>
-            <div class="content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4">
+
+            <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4" data-category="statis">
               <img src="asset/portofolioreact.png" alt="picture" class="text-center" />
               <h4 class="text-center font-bold">Personal Portofolio_(ReactJs)</h4>
-              <p class="text-center">
-                This portfolio is built using React JS and TailwindCSS using the vite package.This portfolio was built using React JS and TailwindCSS using the Vite package. This design is suitable for formal portfolios.
-              </p>
-              <a href="https://portofolio-rijal-react.vercel.app/" target="_blank" class="text-center flex justify-center"
-                ><button class="text-lg flex font-semibold m-3 p-3 bg-yellow-300 rounded-lg cursor-pointer hover:shadow-xl hover:bg-yellow-400 gap-2.5 justify-center items-center">
+              <p class="text-center">This portfolio is built using React JS and TailwindCSS using the vite package. Suitable for formal portfolios.</p>
+              <a href="https://portofolio-rijal-react.vercel.app/" target="_blank" class="text-center flex justify-center">
+                <button class="text-lg flex font-semibold m-3 p-3 bg-yellow-300 rounded-lg cursor-pointer hover:shadow-xl hover:bg-yellow-400 gap-2.5 justify-center items-center">
                   <i class="fa-solid fa-magnifying-glass"></i>Read More!
-                </button></a
-              >
+                </button>
+              </a>
             </div>
           </div>
         </div>
