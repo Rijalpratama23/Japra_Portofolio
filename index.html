@@ -162,7 +162,7 @@
     </div>
 
     <!-- SKILL SECTION -->
-    <div class="mx-auto min-h-screen pt-20 md:pt-35 px-4 sm:px-10 md:px-20 bg-neutral-700" id="skill">
+    <div class="mx-auto min-h-screen pt-20 md:pt-35 px-4 bg-neutral-700 sm:px-10 md:px-20" id="skill">
       <div class="block justify-center">
         <div class="container-text text-center mb-8 md:mb-13 text-gray-300 pt-8 md:pt-0" data-aos="fade-down" data-aos-duration="800" data-aos-easing="ease-out-back">
           <p class="text-base md:text-xl font-semibold">~skills and tools that I have mastered~</p>
@@ -217,7 +217,7 @@
     </div>
 
     <!-- PORTOFOLIO SECTION -->
-    <div class="mx-auto min-h-screen pb-10 pt-20 md:pt-35 px-4 sm:px-10 md:px-20 bg-neutral-800" id="portofolio">
+    <div class="mx-auto min-h-screen pb-10 md:pb-20 pt-20 md:pt-35 px-4 sm:px-10 md:px-20 bg-neutral-800" id="portofolio">
       <div class="pt-8 md:pt-0">
         <div class="text-center">
           <p class="text-gray-300" data-aos="fade-down" data-aos-duration="800" data-aos-easing="ease-out-cubic">~Latest Project~</p>
@@ -225,7 +225,9 @@
         </div>
 
         <div class="flex justify-center gap-4 mt-8" data-aos="fade-in">
-          <button onclick="filterProjects('all', this)" class="filter-btn px-5 py-2 bg-yellow-300 text-black font-bold rounded-lg shadow-md hover:bg-yellow-400 hover:scale-105 transition-all duration-300 ring-2 ring-yellow-300 md:p-3 p-2">All</button>
+          <button onclick="filterProjects('all', this)" class="filter-btn px-5 py-2 bg-yellow-300 text-black font-bold rounded-lg shadow-md hover:bg-yellow-400 hover:scale-105 transition-all duration-300 ring-2 ring-yellow-300 md:p-3 p-2">
+            All
+          </button>
           <button onclick="filterProjects('dinamis', this)" class="filter-btn px-5 py-2 bg-neutral-600 text-white font-bold rounded-lg shadow-md hover:bg-neutral-500 hover:scale-105 transition-all duration-300 md:p-3 p-2">Dinamis</button>
           <button onclick="filterProjects('statis', this)" class="filter-btn px-5 py-2 bg-neutral-600 text-white font-bold rounded-lg shadow-md hover:bg-neutral-500 hover:scale-105 transition-all duration-300 md:p-3 p-2">Statis</button>
         </div>
@@ -302,32 +304,85 @@
       </div>
     </div>
 
-    <!-- CONTACT SECTION -->
-    <div class="mx-auto py-12 md:py-20 px-4 sm:px-10 md:px-20 bg-neutral-700" id="contact">
-      <div class="lg:flex flex-col md:flex-row justify-between">
-        <div class="content1 w-full md:w-70 text-center md:text-left mb-8 md:mb-0">
-          <h2 class="text-2xl md:text-3xl font-bold text-yellow-300">Contact <span class="text-white">Me</span></h2>
-          <p class="text-base md:text-lg text-white mt-2">Have an idea or a project?Hit me up — let's make it real & want to work together.</p>
+    <!-- CONTACT -->
+    <div class="contact-container bg-neutral-700 py-20 px-6" id="contact">
+      <h2 class="text-2xl md:text-4xl font-bold py-12 text-center mb-10 text-yellow-300">Contact <span class="text-white">Us</span></h2>
+
+      <div class="max-w-7xl mx-auto md:flex gap-8 p-4 md:p-8 rounded-xl">
+        <div class="w-full md:w-100 bg-neutral-800 p-8 rounded-xl shadow-lg mb-8 md:mb-0">
+          <h3 class="text-white font-medium">Contact Us</h3>
+          <h2 class="text-3xl font-bold text-white mb-6">Get In Touch</h2>
+
+          <form action="" class="p-6 rounded-lg space-y-4">
+            <div>
+              <label for="name" class="block font-semibold mb-1 text-white">Name :</label>
+              <input type="text" id="name" class="w-full p-2 rounded border border-neutral-400 focus:outline-none focus:ring-2 focus:ring-yellow-300 text-white" placeholder="Your Name..." required />
+            </div>
+
+            <div>
+              <label for="email" class="block font-semibold mb-1 text-white">Email :</label>
+              <input type="email" id="email" class="w-full p-2 rounded border border-neutral-400 focus:outline-none focus:ring-2 focus:ring-yellow-300 text-white" placeholder="example@gmail.com" required />
+            </div>
+
+            <div>
+              <label for="subject" class="block font-semibold mb-1 text-white">Subject :</label>
+              <input type="text" id="subject" class="w-full p-2 rounded border border-neutral-400 focus:outline-none focus:ring-2 focus:ring-yellow-300 text-white" placeholder="Title..." required />
+            </div>
+
+            <div>
+              <label for="message" class="block font-semibold mb-1 text-white">Message :</label>
+              <textarea id="message" rows="5" class="w-full p-2 rounded border border-neutral-400 focus:outline-none focus:ring-2 focus:ring-yellow-300 text-white" placeholder="Your Message.." required></textarea>
+            </div>
+
+            <button type="submit" class="w-full bg-yellow-300 hover:bg-neutral-700 text-black font-bold py-3 px-6 rounded transition duration-300">Send Message</button>
+          </form>
         </div>
-        <div class="content2 text-center">
-          <div class="flex items-center pl-4 md:pl-8 m-3 md:m-5 p-2 md:p-3 bg-gray-300 rounded-2xl gap-1.5 hover:text-blue-500 justify-center md:justify-start">
-            <i class="fa-solid fa-envelope text-xl md:text-2xl lg:text-3xl"></i>
-            <a href=""><p class="font-semibold text-center text-sm md:text-base lg:text-lg">rijalpratama216@gmail.com</p></a>
+
+        <div class="w-full md:w-1/2 flex flex-col gap-6">
+          <div>
+            <p class="text-gray-300 leading-relaxed">I value communication and am committed to providing excellent service. Please feel free to contact me using the information provided below, and I will be happy to assist you.</p>
           </div>
-          <div class="media-social flex gap-4 md:gap-6 text-3xl md:text-4xl lg:text-5xl m-3 md:m-5 p-2 md:p-3 justify-center">
-            <a href="https://web.facebook.com/rijal.pratama.1865904?locale=id_ID" class="group transition-transform duration-300 group-hover:scale-105" target="_blank"
-              ><i class="fa-brands fa-facebook text-blue-600 group-hover:scale-120"></i
-            ></a>
-            <a href="https://www.instagram.com/rijalprtmaa_a/" class="group transition-transform duration-300 group-hover:scale-105" target="_blank"
-              ><i class="fa-brands fa-instagram bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 rounded-4xl text-white group-hover:scale-120"></i
-            ></a>
-            <a href="https://github.com/Rijalpratama23" class="group transition-transform duration-300 group-hover:scale-105" target="_blank"><i class="fa-brands fa-github text-white group-hover:scale-120"></i></a>
-            <a href="https://www.linkedin.com/in/rijal-pratama-6a4a28327/" class="group transition-transform duration-300 group-hover:scale-105" target="_blank"><i class="fa-brands fa-linkedin text-blue-500 group-hover:scale-120"></i></a>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="bg-neutral-600 p-4 rounded-lg text-center shadow">
+              <i class="fa-solid fa-phone text-2xl text-yellow-300 mb-2"></i>
+              <h4 class="font-bold text-white">Phone Number</h4>
+              <p class="text-sm text-gray-200">+62 838 0566 0475</p>
+            </div>
+
+            <div class="bg-neutral-600 p-4 rounded-lg text-center shadow">
+              <i class="fa-regular fa-envelope text-2xl text-yellow-300 mb-2"></i>
+              <h4 class="font-bold text-white">Email Address</h4>
+              <p class="text-sm text-gray-200 break-all">rijalpratama216@gmail.com</p>
+            </div>
+
+            <div class="bg-neutral-600 p-4 rounded-lg text-center shadow">
+              <i class="fa-brands fa-whatsapp text-2xl text-yellow-300 mb-2"></i>
+              <h4 class="font-bold text-white">Whatsapp</h4>
+              <p class="text-sm text-gray-200">+62 838 0566 0475</p>
+            </div>
+
+            <div class="bg-neutral-600 p-4 rounded-lg text-center shadow">
+              <i class="fa-solid fa-location-crosshairs text-2xl text-yellow-300 mb-2"></i>
+              <h4 class="font-bold text-white">My Locations</h4>
+              <p class="text-sm text-gray-200">Jln. babakan assalafiah 1 , 2340</p>
+            </div>
+          </div>
+
+          <div class="w-full h-64 md:h-full rounded-xl overflow-hidden border-2 border-neutral-500 shadow-lg relative bg-gray-300">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.558805728888!2d106.9157!3d-6.943!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwNTYnMzQuOCJTIDEwNsKwNTQnNTYuNSJF!5e0!3m2!1sen!2sid!4v1635000000000!5m2!1sen!2sid"
+              width="100%"
+              height="100%"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
           </div>
         </div>
       </div>
     </div>
-
     <!-- FOOTER SECTION -->
     <footer class="footer">
       <div class="bg-yellow-300 h-12 md:h-15 flex justify-center items-center">
