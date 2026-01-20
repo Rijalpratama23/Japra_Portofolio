@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
@@ -245,11 +245,37 @@
               </a>
             </div>
 
+            <!-- new project (Veggiezz) -->
+            <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4" data-category="dinamis">
+              <img src="asset/veggiez.png" alt="picture" class="text-center" />
+              <h4 class="text-center font-bold">Veggiezz (e-commerce)</h4>
+              <p class="text-center">This website is an e-commerce website dedicated to vegetables. It was built using React + Tailwind CSS (frontend), Node/Express (backend), and MySQL (database).</p>
+              <a href="https://www.sakaproject.com/frontend_veggiezz" target="_blank" class="text-center flex justify-center">
+                <button class="text-lg flex font-semibold m-3 p-3 bg-yellow-300 rounded-lg cursor-pointer hover:shadow-xl hover:bg-yellow-400 gap-2.5 justify-center items-center">
+                  <i class="fa-solid fa-magnifying-glass"></i>Read More!
+                </button>
+              </a>
+            </div>
+
             <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4" data-category="dinamis">
               <img src="asset/kopi.png" alt="picture" class="text-center" />
               <h4 class="text-center font-bold">E-commerce Coffe</h4>
               <p class="text-center">This application was built using React Js & TailwindCSS, equipped with payment features.</p>
               <a href="https://e-commerce-coffe-apps.vercel.app/#home" target="_blank" class="text-center flex justify-center">
+                <button class="text-lg flex font-semibold m-3 p-3 bg-yellow-300 rounded-lg cursor-pointer hover:shadow-xl hover:bg-yellow-400 gap-2.5 justify-center items-center">
+                  <i class="fa-solid fa-magnifying-glass"></i>Read More!
+                </button>
+              </a>
+            </div>
+
+            <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4" data-category="dinamis">
+              <img src="asset/flood.png" alt="picture" class="text-center" />
+              <h4 class="text-center font-bold">Flood-Prone</h4>
+              <p class="text-center">
+                This website is used to identify flood-prone areas in each sub-district in Sukabumi Regency, along with their vulnerability levels. The technologies used include HTML, CSS, JavaScript, and several libraries such as Open
+                Streetmap and Leaflite.js.
+              </p>
+              <a href="https://flood-prone.vercel.app/" target="_blank" class="text-center flex justify-center">
                 <button class="text-lg flex font-semibold m-3 p-3 bg-yellow-300 rounded-lg cursor-pointer hover:shadow-xl hover:bg-yellow-400 gap-2.5 justify-center items-center">
                   <i class="fa-solid fa-magnifying-glass"></i>Read More!
                 </button>
@@ -304,11 +330,11 @@
       </div>
     </div>
 
-    <!-- contact -->
+    <!-- CONTACT SECTION -->
     <div class="contact-container bg-neutral-700 py-20 px-6" id="contact">
       <h2 class="text-2xl md:text-4xl font-bold py-12 text-center mb-10 text-yellow-300">Contact <span class="text-white">Us</span></h2>
 
-      <div class="max-w-7xl mx-auto md:flex gap-8 p-4 md:p-8 rounded-xl">
+      <div class="max-w-7xl mx-auto md:flex justify-center gap-8 p-4 md:p-8 rounded-xl">
         <div class="w-full md:w-100 bg-neutral-800 p-8 rounded-xl shadow-lg mb-8 md:mb-0">
           <h3 class="text-white font-medium">Contact Us</h3>
           <h2 class="text-3xl font-bold text-white mb-6">Get In Touch</h2>
@@ -448,7 +474,7 @@
                 text: 'Terjadi kesalahan. Cek koneksi internet Anda.',
               });
               console.error('FAILED...', error);
-            }
+            },
           );
         });
       });
