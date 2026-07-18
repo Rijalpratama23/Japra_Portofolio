@@ -116,13 +116,13 @@ function setActiveNav(targetSectionId) {
 }
 
 function updateActiveNav() {
-  const scrollPos = window.scrollY + 150;
+  const scrollPos = window.scrollY + window.innerHeight * 0.45;
   let currentSectionId = 'home';
 
   sections.forEach((section) => {
     const sectionTop = section.offsetTop;
-    const sectionBottom = sectionTop + section.offsetHeight;
-    if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
+    const sectionHeight = section.offsetHeight;
+    if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
       currentSectionId = section.id;
     }
   });
@@ -131,6 +131,8 @@ function updateActiveNav() {
 }
 
 function observeSections() {
+  if (!('IntersectionObserver' in window)) return;
+
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -141,7 +143,7 @@ function observeSections() {
     },
     {
       root: null,
-      threshold: 0.4,
+      threshold: 0.45,
       rootMargin: '-20% 0px -40% 0px',
     },
   );

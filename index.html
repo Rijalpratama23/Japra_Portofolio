@@ -50,8 +50,30 @@
         height: 100dvh;
       }
 
+      html {
+        scroll-behavior: smooth;
+      }
+
       .nav-link.active {
         color: #fbbf24 !important;
+      }
+
+      #home,
+      #about,
+      #skill,
+      #portofolio,
+      #contact {
+        scroll-margin-top: 6rem;
+      }
+
+      @media (max-width: 768px) {
+        #home,
+        #about,
+        #skill,
+        #portofolio,
+        #contact {
+          scroll-margin-top: 9rem;
+        }
       }
 
       #navbarMobile {
@@ -188,7 +210,7 @@
     </section>
 
     <!-- ABOUT SECTION -->
-    <div class="mx-auto min-h-screen pt-20 md:pt-35 px-4 sm:px-10 md:px-20 bg-white dark:bg-neutral-800 transition-colors duration-300" id="about">
+    <div class="mx-auto min-h-screen pt-28 md:pt-35 px-4 sm:px-10 md:px-20 bg-white dark:bg-neutral-800 transition-colors duration-300" id="about">
       <h2 class="text-center font-bold text-2xl md:text-3xl text-neutral-900 dark:text-white pt-8 md:pt-0"><span class="text-yellow-300">About</span> Me</h2>
       <div class="container mx-auto mt-10 md:mt-20 flex flex-col md:flex-row justify-between items-center gap-8 md:gap-13">
         <div class="content-img w-48 h-48 md:w-auto md:h-auto shadow-2xl border-2 border-yellow-300 transition-all duration-300 delay-100 hover:shadow-yellow-300/50 rounded-full group" data-aos="fade-down" data-aos-duratios="1000">
@@ -209,9 +231,9 @@
     </div>
 
     <!-- SKILL SECTION -->
-    <div class="mx-auto min-h-screen pt-20 md:pt-35 px-4 bg-gray-50 dark:bg-neutral-700 sm:px-10 md:px-20 transition-colors duration-300" id="skill">
+    <div class="mx-auto min-h-screen pt-32 md:pt-35 pb-16 px-4 bg-gray-50 dark:bg-neutral-700 sm:px-10 md:px-20 transition-colors duration-300" id="skill">
       <div class="block justify-center">
-        <div class="container-text text-center mb-8 md:mb-13 text-neutral-600 dark:text-gray-300 pt-8 md:pt-0" data-aos="fade-down" data-aos-duration="800" data-aos-easing="ease-out-back">
+        <div class="container-text text-center mb-2 md:mb-13 text-neutral-600 dark:text-gray-300 pt-5 md:pt-0" data-aos="fade-down" data-aos-duration="800" data-aos-easing="ease-out-back">
           <p class="text-base md:text-xl font-semibold">~skills and tools that I have mastered~</p>
           <h2 class="text-2xl md:text-3xl font-bold text-neutral-900 dark:text-white mt-2">My <span class="text-yellow-300">Skill</span></h2>
           <p class="text-base md:text-xl font-semibold mt-2">
@@ -258,13 +280,25 @@
             <a href="" class="group">
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108" />
             </a>
+            <a href="" class="group">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108" />
+            </a>
+            <a href="" class="group">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108" />
+            </a>
+            <a href="" class="group">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108" />
+            </a>
+            <a href="" class="group">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108" />
+            </a>
           </div>
         </div>
       </div>
     </div>
 
     <!-- PORTOFOLIO SECTION -->
-    <div class="mx-auto min-h-screen pb-10 md:pb-20 pt-20 md:pt-35 px-4 sm:px-10 md:px-20 bg-white dark:bg-neutral-800 transition-colors duration-300" id="portofolio">
+    <div class="mx-auto min-h-screen pb-10 md:pb-20 pt-28 md:pt-35 px-4 sm:px-10 md:px-20 bg-white dark:bg-neutral-800 transition-colors duration-300" id="portofolio">
       <div class="pt-8 md:pt-0">
         <div class="text-center">
           <p class="text-neutral-600 dark:text-gray-300" data-aos="fade-down" data-aos-duration="800" data-aos-easing="ease-out-cubic">~Latest Project~</p>
@@ -290,6 +324,10 @@
         </div>
 
         <div class="mt-8 md:mt-12 text-center">
+           <div class="container-content flex flex-wrap justify-center gap-12 mx-5 my-5">
+            
+
+
           <div class="container-content flex flex-wrap justify-center gap-12 mx-5 my-5">
             <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4" data-category="dinamis">
               <img src="asset/moneytracker.png" alt="picture" class="text-center" />
@@ -315,10 +353,10 @@
             </div>
 
             <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4" data-category="dinamis">
-              <img src="asset/kopi.png" alt="picture" class="text-center" />
-              <h4 class="text-center font-bold">E-commerce Coffe</h4>
-              <p class="text-center">This application was built using React Js & TailwindCSS, equipped with payment features.</p>
-              <a href="https://e-commerce-coffe-apps.vercel.app/#home" target="_blank" class="text-center flex justify-center">
+              <img src="asset/nutrifit.png" alt="picture" class="text-center" />
+              <h4 class="text-center font-bold">Nutrifit</h4>
+              <p class="text-center">Nutrifit is an education- and consultation-based health website, built using Next.js, Supabase, and Tailwind CSS.</p>
+              <a href="https://nutrifit-web-app-opal.vercel.app/" target="_blank" class="text-center flex justify-center">
                 <button class="text-lg flex font-semibold m-3 p-3 bg-yellow-300 rounded-lg cursor-pointer hover:shadow-xl hover:bg-yellow-400 gap-2.5 justify-center items-center">
                   <i class="fa-solid fa-magnifying-glass"></i>Read More!
                 </button>
@@ -382,6 +420,18 @@
                 </button>
               </a>
             </div>
+
+             <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4" data-category="dinamis">
+              <img src="asset/kopi.png" alt="picture" class="text-center" />
+              <h4 class="text-center font-bold">E-commerce Coffe</h4>
+              <p class="text-center">This application was built using React Js & TailwindCSS, equipped with payment features.</p>
+              <a href="https://e-commerce-coffe-apps.vercel.app/#home" target="_blank" class="text-center flex justify-center">
+                <button class="text-lg flex font-semibold m-3 p-3 bg-yellow-300 rounded-lg cursor-pointer hover:shadow-xl hover:bg-yellow-400 gap-2.5 justify-center items-center">
+                  <i class="fa-solid fa-magnifying-glass"></i>Read More!
+                </button>
+              </a>
+            </div>
+            
           </div>
         </div>
       </div>
