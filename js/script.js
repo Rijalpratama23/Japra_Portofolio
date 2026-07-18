@@ -6,29 +6,32 @@ const projects = document.querySelectorAll('.project-item');
 // Menangani klik pada hamburger menu
 hamburgerMenu.addEventListener('click', (event) => {
   event.stopPropagation();
+  const isOpen = navbarMobile.classList.contains('open');
 
-  if (navbarMobile.classList.contains('-translate-x-full')) {
-    // Buka menu - geser dari kiri ke kanan
-    navbarMobile.classList.remove('-translate-x-full');
-    navbarMobile.classList.add('translate-x-0');
+  if (isOpen) {
+    navbarMobile.classList.remove('open');
+    body.classList.remove('overflow-hidden');
   } else {
-    // Tutup menu - geser dari kanan ke kiri
-    navbarMobile.classList.remove('translate-x-0');
-    navbarMobile.classList.add('-translate-x-full');
+    navbarMobile.classList.add('open');
+    body.classList.add('overflow-hidden');
   }
-
-  body.classList.toggle('overflow-hidden');
 });
 
 // Tutup menu ketika klik di luar
-body.addEventListener('click', (event) => {
-  if (!navbarMobile.contains(event.target) && event.target !== hamburgerMenu) {
-    if (!navbarMobile.classList.contains('-translate-x-full')) {
-      navbarMobile.classList.remove('translate-x-0');
-      navbarMobile.classList.add('-translate-x-full');
-      body.classList.remove('overflow-hidden');
-    }
+document.addEventListener('click', (event) => {
+  if (!navbarMobile.contains(event.target) && !hamburgerMenu.contains(event.target)) {
+    navbarMobile.classList.remove('open');
+    body.classList.remove('overflow-hidden');
   }
+});
+
+// Tutup menu ketika klik nav link (mobile)
+const mobileNavLinks = navbarMobile.querySelectorAll('a[href^="#"], a[href="#"]');
+mobileNavLinks.forEach((link) => {
+  link.addEventListener('click', () => {
+    navbarMobile.classList.remove('open');
+    body.classList.remove('overflow-hidden');
+  });
 });
 
 // Typewriter Effect Loop Sederhana - Hanya 1 Teks
@@ -94,3 +97,70 @@ function filterProjects(category, btnElement) {
   btnElement.classList.remove('bg-neutral-600', 'text-white');
   btnElement.classList.add('bg-yellow-300', 'text-black', 'ring-2', 'ring-yellow-300');
 }
+
+// update link aktif
+const navLinks = document.querySelectorAll('.nav-link');
+const sections = document.querySelectorAll('section[id], div[id]');
+
+function setActiveNav(targetSectionId) {
+  navLinks.forEach((link) => {
+    const target = link.dataset.section;
+    if (target === targetSectionId) {
+      link.classList.add('text-yellow-300', 'font-semibold', 'active');
+      link.classList.remove('text-neutral-900', 'dark:text-white');
+    } else {
+      link.classList.remove('text-yellow-300', 'font-semibold', 'active');
+      link.classList.add('text-neutral-900', 'dark:text-white');
+    }
+  });
+}
+
+function updateActiveNav() {
+  const scrollPos = window.scrollY + 150;
+  let currentSectionId = 'home';
+
+  sections.forEach((section) => {
+    const sectionTop = section.offsetTop;
+    const sectionBottom = sectionTop + section.offsetHeight;
+    if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
+      currentSectionId = section.id;
+    }
+  });
+
+  setActiveNav(currentSectionId);
+}
+
+function observeSections() {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveNav(entry.target.id || 'home');
+        }
+      });
+    },
+    {
+      root: null,
+      threshold: 0.4,
+      rootMargin: '-20% 0px -40% 0px',
+    },
+  );
+
+  sections.forEach((section) => observer.observe(section));
+}
+
+navLinks.forEach((link) => {
+  link.addEventListener('click', () => {
+    const target = link.dataset.section;
+    if (target) {
+      setActiveNav(target);
+    }
+  });
+});
+
+window.addEventListener('scroll', updateActiveNav);
+window.addEventListener('DOMContentLoaded', () => {
+  updateActiveNav();
+  observeSections();
+});
+window.addEventListener('hashchange', updateActiveNav);
