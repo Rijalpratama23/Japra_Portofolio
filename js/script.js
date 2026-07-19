@@ -3,6 +3,32 @@ const navbarMobile = document.getElementById('navbarMobile');
 const body = document.getElementsByTagName('BODY')[0];
 const projects = document.querySelectorAll('.project-item');
 
+const themeToggleBtn = document.getElementById('themeToggle');
+const themeIcon = document.getElementById('themeIcon');
+const htmlEl = document.documentElement;
+
+function applyTheme(isDark) {
+  if (isDark) {
+    htmlEl.classList.add('dark');
+    themeIcon.classList.remove('fa-moon');
+    themeIcon.classList.add('fa-sun');
+  } else {
+    htmlEl.classList.remove('dark');
+    themeIcon.classList.remove('fa-sun');
+    themeIcon.classList.add('fa-moon');
+  }
+}
+
+// Samakan ikon dengan state .dark yang sudah di-set duluan
+// oleh script anti-flash di <head> index.html
+applyTheme(htmlEl.classList.contains('dark'));
+
+themeToggleBtn.addEventListener('click', () => {
+  const isDark = htmlEl.classList.contains('dark');
+  applyTheme(!isDark);
+  localStorage.setItem('theme', !isDark ? 'dark' : 'light');
+});
+
 // Menangani klik pada hamburger menu
 hamburgerMenu.addEventListener('click', (event) => {
   event.stopPropagation();
@@ -69,6 +95,11 @@ document.addEventListener('DOMContentLoaded', function () {
   setTimeout(typeWriter, 1000);
 });
 
+// Kelas untuk tombol filter portofolio, mengikuti skema warna:
+// aktif -> biru (light) / kuning (dark), non-aktif -> abu-abu netral
+const FILTER_ACTIVE_CLASSES = ['accent-bg', 'accent-ring-active'];
+const FILTER_INACTIVE_CLASSES = ['bg-gray-200', 'dark:bg-neutral-600', 'text-neutral-900', 'dark:text-white'];
+
 // function pergantian project dinamis || statis
 function filterProjects(category, btnElement) {
   projects.forEach((project) => {
@@ -84,18 +115,18 @@ function filterProjects(category, btnElement) {
     }
   });
 
-  // 2. Logika Warna Tombol (Agar tombol yang aktif berwarna Kuning)
+  // 2. Logika Warna Tombol (Agar tombol yang aktif berwarna sesuai tema: biru di light mode, kuning di dark mode)
   const buttons = document.querySelectorAll('.filter-btn');
 
-  // Reset semua tombol ke warna abu-abu (neutral)
+  // Reset semua tombol ke warna netral (inactive)
   buttons.forEach((btn) => {
-    btn.classList.remove('bg-yellow-300', 'text-black', 'ring-2', 'ring-yellow-300');
-    btn.classList.add('bg-neutral-600', 'text-white');
+    btn.classList.remove(...FILTER_ACTIVE_CLASSES);
+    btn.classList.add(...FILTER_INACTIVE_CLASSES);
   });
 
-  // Set tombol yang diklik menjadi kuning
-  btnElement.classList.remove('bg-neutral-600', 'text-white');
-  btnElement.classList.add('bg-yellow-300', 'text-black', 'ring-2', 'ring-yellow-300');
+  // Set tombol yang diklik menjadi warna aktif
+  btnElement.classList.remove(...FILTER_INACTIVE_CLASSES);
+  btnElement.classList.add(...FILTER_ACTIVE_CLASSES);
 }
 
 // update link aktif

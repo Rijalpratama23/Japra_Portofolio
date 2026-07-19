@@ -21,6 +21,79 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <link href="./output.css" rel="stylesheet" />
     <style>
+      /* ===== Skema warna: biru di light mode, kuning di dark mode ===== */
+      /* Ditulis sebagai CSS murni (bukan class Tailwind hasil-build)     */
+      /* supaya SELALU aktif walau output.css belum di-rebuild.           */
+      :root {
+        --accent: #2563eb; /* blue-600 */
+        --accent-hover: #1d4ed8; /* blue-700 */
+        --accent-contrast: #ffffff; /* warna teks di atas background aksen */
+        --accent-shadow: rgba(37, 99, 235, 0.35);
+        --bg-a: #f8fafc; /* slate-50 */
+        --bg-b: #f1f5f9; /* slate-100 */
+      }
+      .dark {
+        --accent: #fbbf24; /* yellow-300 */
+        --accent-hover: #fcd34d; /* yellow-400 */
+        --accent-contrast: #000000;
+        --accent-shadow: rgba(251, 191, 36, 0.35);
+        --bg-a: #262626; /* neutral-800 */
+        --bg-b: #404040; /* neutral-700 */
+      }
+
+      .bg-a {
+        background-color: var(--bg-a);
+      }
+      .bg-b {
+        background-color: var(--bg-b);
+      }
+
+      .accent-text {
+        color: var(--accent);
+      }
+      .accent-border {
+        border-color: var(--accent);
+      }
+
+      .accent-bg {
+        background-color: var(--accent);
+        color: var(--accent-contrast);
+      }
+      .accent-bg:hover {
+        background-color: var(--accent-hover);
+      }
+
+      .hover-accent:hover {
+        color: var(--accent) !important;
+      }
+
+      .accent-shadow-hover:hover {
+        box-shadow: 0 25px 50px -12px var(--accent-shadow);
+      }
+
+      .accent-ring-active {
+        box-shadow: 0 0 0 2px var(--accent);
+      }
+
+      .accent-focus-ring:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px var(--accent);
+      }
+
+      /* Switch logo light/dark tanpa bergantung pada class Tailwind dark:hidden */
+      .logo-light {
+        display: block;
+      }
+      .logo-dark {
+        display: none;
+      }
+      .dark .logo-light {
+        display: none;
+      }
+      .dark .logo-dark {
+        display: block;
+      }
+
       .typewriter-animation {
         display: inline-block;
         position: relative;
@@ -33,7 +106,7 @@
         top: 0;
         bottom: 0;
         width: 2px;
-        background-color: #fbbf24;
+        background-color: var(--accent);
         animation: blink-caret 0.75s step-end infinite;
       }
 
@@ -55,7 +128,7 @@
       }
 
       .nav-link.active {
-        color: #fbbf24 !important;
+        color: var(--accent) !important;
       }
 
       #home,
@@ -93,13 +166,16 @@
       }
     </style>
   </head>
-  <body class="bg-white dark:bg-neutral-800 transition-colors duration-300">
+  <body class="bg-b transition-colors duration-300">
     <!-- HEADER SECTION -->
     <header class="container mx-auto fixed z-50">
-      <div class="w-full flex justify-between items-center h-20 py-2 px-4 sm:px-10 md:px-20 bg-white dark:bg-neutral-800 border-b-2 border-yellow-300 transition-colors duration-300">
+      <div class="w-full flex justify-between items-center h-20 py-2 px-4 sm:px-10 md:px-20 bg-a accent-border border-b-2 transition-colors duration-300">
         <div class="w-16 md:w-24 flex justify-center items-center">
-          <a href="" class="hover:text-yellow-300 transition-colors duration-300">
-            <img src="asset/logo.png" alt="picture" class="w-12 md:w-20" />
+          <a href="" class="hover-accent transition-colors duration-300">
+            <!-- Logo biru untuk light mode -->
+            <img src="asset/biru.png" alt="Rijal Logo" class="w-12 md:w-20 logo-light" />
+            <!-- Logo asli untuk dark mode -->
+            <img src="asset/logo.png" alt="Rijal Logo" class="w-12 md:w-20 logo-dark" />
           </a>
         </div>
 
@@ -109,19 +185,19 @@
           <nav class="hidden md:flex justify-center items-center">
             <ul class="flex">
               <li class="mx-3 lg:mx-6">
-                <a href="#home" class="nav-link font-bold text-neutral-900 dark:text-white text-base lg:text-lg hover:text-yellow-300 transition-colors duration-300" data-section="home">Home</a>
+                <a href="#home" class="nav-link font-bold text-neutral-900 dark:text-white text-base lg:text-lg hover-accent transition-colors duration-300" data-section="home">Home</a>
               </li>
               <li class="mx-3 lg:mx-6">
-                <a href="#about" class="nav-link font-bold text-neutral-900 dark:text-white text-base lg:text-lg hover:text-yellow-300 transition-colors duration-300" data-section="about">About</a>
+                <a href="#about" class="nav-link font-bold text-neutral-900 dark:text-white text-base lg:text-lg hover-accent transition-colors duration-300" data-section="about">About</a>
               </li>
               <li class="mx-3 lg:mx-6">
-                <a href="#skill" class="nav-link font-bold text-neutral-900 dark:text-white text-base lg:text-lg hover:text-yellow-300 transition-colors duration-300" data-section="skill">Skill</a>
+                <a href="#skill" class="nav-link font-bold text-neutral-900 dark:text-white text-base lg:text-lg hover-accent transition-colors duration-300" data-section="skill">Skill</a>
               </li>
               <li class="mx-3 lg:mx-6">
-                <a href="#portofolio" class="nav-link font-bold text-neutral-900 dark:text-white text-base lg:text-lg hover:text-yellow-300 transition-colors duration-300" data-section="portofolio">Portofolio</a>
+                <a href="#portofolio" class="nav-link font-bold text-neutral-900 dark:text-white text-base lg:text-lg hover-accent transition-colors duration-300" data-section="portofolio">Portofolio</a>
               </li>
               <li class="mx-3 lg:mx-6">
-                <a href="#contact" class="nav-link font-bold text-neutral-900 dark:text-white text-base lg:text-lg hover:text-yellow-300 transition-colors duration-300" data-section="contact">Contact</a>
+                <a href="#contact" class="nav-link font-bold text-neutral-900 dark:text-white text-base lg:text-lg hover-accent transition-colors duration-300" data-section="contact">Contact</a>
               </li>
             </ul>
           </nav>
@@ -137,35 +213,35 @@
           </button>
 
           <div id="hamburgerMenu" class="hamburger-menu flex md:hidden justify-center items-center">
-            <i class="fa-solid fa-bars font-bold text-lg text-neutral-900 dark:text-white hover:text-yellow-300 transition-colors duration-300 cursor-pointer"></i>
+            <i class="fa-solid fa-bars font-bold text-lg text-neutral-900 dark:text-white hover-accent transition-colors duration-300 cursor-pointer"></i>
           </div>
         </div>
 
         <!-- menu untuk mobile -->
-        <nav id="navbarMobile" class="linknavigasi fixed md:hidden top-1/2 left-0 z-50 shadow-2xl flex-col hover:shadow-yellow-300 bg-white dark:bg-stone-600 w-[220px] rounded-xl transition-transform duration-300 ease-in-out">
+        <nav id="navbarMobile" class="linknavigasi fixed md:hidden top-1/2 left-0 z-50 shadow-2xl flex-col accent-shadow-hover bg-a w-[220px] rounded-xl transition-transform duration-300 ease-in-out">
           <ul class="block p-5 ml-0">
             <li class="mt-4 lg:mx-6">
-              <a href="#home" data-section="home" class="nav-link font-bold flex items-center gap-3 text-neutral-900 dark:text-white text-base lg:text-lg hover:text-yellow-300 transition-colors duration-300"
+              <a href="#home" data-section="home" class="nav-link font-bold flex items-center gap-3 text-neutral-900 dark:text-white text-base lg:text-lg hover-accent transition-colors duration-300"
                 ><i class="fa-solid fa-house text-xl font-semibold flex items-center"></i>Home</a
               >
             </li>
             <li class="mt-8 lg:mx-6">
-              <a href="#about" data-section="about" class="nav-link font-bold text-neutral-900 dark:text-white flex items-center gap-3 text-base lg:text-lg hover:text-yellow-300 transition-colors duration-300"
+              <a href="#about" data-section="about" class="nav-link font-bold text-neutral-900 dark:text-white flex items-center gap-3 text-base lg:text-lg hover-accent transition-colors duration-300"
                 ><i class="fa-solid fa-address-card text-xl font-semibold flex items-center"></i>About</a
               >
             </li>
             <li class="mt-8 lg:mx-6">
-              <a href="#skill" data-section="skill" class="nav-link font-bold flex items-center gap-3 text-neutral-900 dark:text-white text-base lg:text-lg hover:text-yellow-300 transition-colors duration-300"
+              <a href="#skill" data-section="skill" class="nav-link font-bold flex items-center gap-3 text-neutral-900 dark:text-white text-base lg:text-lg hover-accent transition-colors duration-300"
                 ><i class="fa-solid fa-code text-xl font-semibold flex items-center"></i>Skill</a
               >
             </li>
             <li class="mt-8 lg:mx-6">
-              <a href="#portofolio" data-section="portofolio" class="nav-link font-bold flex items-center gap-3 text-neutral-900 dark:text-white text-base lg:text-lg hover:text-yellow-300 transition-colors duration-300"
+              <a href="#portofolio" data-section="portofolio" class="nav-link font-bold flex items-center gap-3 text-neutral-900 dark:text-white text-base lg:text-lg hover-accent transition-colors duration-300"
                 ><i class="fa-solid fa-diagram-project text-xl font-semibold flex items-center"></i>Portofolio</a
               >
             </li>
             <li class="mt-8 mb-4 lg:mx-6">
-              <a href="#contact" data-section="contact" class="nav-link font-bold flex items-center gap-3 text-neutral-900 dark:text-white text-base lg:text-lg hover:text-yellow-300 transition-colors duration-300"
+              <a href="#contact" data-section="contact" class="nav-link font-bold flex items-center gap-3 text-neutral-900 dark:text-white text-base lg:text-lg hover-accent transition-colors duration-300"
                 ><i class="fa-solid fa-phone text-xl font-semibold flex items-center"></i>Contact</a
               >
             </li>
@@ -175,13 +251,13 @@
     </header>
 
     <!-- HERO SECTION -->
-    <section id="home" class="mx-auto h-screen md:h-screen pt-32 md:pt-52 px-4 sm:px-10 md:px-20 bg-gray-50 dark:bg-neutral-700 transition-colors duration-300">
+    <section id="home" class="mx-auto h-screen md:h-screen pt-32 md:pt-52 px-4 sm:px-10 md:px-20 bg-b transition-colors duration-300">
       <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
         <div class="content-paragraf p-2 md:p-5 order-2 md:order-1 text-center md:text-left" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="400">
           <div class="kontent1 pb-3">
             <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-neutral-900 dark:text-white">
               Hallo I'm Rijal Pratama <br />
-              I'm a <span class="text-yellow-300 typewriter-animation">Frontend Developer</span>
+              I'm a <span class="accent-text typewriter-animation">Frontend Developer</span>
             </h1>
           </div>
           <div class="kontent2 w-full md:w-98 pb-5 text-neutral-700 dark:text-white">
@@ -200,7 +276,7 @@
         </div>
 
         <div
-          class="content-img mb-8 md:mb-0 order-1 md:order-2 shadow-2xl border-2 transition-all duration-300 delay-100 border-yellow-300 hover:shadow-yellow-300/50 rounded-full group w-48 h-48 md:w-auto md:h-auto"
+          class="content-img mb-8 md:mb-0 order-1 md:order-2 shadow-2xl border-2 transition-all duration-300 delay-100 accent-border accent-shadow-hover rounded-full group w-48 h-48 md:w-auto md:h-auto"
           data-aos="fade-up"
           data-aos-duratios="1000"
         >
@@ -210,10 +286,10 @@
     </section>
 
     <!-- ABOUT SECTION -->
-    <div class="mx-auto min-h-screen pt-28 md:pt-35 px-4 sm:px-10 md:px-20 bg-white dark:bg-neutral-800 transition-colors duration-300" id="about">
-      <h2 class="text-center font-bold text-2xl md:text-3xl text-neutral-900 dark:text-white pt-8 md:pt-0"><span class="text-yellow-300">About</span> Me</h2>
+    <div class="mx-auto min-h-screen pt-28 md:pt-35 px-4 sm:px-10 md:px-20 bg-a transition-colors duration-300" id="about">
+      <h2 class="text-center font-bold text-2xl md:text-3xl text-neutral-900 dark:text-white pt-8 md:pt-0"><span class="accent-text">About</span> Me</h2>
       <div class="container mx-auto mt-10 md:mt-20 flex flex-col md:flex-row justify-between items-center gap-8 md:gap-13">
-        <div class="content-img w-48 h-48 md:w-auto md:h-auto shadow-2xl border-2 border-yellow-300 transition-all duration-300 delay-100 hover:shadow-yellow-300/50 rounded-full group" data-aos="fade-down" data-aos-duratios="1000">
+        <div class="content-img w-48 h-48 md:w-auto md:h-auto shadow-2xl border-2 accent-border accent-shadow-hover transition-all duration-300 delay-100 rounded-full group" data-aos="fade-down" data-aos-duratios="1000">
           <img src="asset/asli1.jpg" alt="picture" class="rounded-full w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer" />
         </div>
         <div class="content2 w-full md:w-200 text-center md:text-left" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
@@ -223,7 +299,7 @@
           </p>
           <div class="flex justify-center md:justify-start mt-6 md:mt-8 group">
             <a href="https://drive.google.com/drive/u/0/folders/1pPpFARP7Zv202-p2O3iYO0zLhXxXHtb7" target="_blank" class="group"
-              ><button class="text-base md:text-lg font-bold bg-yellow-300 p-2 md:p-3 rounded-lg cursor-pointer hover:bg-yellow-400 transition-colors duration-300">Download CV!</button></a
+              ><button class="text-base md:text-lg font-bold accent-bg p-2 md:p-3 rounded-lg cursor-pointer transition-colors duration-300">Download CV!</button></a
             >
           </div>
         </div>
@@ -231,11 +307,11 @@
     </div>
 
     <!-- SKILL SECTION -->
-    <div class="mx-auto min-h-screen pt-32 md:pt-35 pb-16 px-4 bg-gray-50 dark:bg-neutral-700 sm:px-10 md:px-20 transition-colors duration-300" id="skill">
+    <div class="mx-auto min-h-screen pt-32 md:pt-35 pb-16 px-4 bg-b sm:px-10 md:px-20 transition-colors duration-300" id="skill">
       <div class="block justify-center">
         <div class="container-text text-center mb-2 md:mb-13 text-neutral-600 dark:text-gray-300 pt-5 md:pt-0" data-aos="fade-down" data-aos-duration="800" data-aos-easing="ease-out-back">
           <p class="text-base md:text-xl font-semibold">~skills and tools that I have mastered~</p>
-          <h2 class="text-2xl md:text-3xl font-bold text-neutral-900 dark:text-white mt-2">My <span class="text-yellow-300">Skill</span></h2>
+          <h2 class="text-2xl md:text-3xl font-bold text-neutral-900 dark:text-white mt-2">My <span class="accent-text">Skill</span></h2>
           <p class="text-base md:text-xl font-semibold mt-2">
             the tools I use to build a professional website and <br class="hidden sm:block" />
             deliver an interactive experience.
@@ -298,17 +374,15 @@
     </div>
 
     <!-- PORTOFOLIO SECTION -->
-    <div class="mx-auto min-h-screen pb-10 md:pb-20 pt-28 md:pt-35 px-4 sm:px-10 md:px-20 bg-white dark:bg-neutral-800 transition-colors duration-300" id="portofolio">
+    <div class="mx-auto min-h-screen pb-10 md:pb-20 pt-28 md:pt-35 px-4 sm:px-10 md:px-20 bg-a transition-colors duration-300" id="portofolio">
       <div class="pt-8 md:pt-0">
         <div class="text-center">
           <p class="text-neutral-600 dark:text-gray-300" data-aos="fade-down" data-aos-duration="800" data-aos-easing="ease-out-cubic">~Latest Project~</p>
-          <h2 class="text-2xl md:text-3xl font-bold text-neutral-900 dark:text-white mt-2">My <span class="text-yellow-300">Portofolio</span></h2>
+          <h2 class="text-2xl md:text-3xl font-bold text-neutral-900 dark:text-white mt-2">My <span class="accent-text">Portofolio</span></h2>
         </div>
 
         <div class="flex justify-center gap-4 mt-8" data-aos="fade-in">
-          <button onclick="filterProjects('all', this)" class="filter-btn px-5 py-2 bg-yellow-300 text-black font-bold rounded-lg shadow-md hover:bg-yellow-400 hover:scale-105 transition-all duration-300 ring-2 ring-yellow-300 md:p-3 p-2">
-            All
-          </button>
+          <button onclick="filterProjects('all', this)" class="filter-btn px-5 py-2 accent-bg accent-ring-active font-bold rounded-lg shadow-md hover:scale-105 transition-all duration-300 md:p-3 p-2">All</button>
           <button
             onclick="filterProjects('dinamis', this)"
             class="filter-btn px-5 py-2 bg-gray-200 dark:bg-neutral-600 text-neutral-900 dark:text-white font-bold rounded-lg shadow-md hover:bg-gray-300 dark:hover:bg-neutral-500 hover:scale-105 transition-all duration-300 md:p-3 p-2"
@@ -324,163 +398,121 @@
         </div>
 
         <div class="mt-8 md:mt-12 text-center">
-           <div class="container-content flex flex-wrap justify-center gap-12 mx-5 my-5">
-            
-
-
           <div class="container-content flex flex-wrap justify-center gap-12 mx-5 my-5">
-            <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4" data-category="dinamis">
-              <img src="asset/moneytracker.png" alt="picture" class="text-center" />
-              <h4 class="text-center font-bold">Money Tracker</h4>
-              <p class="text-center">This application is built using HTML, CSS, and JavaScript. Manage your money, from expenses to income.</p>
-              <a href="https://money-trancker.vercel.app/" target="_blank" class="text-center flex justify-center">
-                <button class="text-lg flex font-semibold m-3 p-3 bg-yellow-300 rounded-lg cursor-pointer hover:shadow-xl hover:bg-yellow-400 gap-2.5 justify-center items-center">
-                  <i class="fa-solid fa-magnifying-glass"></i>Read More!
-                </button>
-              </a>
-            </div>
+            <div class="container-content flex flex-wrap justify-center gap-12 mx-5 my-5">
+              <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4" data-category="dinamis">
+                <img src="asset/moneytracker.png" alt="picture" class="text-center" />
+                <h4 class="text-center font-bold">Money Tracker</h4>
+                <p class="text-center">This application is built using HTML, CSS, and JavaScript. Manage your money, from expenses to income.</p>
+                <a href="https://money-trancker.vercel.app/" target="_blank" class="text-center flex justify-center">
+                  <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center"><i class="fa-solid fa-magnifying-glass"></i>Read More!</button>
+                </a>
+              </div>
 
-            <!-- new project (Veggiezz) -->
-            <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4" data-category="dinamis">
-              <img src="asset/veggiez.png" alt="picture" class="text-center" />
-              <h4 class="text-center font-bold">Veggiezz (e-commerce)</h4>
-              <p class="text-center">This website is an e-commerce website dedicated to vegetables. It was built using React + Tailwind CSS (frontend), Node/Express (backend), and MySQL (database).</p>
-              <a href="https://www.sakaproject.com/frontend_veggiezz" target="_blank" class="text-center flex justify-center">
-                <button class="text-lg flex font-semibold m-3 p-3 bg-yellow-300 rounded-lg cursor-pointer hover:shadow-xl hover:bg-yellow-400 gap-2.5 justify-center items-center">
-                  <i class="fa-solid fa-magnifying-glass"></i>Read More!
-                </button>
-              </a>
-            </div>
+              <!-- new project (Veggiezz) -->
+              <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4" data-category="dinamis">
+                <img src="asset/veggiez.png" alt="picture" class="text-center" />
+                <h4 class="text-center font-bold">Veggiezz (e-commerce)</h4>
+                <p class="text-center">This website is an e-commerce website dedicated to vegetables. It was built using React + Tailwind CSS (frontend), Node/Express (backend), and MySQL (database).</p>
+                <a href="https://www.sakaproject.com/frontend_veggiezz" target="_blank" class="text-center flex justify-center">
+                  <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center"><i class="fa-solid fa-magnifying-glass"></i>Read More!</button>
+                </a>
+              </div>
 
-            <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4" data-category="dinamis">
-              <img src="asset/nutrifit.png" alt="picture" class="text-center" />
-              <h4 class="text-center font-bold">Nutrifit</h4>
-              <p class="text-center">Nutrifit is an education- and consultation-based health website, built using Next.js, Supabase, and Tailwind CSS.</p>
-              <a href="https://nutrifit-web-app-opal.vercel.app/" target="_blank" class="text-center flex justify-center">
-                <button class="text-lg flex font-semibold m-3 p-3 bg-yellow-300 rounded-lg cursor-pointer hover:shadow-xl hover:bg-yellow-400 gap-2.5 justify-center items-center">
-                  <i class="fa-solid fa-magnifying-glass"></i>Read More!
-                </button>
-              </a>
-            </div>
+              <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4" data-category="dinamis">
+                <img src="asset/nutrifit.png" alt="picture" class="text-center" />
+                <h4 class="text-center font-bold">Nutrifit</h4>
+                <p class="text-center">Nutrifit is an education- and consultation-based health website, built using Next.js, Supabase, and Tailwind CSS.</p>
+                <a href="https://nutrifit-web-app-opal.vercel.app/" target="_blank" class="text-center flex justify-center">
+                  <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center"><i class="fa-solid fa-magnifying-glass"></i>Read More!</button>
+                </a>
+              </div>
 
-            <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4" data-category="dinamis">
-              <img src="asset/flood.png" alt="picture" class="text-center" />
-              <h4 class="text-center font-bold">Flood-Prone</h4>
-              <p class="text-center">
-                This website is used to identify flood-prone areas in each sub-district in Sukabumi Regency, along with their vulnerability levels. The technologies used include HTML, CSS, JavaScript, and several libraries such as Open
-                Streetmap and Leaflite.js.
-              </p>
-              <a href="https://flood-prone.vercel.app/" target="_blank" class="text-center flex justify-center">
-                <button class="text-lg flex font-semibold m-3 p-3 bg-yellow-300 rounded-lg cursor-pointer hover:shadow-xl hover:bg-yellow-400 gap-2.5 justify-center items-center">
-                  <i class="fa-solid fa-magnifying-glass"></i>Read More!
-                </button>
-              </a>
-            </div>
+              <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4" data-category="dinamis">
+                <img src="asset/flood.png" alt="picture" class="text-center" />
+                <h4 class="text-center font-bold">Flood-Prone</h4>
+                <p class="text-center">
+                  This website is used to identify flood-prone areas in each sub-district in Sukabumi Regency, along with their vulnerability levels. The technologies used include HTML, CSS, JavaScript, and several libraries such as Open
+                  Streetmap and Leaflite.js.
+                </p>
+                <a href="https://flood-prone.vercel.app/" target="_blank" class="text-center flex justify-center">
+                  <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center"><i class="fa-solid fa-magnifying-glass"></i>Read More!</button>
+                </a>
+              </div>
 
-            <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4" data-category="dinamis">
-              <img src="asset/todoApp.png" alt="picture" class="text-center" />
-              <h4 class="text-center font-bold">Toto App</h4>
-              <p class="text-center">This application is built using HTML, CSS, and JavaScript. It's a todo list application.</p>
-              <a href="https://todo-app-five-ruby-57.vercel.app/" target="_blank" class="text-center flex justify-center">
-                <button class="text-lg flex font-semibold m-3 p-3 bg-yellow-300 rounded-lg cursor-pointer hover:shadow-xl hover:bg-yellow-400 gap-2.5 justify-center items-center">
-                  <i class="fa-solid fa-magnifying-glass"></i>Read More!
-                </button>
-              </a>
-            </div>
+              <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4" data-category="dinamis">
+                <img src="asset/todoApp.png" alt="picture" class="text-center" />
+                <h4 class="text-center font-bold">Toto App</h4>
+                <p class="text-center">This application is built using HTML, CSS, and JavaScript. It's a todo list application.</p>
+                <a href="https://todo-app-five-ruby-57.vercel.app/" target="_blank" class="text-center flex justify-center">
+                  <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center"><i class="fa-solid fa-magnifying-glass"></i>Read More!</button>
+                </a>
+              </div>
 
-            <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4" data-category="dinamis">
-              <img src="asset/kalkulator.png" alt="picture" class="text-center" />
-              <h4 class="text-center font-bold">Kalkulator App</h4>
-              <p class="text-center">This application is built using HTML, CSS, JavaScript, and a little local storage implementation.</p>
-              <a href="https://app-kalkulator.vercel.app/" target="_blank" class="text-center flex justify-center">
-                <button class="text-lg flex font-semibold m-3 p-3 bg-yellow-300 rounded-lg cursor-pointer hover:shadow-xl hover:bg-yellow-400 gap-2.5 justify-center items-center">
-                  <i class="fa-solid fa-magnifying-glass"></i>Read More!
-                </button>
-              </a>
-            </div>
+              <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4" data-category="dinamis">
+                <img src="asset/kalkulator.png" alt="picture" class="text-center" />
+                <h4 class="text-center font-bold">Kalkulator App</h4>
+                <p class="text-center">This application is built using HTML, CSS, JavaScript, and a little local storage implementation.</p>
+                <a href="https://app-kalkulator.vercel.app/" target="_blank" class="text-center flex justify-center">
+                  <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center"><i class="fa-solid fa-magnifying-glass"></i>Read More!</button>
+                </a>
+              </div>
 
-            <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4" data-category="statis">
-              <img src="asset/pzn_cloning.png" alt="picture" class="text-center" />
-              <h4 class="text-center font-bold">(cloningUI) Web Programer</h4>
-              <p class="text-center">This application was built using HTML and CSS, created solely for layout practice purposes.</p>
-              <a href="https://money-trancker.vercel.app/" target="_blank" class="text-center flex justify-center">
-                <button class="text-lg flex font-semibold m-3 p-3 bg-yellow-300 rounded-lg cursor-pointer hover:shadow-xl hover:bg-yellow-400 gap-2.5 justify-center items-center">
-                  <i class="fa-solid fa-magnifying-glass"></i>Read More!
-                </button>
-              </a>
-            </div>
+              <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4" data-category="statis">
+                <img src="asset/pzn_cloning.png" alt="picture" class="text-center" />
+                <h4 class="text-center font-bold">(cloningUI) Web Programer</h4>
+                <p class="text-center">This application was built using HTML and CSS, created solely for layout practice purposes.</p>
+                <a href="https://money-trancker.vercel.app/" target="_blank" class="text-center flex justify-center">
+                  <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center"><i class="fa-solid fa-magnifying-glass"></i>Read More!</button>
+                </a>
+              </div>
 
-            <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4" data-category="statis">
-              <img src="asset/portofolioreact.png" alt="picture" class="text-center" />
-              <h4 class="text-center font-bold">Personal Portofolio_(ReactJs)</h4>
-              <p class="text-center">This portfolio is built using React JS and TailwindCSS using the vite package. Suitable for formal portfolios.</p>
-              <a href="https://portofolio-rijal-react.vercel.app/" target="_blank" class="text-center flex justify-center">
-                <button class="text-lg flex font-semibold m-3 p-3 bg-yellow-300 rounded-lg cursor-pointer hover:shadow-xl hover:bg-yellow-400 gap-2.5 justify-center items-center">
-                  <i class="fa-solid fa-magnifying-glass"></i>Read More!
-                </button>
-              </a>
-            </div>
+              <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4" data-category="statis">
+                <img src="asset/portofolioreact.png" alt="picture" class="text-center" />
+                <h4 class="text-center font-bold">Personal Portofolio_(ReactJs)</h4>
+                <p class="text-center">This portfolio is built using React JS and TailwindCSS using the vite package. Suitable for formal portfolios.</p>
+                <a href="https://portofolio-rijal-react.vercel.app/" target="_blank" class="text-center flex justify-center">
+                  <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center"><i class="fa-solid fa-magnifying-glass"></i>Read More!</button>
+                </a>
+              </div>
 
-             <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4" data-category="dinamis">
-              <img src="asset/kopi.png" alt="picture" class="text-center" />
-              <h4 class="text-center font-bold">E-commerce Coffe</h4>
-              <p class="text-center">This application was built using React Js & TailwindCSS, equipped with payment features.</p>
-              <a href="https://e-commerce-coffe-apps.vercel.app/#home" target="_blank" class="text-center flex justify-center">
-                <button class="text-lg flex font-semibold m-3 p-3 bg-yellow-300 rounded-lg cursor-pointer hover:shadow-xl hover:bg-yellow-400 gap-2.5 justify-center items-center">
-                  <i class="fa-solid fa-magnifying-glass"></i>Read More!
-                </button>
-              </a>
+              <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4" data-category="dinamis">
+                <img src="asset/kopi.png" alt="picture" class="text-center" />
+                <h4 class="text-center font-bold">E-commerce Coffe</h4>
+                <p class="text-center">This application was built using React Js & TailwindCSS, equipped with payment features.</p>
+                <a href="https://e-commerce-coffe-apps.vercel.app/#home" target="_blank" class="text-center flex justify-center">
+                  <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center"><i class="fa-solid fa-magnifying-glass"></i>Read More!</button>
+                </a>
+              </div>
             </div>
-            
           </div>
         </div>
       </div>
     </div>
 
     <!-- CONTACT SECTION -->
-    <div class="contact-container bg-gray-50 dark:bg-neutral-700 py-20 px-6 transition-colors duration-300" id="contact">
-      <h2 class="text-2xl md:text-4xl font-bold py-12 text-center mb-10 text-yellow-300">Contact <span class="text-neutral-900 dark:text-white">Us</span></h2>
+    <div class="contact-container bg-b py-20 px-6 transition-colors duration-300" id="contact">
+      <h2 class="text-2xl md:text-4xl font-bold py-12 text-center mb-10 accent-text">Contact <span class="text-neutral-900 dark:text-white">Us</span></h2>
 
       <div class="max-w-7xl mx-auto md:flex justify-center gap-8 p-4 md:p-8 rounded-xl">
-        <div class="w-full md:w-100 bg-white dark:bg-neutral-800 p-8 rounded-xl shadow-lg mb-8 md:mb-0 transition-colors duration-300">
+        <div class="w-full md:w-100 bg-a p-8 rounded-xl shadow-lg mb-8 md:mb-0 transition-colors duration-300">
           <h3 class="text-neutral-900 dark:text-white font-medium">Contact Us</h3>
           <h2 class="text-3xl font-bold text-neutral-900 dark:text-white mb-6">Get In Touch</h2>
 
           <form id="contact-form" class="p-6 rounded-lg space-y-4">
             <div>
               <label for="from_name" class="block font-semibold mb-1 text-neutral-900 dark:text-white">Name :</label>
-              <input
-                type="text"
-                name="from_name"
-                id="name"
-                class="w-full p-2 rounded border border-neutral-300 dark:border-neutral-400 bg-neutral-50 dark:bg-neutral-700 focus:outline-none focus:ring-2 focus:ring-yellow-300 text-neutral-900 dark:text-white"
-                placeholder="Your Name..."
-                required
-              />
+              <input type="text" name="from_name" id="name" class="w-full p-2 rounded border border-neutral-300 dark:border-neutral-400 bg-a accent-focus-ring text-neutral-900 dark:text-white" placeholder="Your Name..." required />
             </div>
 
             <div>
               <label for="from_email" class="block font-semibold mb-1 text-neutral-900 dark:text-white">Email :</label>
-              <input
-                type="email"
-                name="from_email"
-                id="email"
-                class="w-full p-2 rounded border border-neutral-300 dark:border-neutral-400 bg-neutral-50 dark:bg-neutral-700 focus:outline-none focus:ring-2 focus:ring-yellow-300 text-neutral-900 dark:text-white"
-                placeholder="example@gmail.com"
-                required
-              />
+              <input type="email" name="from_email" id="email" class="w-full p-2 rounded border border-neutral-300 dark:border-neutral-400 bg-a accent-focus-ring text-neutral-900 dark:text-white" placeholder="example@gmail.com" required />
             </div>
 
             <div>
               <label for="subject" class="block font-semibold mb-1 text-neutral-900 dark:text-white">Subject :</label>
-              <input
-                type="text"
-                name="subject"
-                id="subject"
-                class="w-full p-2 rounded border border-neutral-300 dark:border-neutral-400 bg-neutral-50 dark:bg-neutral-700 focus:outline-none focus:ring-2 focus:ring-yellow-300 text-neutral-900 dark:text-white"
-                placeholder="Title..."
-                required
-              />
+              <input type="text" name="subject" id="subject" class="w-full p-2 rounded border border-neutral-300 dark:border-neutral-400 bg-a accent-focus-ring text-neutral-900 dark:text-white" placeholder="Title..." required />
             </div>
 
             <div>
@@ -489,13 +521,13 @@
                 name="message"
                 id="message"
                 rows="5"
-                class="w-full p-2 rounded border border-neutral-300 dark:border-neutral-400 bg-neutral-50 dark:bg-neutral-700 focus:outline-none focus:ring-2 focus:ring-yellow-300 text-neutral-900 dark:text-white"
+                class="w-full p-2 rounded border border-neutral-300 dark:border-neutral-400 bg-a accent-focus-ring text-neutral-900 dark:text-white"
                 placeholder="Your Message.."
                 required
               ></textarea>
             </div>
 
-            <button type="submit" id="btn-send" class="w-full bg-yellow-300 hover:bg-neutral-700 text-black font-bold py-3 px-6 rounded transition duration-300">Send Message</button>
+            <button type="submit" id="btn-send" class="w-full accent-bg font-bold py-3 px-6 rounded transition duration-300">Send Message</button>
           </form>
         </div>
 
@@ -507,26 +539,26 @@
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div class="bg-gray-100 dark:bg-neutral-600 p-4 rounded-lg text-center shadow transition-colors duration-300">
-              <i class="fa-solid fa-phone text-2xl text-yellow-300 mb-2"></i>
+            <div class="bg-b p-4 rounded-lg text-center shadow transition-colors duration-300">
+              <i class="fa-solid fa-phone text-2xl accent-text mb-2"></i>
               <h4 class="font-bold text-neutral-900 dark:text-white">Phone Number</h4>
               <p class="text-sm text-neutral-600 dark:text-gray-200">+62 838 0566 0475</p>
             </div>
 
-            <div class="bg-gray-100 dark:bg-neutral-600 p-4 rounded-lg text-center shadow transition-colors duration-300">
-              <i class="fa-regular fa-envelope text-2xl text-yellow-300 mb-2"></i>
+            <div class="bg-b p-4 rounded-lg text-center shadow transition-colors duration-300">
+              <i class="fa-regular fa-envelope text-2xl accent-text mb-2"></i>
               <h4 class="font-bold text-neutral-900 dark:text-white">Email Address</h4>
               <p class="text-sm text-neutral-600 dark:text-gray-200 break-all">rijalpratama216@gmail.com</p>
             </div>
 
-            <div class="bg-gray-100 dark:bg-neutral-600 p-4 rounded-lg text-center shadow transition-colors duration-300">
-              <i class="fa-brands fa-whatsapp text-2xl text-yellow-300 mb-2"></i>
+            <div class="bg-b p-4 rounded-lg text-center shadow transition-colors duration-300">
+              <i class="fa-brands fa-whatsapp text-2xl accent-text mb-2"></i>
               <h4 class="font-bold text-neutral-900 dark:text-white">Whatsapp</h4>
               <p class="text-sm text-neutral-600 dark:text-gray-200">+62 838 0566 0475</p>
             </div>
 
-            <div class="bg-gray-100 dark:bg-neutral-600 p-4 rounded-lg text-center shadow transition-colors duration-300">
-              <i class="fa-solid fa-location-crosshairs text-2xl text-yellow-300 mb-2"></i>
+            <div class="bg-b p-4 rounded-lg text-center shadow transition-colors duration-300">
+              <i class="fa-solid fa-location-crosshairs text-2xl accent-text mb-2"></i>
               <h4 class="font-bold text-neutral-900 dark:text-white">My Locations</h4>
               <p class="text-sm text-neutral-600 dark:text-gray-200">Jln. babakan assalafiah 1 , 2340</p>
             </div>
@@ -548,7 +580,7 @@
     </div>
     <!-- FOOTER SECTION -->
     <footer class="footer">
-      <div class="bg-yellow-300 h-12 md:h-15 flex justify-center items-center">
+      <div class="accent-bg h-12 md:h-15 flex justify-center items-center">
         <a href=""><p class="text-sm md:text-lg font-semibold text-center px-4">&copy; 2024 Rijal Pratama. All rights reserved.</p></a>
       </div>
     </footer>
