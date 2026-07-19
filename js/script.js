@@ -131,7 +131,7 @@ function filterProjects(category, btnElement) {
 
 // update link aktif
 const navLinks = document.querySelectorAll('.nav-link');
-const sections = document.querySelectorAll('section[id], div[id]');
+const sections = document.querySelectorAll('section[id], div[id], h2[id]');
 
 function setActiveNav(targetSectionId) {
   navLinks.forEach((link) => {
@@ -192,6 +192,7 @@ navLinks.forEach((link) => {
 });
 
 window.addEventListener('scroll', updateActiveNav);
+window.addEventListener('resize', updateActiveNav);
 window.addEventListener('DOMContentLoaded', () => {
   updateActiveNav();
   observeSections();

@@ -139,6 +139,11 @@
         scroll-margin-top: 6rem;
       }
 
+      #skill,
+      #portofolio {
+        scroll-margin-top: 7.5rem;
+      }
+
       @media (max-width: 768px) {
         #home,
         #about,
@@ -146,6 +151,11 @@
         #portofolio,
         #contact {
           scroll-margin-top: 9rem;
+        }
+
+        #skill,
+        #portofolio {
+          scroll-margin-top: 10rem;
         }
       }
 
@@ -286,8 +296,8 @@
     </section>
 
     <!-- ABOUT SECTION -->
-    <div class="mx-auto min-h-screen pt-28 md:pt-35 px-4 sm:px-10 md:px-20 bg-a transition-colors duration-300" id="about">
-      <h2 class="text-center font-bold text-2xl md:text-3xl text-neutral-900 dark:text-white pt-8 md:pt-0"><span class="accent-text">About</span> Me</h2>
+    <div class="mx-auto min-h-screen pt-28 md:pt-20 px-4 sm:px-10 md:px-20 bg-a transition-colors duration-300">
+      <h2 id="about" class="text-center font-bold text-2xl md:text-3xl text-neutral-900 dark:text-white pt-8 md:pt-0"><span class="accent-text">About</span> Me</h2>
       <div class="container mx-auto mt-10 md:mt-20 flex flex-col md:flex-row justify-between items-center gap-8 md:gap-13">
         <div class="content-img w-48 h-48 md:w-auto md:h-auto shadow-2xl border-2 accent-border accent-shadow-hover transition-all duration-300 delay-100 rounded-full group" data-aos="fade-down" data-aos-duratios="1000">
           <img src="asset/asli1.jpg" alt="picture" class="rounded-full w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer" />
@@ -307,11 +317,11 @@
     </div>
 
     <!-- SKILL SECTION -->
-    <div class="mx-auto min-h-screen pt-32 md:pt-35 pb-16 px-4 bg-b sm:px-10 md:px-20 transition-colors duration-300" id="skill">
+    <div class="mx-auto min-h-screen pt-32 md:pt-36 pb-16 px-4 bg-b sm:px-10 md:px-20 transition-colors duration-300">
       <div class="block justify-center">
         <div class="container-text text-center mb-2 md:mb-13 text-neutral-600 dark:text-gray-300 pt-5 md:pt-0" data-aos="fade-down" data-aos-duration="800" data-aos-easing="ease-out-back">
           <p class="text-base md:text-xl font-semibold">~skills and tools that I have mastered~</p>
-          <h2 class="text-2xl md:text-3xl font-bold text-neutral-900 dark:text-white mt-2">My <span class="accent-text">Skill</span></h2>
+          <h2 id="skill" class="text-2xl md:text-3xl font-bold text-neutral-900 dark:text-white mt-2">My <span class="accent-text">Skill</span></h2>
           <p class="text-base md:text-xl font-semibold mt-2">
             the tools I use to build a professional website and <br class="hidden sm:block" />
             deliver an interactive experience.
@@ -374,11 +384,11 @@
     </div>
 
     <!-- PORTOFOLIO SECTION -->
-    <div class="mx-auto min-h-screen pb-10 md:pb-20 pt-28 md:pt-35 px-4 sm:px-10 md:px-20 bg-a transition-colors duration-300" id="portofolio">
+    <div class="mx-auto min-h-screen pb-10 md:pb-20 pt-32 md:pt-36 px-4 sm:px-10 md:px-20 bg-a transition-colors duration-300">
       <div class="pt-8 md:pt-0">
         <div class="text-center">
           <p class="text-neutral-600 dark:text-gray-300" data-aos="fade-down" data-aos-duration="800" data-aos-easing="ease-out-cubic">~Latest Project~</p>
-          <h2 class="text-2xl md:text-3xl font-bold text-neutral-900 dark:text-white mt-2">My <span class="accent-text">Portofolio</span></h2>
+          <h2 id="portofolio" class="text-2xl md:text-3xl font-bold text-neutral-900 dark:text-white mt-2">My <span class="accent-text">Portofolio</span></h2>
         </div>
 
         <div class="flex justify-center gap-4 mt-8" data-aos="fade-in">
@@ -491,8 +501,8 @@
     </div>
 
     <!-- CONTACT SECTION -->
-    <div class="contact-container bg-b py-20 px-6 transition-colors duration-300" id="contact">
-      <h2 class="text-2xl md:text-4xl font-bold py-12 text-center mb-10 accent-text">Contact <span class="text-neutral-900 dark:text-white">Us</span></h2>
+    <div class="contact-container bg-b py-20 px-6 transition-colors duration-300">
+      <h2 id="contact" class="text-2xl md:text-4xl font-bold py-12 text-center mb-10 accent-text">Contact <span class="text-neutral-900 dark:text-white">Us</span></h2>
 
       <div class="max-w-7xl mx-auto md:flex justify-center gap-8 p-4 md:p-8 rounded-xl">
         <div class="w-full md:w-100 bg-a p-8 rounded-xl shadow-lg mb-8 md:mb-0 transition-colors duration-300">
