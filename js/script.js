@@ -131,7 +131,7 @@ function filterProjects(category, btnElement) {
 
 // update link aktif
 const navLinks = document.querySelectorAll('.nav-link');
-const sections = document.querySelectorAll('section[id], div[id], h2[id]');
+const sections = document.querySelectorAll('#home, #about, #skill, #portofolio, #contact');
 
 function setActiveNav(targetSectionId) {
   navLinks.forEach((link) => {
@@ -146,42 +146,35 @@ function setActiveNav(targetSectionId) {
   });
 }
 
-function updateActiveNav() {
-  const scrollPos = window.scrollY + window.innerHeight * 0.45;
-  let currentSectionId = 'home';
+// Deteksi section yang sedang aktif memakai IntersectionObserver.
+// Ini lebih tahan banting dibanding hitung manual offsetTop, karena
+// browser sendiri yang terus memantau posisi tiap section relatif
+// terhadap layar -- tidak peduli section itu tinggi (seperti #home)
+// atau kecil (seperti <h2 id="skill">).
+//
+// rootMargin '-30% 0px -60% 0px' membuat "garis deteksi" jadi pita
+// tipis di sekitar 30%-40% dari atas layar. Section dianggap aktif
+// begitu pita itu menyentuhnya.
+const sectionObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        setActiveNav(entry.target.id);
+      }
+    });
+  },
+  {
+    root: null,
+    rootMargin: '-30% 0px -60% 0px',
+    threshold: 0,
+  },
+);
 
-  sections.forEach((section) => {
-    const sectionTop = section.offsetTop;
-    const sectionHeight = section.offsetHeight;
-    if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-      currentSectionId = section.id;
-    }
-  });
+sections.forEach((section) => sectionObserver.observe(section));
 
-  setActiveNav(currentSectionId);
-}
-
-function observeSections() {
-  if (!('IntersectionObserver' in window)) return;
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveNav(entry.target.id || 'home');
-        }
-      });
-    },
-    {
-      root: null,
-      threshold: 0.45,
-      rootMargin: '-20% 0px -40% 0px',
-    },
-  );
-
-  sections.forEach((section) => observer.observe(section));
-}
-
+// Highlight langsung saat nav diklik, sebelum smooth-scroll selesai
+// (IntersectionObserver akan otomatis menyesuaikan lagi setelah
+// scroll berhenti, jadi hasil akhirnya tetap konsisten).
 navLinks.forEach((link) => {
   link.addEventListener('click', () => {
     const target = link.dataset.section;
@@ -191,10 +184,7 @@ navLinks.forEach((link) => {
   });
 });
 
-window.addEventListener('scroll', updateActiveNav);
-window.addEventListener('resize', updateActiveNav);
+// Set state awal saat halaman pertama kali dimuat.
 window.addEventListener('DOMContentLoaded', () => {
-  updateActiveNav();
-  observeSections();
+  setActiveNav('home');
 });
-window.addEventListener('hashchange', updateActiveNav);
