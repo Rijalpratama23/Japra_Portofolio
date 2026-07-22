@@ -21,9 +21,6 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <link href="./output.css" rel="stylesheet" />
     <style>
-      /* ===== Skema warna: biru di light mode, kuning di dark mode ===== */
-      /* Ditulis sebagai CSS murni (bukan class Tailwind hasil-build)     */
-      /* supaya SELALU aktif walau output.css belum di-rebuild.           */
       :root {
         --accent: #2563eb; /* blue-600 */
         --accent-hover: #1d4ed8; /* blue-700 */
@@ -520,7 +517,7 @@
               ></textarea>
             </div>
 
-            <button type="submit" id="btn-send" class="w-full accent-bg font-bold py-3 px-6 rounded transition duration-300">Send Message</button>
+            <button type="submit" id="btn-send" class="w-full accent-bg font-bold py-3 px-6 rounded transition duration-300 cursor-pointer">Send Message</button>
           </form>
         </div>
 
