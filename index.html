@@ -128,9 +128,6 @@
         color: var(--accent) !important;
       }
 
-      /* Jarak scroll-margin cukup untuk menutupi tinggi header (h-20 = 5rem),
-         ditambah sedikit buffer. Header tingginya sama di semua ukuran layar,
-         jadi nilainya tidak perlu dibedakan per breakpoint atau per section. */
       #home,
       #about,
       #skill,
@@ -154,6 +151,18 @@
       #navbarMobile.open {
         transform: translateY(-50%) translateX(0);
       }
+
+      /* Label kode bahasa (EN/ID) di tombol toggle bahasa */
+      .lang-label {
+        font-size: 9px;
+        line-height: 1;
+        margin-top: 1px;
+      }
+      @media (min-width: 768px) {
+        .lang-label {
+          font-size: 10px;
+        }
+      }
     </style>
   </head>
   <body class="bg-b transition-colors duration-300">
@@ -162,35 +171,42 @@
       <div class="w-full flex justify-between items-center h-20 py-2 px-4 sm:px-10 md:px-20 bg-a accent-border border-b-2 transition-colors duration-300">
         <div class="w-16 md:w-24 flex justify-center items-center">
           <a href="" class="hover-accent transition-colors duration-300">
-            <!-- Logo biru untuk light mode -->
             <img src="asset/biru.png" alt="Rijal Logo" class="w-12 md:w-20 logo-light" />
-            <!-- Logo asli untuk dark mode -->
             <img src="asset/logo.png" alt="Rijal Logo" class="w-12 md:w-20 logo-dark" />
           </a>
         </div>
 
-        <!-- nav (desktop) + theme toggle + hamburger (mobile), semua nempel di kanan -->
         <div class="flex items-center gap-4 md:gap-6">
-          <!-- menu untuk dekstop -->
           <nav class="hidden md:flex justify-center items-center">
             <ul class="flex">
               <li class="mx-3 lg:mx-6">
-                <a href="#home" class="nav-link font-bold text-neutral-900 dark:text-white text-base lg:text-lg hover-accent transition-colors duration-300" data-section="home">Home</a>
+                <a href="#home" class="nav-link font-bold text-neutral-900 dark:text-white text-base lg:text-lg hover-accent transition-colors duration-300" data-section="home" data-i18n="nav_home">Home</a>
               </li>
               <li class="mx-3 lg:mx-6">
-                <a href="#about" class="nav-link font-bold text-neutral-900 dark:text-white text-base lg:text-lg hover-accent transition-colors duration-300" data-section="about">About</a>
+                <a href="#about" class="nav-link font-bold text-neutral-900 dark:text-white text-base lg:text-lg hover-accent transition-colors duration-300" data-section="about" data-i18n="nav_about">About</a>
               </li>
               <li class="mx-3 lg:mx-6">
-                <a href="#skill" class="nav-link font-bold text-neutral-900 dark:text-white text-base lg:text-lg hover-accent transition-colors duration-300" data-section="skill">Skill</a>
+                <a href="#skill" class="nav-link font-bold text-neutral-900 dark:text-white text-base lg:text-lg hover-accent transition-colors duration-300" data-section="skill" data-i18n="nav_skill">Skill</a>
               </li>
               <li class="mx-3 lg:mx-6">
-                <a href="#portofolio" class="nav-link font-bold text-neutral-900 dark:text-white text-base lg:text-lg hover-accent transition-colors duration-300" data-section="portofolio">Portofolio</a>
+                <a href="#portofolio" class="nav-link font-bold text-neutral-900 dark:text-white text-base lg:text-lg hover-accent transition-colors duration-300" data-section="portofolio" data-i18n="nav_portofolio">Portofolio</a>
               </li>
               <li class="mx-3 lg:mx-6">
-                <a href="#contact" class="nav-link font-bold text-neutral-900 dark:text-white text-base lg:text-lg hover-accent transition-colors duration-300" data-section="contact">Contact</a>
+                <a href="#contact" class="nav-link font-bold text-neutral-900 dark:text-white text-base lg:text-lg hover-accent transition-colors duration-300" data-section="contact" data-i18n="nav_contact">Contact</a>
               </li>
             </ul>
           </nav>
+
+          <!-- language toggle -->
+          <button
+            id="langToggle"
+            type="button"
+            aria-label="Change language"
+            class="w-9 h-9 md:w-10 md:h-10 flex flex-col justify-center items-center rounded-full bg-neutral-200 dark:bg-neutral-700 hover:bg-gray-500 hover:text-black transition-colors duration-300 cursor-pointer shrink-0"
+          >
+            <i class="fa-solid fa-language text-neutral-800 dark:text-yellow-300 text-sm md:text-base leading-none"></i>
+            <span id="langLabel" class="lang-label font-bold text-neutral-800 dark:text-yellow-300">EN</span>
+          </button>
 
           <!-- theme toggle -->
           <button
@@ -207,32 +223,31 @@
           </div>
         </div>
 
-        <!-- menu untuk mobile -->
         <nav id="navbarMobile" class="linknavigasi fixed md:hidden top-1/2 left-0 z-50 shadow-2xl flex-col accent-shadow-hover bg-a w-[220px] rounded-xl transition-transform duration-300 ease-in-out">
           <ul class="block p-5 ml-0">
             <li class="mt-4 lg:mx-6">
               <a href="#home" data-section="home" class="nav-link font-bold flex items-center gap-3 text-neutral-900 dark:text-white text-base lg:text-lg hover-accent transition-colors duration-300"
-                ><i class="fa-solid fa-house text-xl font-semibold flex items-center"></i>Home</a
+                ><i class="fa-solid fa-house text-xl font-semibold flex items-center"></i><span data-i18n="nav_home">Home</span></a
               >
             </li>
             <li class="mt-8 lg:mx-6">
               <a href="#about" data-section="about" class="nav-link font-bold text-neutral-900 dark:text-white flex items-center gap-3 text-base lg:text-lg hover-accent transition-colors duration-300"
-                ><i class="fa-solid fa-address-card text-xl font-semibold flex items-center"></i>About</a
+                ><i class="fa-solid fa-address-card text-xl font-semibold flex items-center"></i><span data-i18n="nav_about">About</span></a
               >
             </li>
             <li class="mt-8 lg:mx-6">
               <a href="#skill" data-section="skill" class="nav-link font-bold flex items-center gap-3 text-neutral-900 dark:text-white text-base lg:text-lg hover-accent transition-colors duration-300"
-                ><i class="fa-solid fa-code text-xl font-semibold flex items-center"></i>Skill</a
+                ><i class="fa-solid fa-code text-xl font-semibold flex items-center"></i><span data-i18n="nav_skill">Skill</span></a
               >
             </li>
             <li class="mt-8 lg:mx-6">
               <a href="#portofolio" data-section="portofolio" class="nav-link font-bold flex items-center gap-3 text-neutral-900 dark:text-white text-base lg:text-lg hover-accent transition-colors duration-300"
-                ><i class="fa-solid fa-diagram-project text-xl font-semibold flex items-center"></i>Portofolio</a
+                ><i class="fa-solid fa-diagram-project text-xl font-semibold flex items-center"></i><span data-i18n="nav_portofolio">Portofolio</span></a
               >
             </li>
             <li class="mt-8 mb-4 lg:mx-6">
               <a href="#contact" data-section="contact" class="nav-link font-bold flex items-center gap-3 text-neutral-900 dark:text-white text-base lg:text-lg hover-accent transition-colors duration-300"
-                ><i class="fa-solid fa-phone text-xl font-semibold flex items-center"></i>Contact</a
+                ><i class="fa-solid fa-phone text-xl font-semibold flex items-center"></i><span data-i18n="nav_contact">Contact</span></a
               >
             </li>
           </ul>
@@ -246,12 +261,12 @@
         <div class="content-paragraf p-2 md:p-5 order-2 md:order-1 text-center md:text-left" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="400">
           <div class="kontent1 pb-3">
             <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-neutral-900 dark:text-white">
-              Hallo I'm Rijal Pratama <br />
-              I'm a <span class="accent-text typewriter-animation">Frontend Developer</span>
+              <span data-i18n="hero_greeting">Hallo I'm Rijal Pratama</span> <br />
+              <span data-i18n="hero_role_prefix">I'm a</span> <span class="accent-text typewriter-animation"></span>
             </h1>
           </div>
           <div class="kontent2 w-full md:w-98 pb-5 text-neutral-700 dark:text-white">
-            <p class="text-base md:text-lg">I am a Software Engineering (FrontEnd development). Welcome to my website. all about me/my history can be seen here!</p>
+            <p class="text-base md:text-lg" data-i18n="hero_desc">I am a Software Engineering (FrontEnd development). Welcome to my website. all about me/my history can be seen here!</p>
           </div>
           <div class="media-social flex gap-4 md:gap-6 text-2xl md:text-3xl justify-center md:justify-start">
             <a href="https://web.facebook.com/rijal.pratama.1865904?locale=id_ID" class="group transition-transform duration-300 group-hover:scale-105" target="_blank"
@@ -277,19 +292,19 @@
 
     <!-- ABOUT SECTION -->
     <div id="about" class="mx-auto min-h-screen pt-28 pb-16 px-4 sm:px-10 md:px-20 bg-a transition-colors duration-300">
-      <h2 class="text-center font-bold text-2xl md:text-3xl text-neutral-900 dark:text-white"><span class="accent-text">About</span> Me</h2>
+      <h2 class="text-center font-bold text-2xl md:text-3xl text-neutral-900 dark:text-white"><span class="accent-text" data-i18n="about_title_accent">About</span> <span data-i18n="about_title_rest">Me</span></h2>
       <div class="container mx-auto mt-10 md:mt-20 flex flex-col md:flex-row justify-between items-center gap-8 md:gap-13">
         <div class="content-img w-48 h-48 md:w-auto md:h-auto shadow-2xl border-2 accent-border accent-shadow-hover transition-all duration-300 delay-100 rounded-full group" data-aos="fade-down" data-aos-duratios="1000">
           <img src="asset/asli1.jpg" alt="picture" class="rounded-full w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer" />
         </div>
         <div class="content2 w-full md:w-200 text-center md:text-left" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
-          <p class="text-base md:text-xl text-neutral-700 dark:text-white">
+          <p class="text-base md:text-xl text-neutral-700 dark:text-white" data-i18n="about_desc">
             Hello I am Rijal Pratama, I am a FrontEnd developer with 2 years of experience. I have a strong ability to create attractive and functional interfaces. With basic skills in HTML, CSS, and JavaScript, I am also ready to work in a
             team. Besides that, I have a strong desire to continue learning web development in the future.
           </p>
           <div class="flex justify-center md:justify-start mt-6 md:mt-8 group">
             <a href="https://drive.google.com/drive/u/0/folders/1pPpFARP7Zv202-p2O3iYO0zLhXxXHtb7" target="_blank" class="group"
-              ><button class="text-base md:text-lg font-bold accent-bg p-2 md:p-3 rounded-lg cursor-pointer transition-colors duration-300">Download CV!</button></a
+              ><button class="text-base md:text-lg font-bold accent-bg p-2 md:p-3 rounded-lg cursor-pointer transition-colors duration-300" data-i18n="about_download_cv">Download CV!</button></a
             >
           </div>
         </div>
@@ -300,9 +315,9 @@
     <div id="skill" class="mx-auto min-h-screen pt-28 pb-16 px-4 bg-b sm:px-10 md:px-20 transition-colors duration-300">
       <div class="block justify-center">
         <div class="container-text text-center mb-2 md:mb-13 text-neutral-600 dark:text-gray-300" data-aos="fade-down" data-aos-duration="800" data-aos-easing="ease-out-back">
-          <p class="text-base md:text-xl font-semibold">~skills and tools that I have mastered~</p>
-          <h2 class="text-2xl md:text-3xl font-bold text-neutral-900 dark:text-white mt-2">My <span class="accent-text">Skill</span></h2>
-          <p class="text-base md:text-xl font-semibold mt-2">
+          <p class="text-base md:text-xl font-semibold" data-i18n="skill_tagline">~skills and tools that I have mastered~</p>
+          <h2 class="text-2xl md:text-3xl font-bold text-neutral-900 dark:text-white mt-2"><span data-i18n="skill_title_prefix">My</span> <span class="accent-text" data-i18n="skill_title_accent">Skill</span></h2>
+          <p class="text-base md:text-xl font-semibold mt-2" data-i18n="skill_desc">
             the tools I use to build a professional website and <br class="hidden sm:block" />
             deliver an interactive experience.
           </p>
@@ -312,31 +327,24 @@
             <a href="" class="group">
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108" />
             </a>
-
             <a href="" class="group">
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108" />
             </a>
-
             <a href="" class="group"
               ><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108"
             /></a>
-
             <a href="" class="group">
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108" />
             </a>
-
             <a href="" class="group">
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108" />
             </a>
-
             <a href="" class="group"
               ><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108"
             /></a>
-
             <a href="" class="group">
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/reactnative/reactnative-original-wordmark.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108" />
             </a>
-
             <a href="" class="group">
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108" />
             </a>
@@ -367,21 +375,23 @@
     <div id="portofolio" class="mx-auto min-h-screen pt-28 pb-16 px-4 sm:px-10 md:px-20 bg-a transition-colors duration-300">
       <div>
         <div class="text-center">
-          <p class="text-neutral-600 dark:text-gray-300" data-aos="fade-down" data-aos-duration="800" data-aos-easing="ease-out-cubic">~Latest Project~</p>
-          <h2 class="text-2xl md:text-3xl font-bold text-neutral-900 dark:text-white mt-2">My <span class="accent-text">Portofolio</span></h2>
+          <p class="text-neutral-600 dark:text-gray-300" data-aos="fade-down" data-aos-duration="800" data-aos-easing="ease-out-cubic" data-i18n="portofolio_tagline">~Latest Project~</p>
+          <h2 class="text-2xl md:text-3xl font-bold text-neutral-900 dark:text-white mt-2"><span data-i18n="portofolio_title_prefix">My</span> <span class="accent-text" data-i18n="portofolio_title_accent">Portofolio</span></h2>
         </div>
 
         <div class="flex justify-center gap-4 mt-8" data-aos="fade-in">
-          <button onclick="filterProjects('all', this)" class="filter-btn px-5 py-2 accent-bg accent-ring-active font-bold rounded-lg shadow-md hover:scale-105 transition-all duration-300 md:p-3 p-2">All</button>
+          <button onclick="filterProjects('all', this)" class="filter-btn px-5 py-2 accent-bg accent-ring-active font-bold rounded-lg shadow-md hover:scale-105 transition-all duration-300 md:p-3 p-2" data-i18n="filter_all">All</button>
           <button
             onclick="filterProjects('dinamis', this)"
             class="filter-btn px-5 py-2 bg-gray-200 dark:bg-neutral-600 text-neutral-900 dark:text-white font-bold rounded-lg shadow-md hover:bg-gray-300 dark:hover:bg-neutral-500 hover:scale-105 transition-all duration-300 md:p-3 p-2"
+            data-i18n="filter_dinamis"
           >
             Dinamis
           </button>
           <button
             onclick="filterProjects('statis', this)"
             class="filter-btn px-5 py-2 bg-gray-200 dark:bg-neutral-600 text-neutral-900 dark:text-white font-bold rounded-lg shadow-md hover:bg-gray-300 dark:hover:bg-neutral-500 hover:scale-105 transition-all duration-300 md:p-3 p-2"
+            data-i18n="filter_statis"
           >
             Statis
           </button>
@@ -393,85 +403,102 @@
               <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4" data-category="dinamis">
                 <img src="asset/moneytracker.png" alt="picture" class="text-center" />
                 <h4 class="text-center font-bold">Money Tracker</h4>
-                <p class="text-center">This application is built using HTML, CSS, and JavaScript. Manage your money, from expenses to income.</p>
+                <p class="text-center" data-i18n="proj_moneytracker">This application is built using HTML, CSS, and JavaScript. Manage your money, from expenses to income.</p>
                 <a href="https://money-trancker.vercel.app/" target="_blank" class="text-center flex justify-center">
-                  <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center"><i class="fa-solid fa-magnifying-glass"></i>Read More!</button>
+                  <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center">
+                    <i class="fa-solid fa-magnifying-glass"></i><span data-i18n="read_more">Read More!</span>
+                  </button>
                 </a>
               </div>
 
-              <!-- new project (Veggiezz) -->
               <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4" data-category="dinamis">
                 <img src="asset/veggiez.png" alt="picture" class="text-center" />
                 <h4 class="text-center font-bold">Veggiezz (e-commerce)</h4>
-                <p class="text-center">This website is an e-commerce website dedicated to vegetables. It was built using React + Tailwind CSS (frontend), Node/Express (backend), and MySQL (database).</p>
+                <p class="text-center" data-i18n="proj_veggiezz">This website is an e-commerce website dedicated to vegetables. It was built using React + Tailwind CSS (frontend), Node/Express (backend), and MySQL (database).</p>
                 <a href="https://www.sakaproject.com/frontend_veggiezz" target="_blank" class="text-center flex justify-center">
-                  <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center"><i class="fa-solid fa-magnifying-glass"></i>Read More!</button>
+                  <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center">
+                    <i class="fa-solid fa-magnifying-glass"></i><span data-i18n="read_more">Read More!</span>
+                  </button>
                 </a>
               </div>
 
               <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4" data-category="dinamis">
                 <img src="asset/nutrifit.png" alt="picture" class="text-center" />
                 <h4 class="text-center font-bold">Nutrifit</h4>
-                <p class="text-center">Nutrifit is an education- and consultation-based health website, built using Next.js, Supabase, and Tailwind CSS.</p>
+                <p class="text-center" data-i18n="proj_nutrifit">Nutrifit is an education- and consultation-based health website, built using Next.js, Supabase, and Tailwind CSS.</p>
                 <a href="https://nutrifit-web-app-opal.vercel.app/" target="_blank" class="text-center flex justify-center">
-                  <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center"><i class="fa-solid fa-magnifying-glass"></i>Read More!</button>
+                  <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center">
+                    <i class="fa-solid fa-magnifying-glass"></i><span data-i18n="read_more">Read More!</span>
+                  </button>
                 </a>
               </div>
 
               <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4" data-category="dinamis">
                 <img src="asset/flood.png" alt="picture" class="text-center" />
                 <h4 class="text-center font-bold">Flood-Prone</h4>
-                <p class="text-center">
+                <p class="text-center" data-i18n="proj_flood">
                   This website is used to identify flood-prone areas in each sub-district in Sukabumi Regency, along with their vulnerability levels. The technologies used include HTML, CSS, JavaScript, and several libraries such as Open
                   Streetmap and Leaflite.js.
                 </p>
                 <a href="https://flood-prone.vercel.app/" target="_blank" class="text-center flex justify-center">
-                  <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center"><i class="fa-solid fa-magnifying-glass"></i>Read More!</button>
+                  <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center">
+                    <i class="fa-solid fa-magnifying-glass"></i><span data-i18n="read_more">Read More!</span>
+                  </button>
                 </a>
               </div>
 
               <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4" data-category="dinamis">
                 <img src="asset/todoApp.png" alt="picture" class="text-center" />
                 <h4 class="text-center font-bold">Toto App</h4>
-                <p class="text-center">This application is built using HTML, CSS, and JavaScript. It's a todo list application.</p>
+                <p class="text-center" data-i18n="proj_todo">This application is built using HTML, CSS, and JavaScript. It's a todo list application.</p>
                 <a href="https://todo-app-five-ruby-57.vercel.app/" target="_blank" class="text-center flex justify-center">
-                  <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center"><i class="fa-solid fa-magnifying-glass"></i>Read More!</button>
+                  <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center">
+                    <i class="fa-solid fa-magnifying-glass"></i><span data-i18n="read_more">Read More!</span>
+                  </button>
                 </a>
               </div>
 
               <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4" data-category="dinamis">
                 <img src="asset/kalkulator.png" alt="picture" class="text-center" />
                 <h4 class="text-center font-bold">Kalkulator App</h4>
-                <p class="text-center">This application is built using HTML, CSS, JavaScript, and a little local storage implementation.</p>
+                <p class="text-center" data-i18n="proj_kalkulator">This application is built using HTML, CSS, JavaScript, and a little local storage implementation.</p>
                 <a href="https://app-kalkulator.vercel.app/" target="_blank" class="text-center flex justify-center">
-                  <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center"><i class="fa-solid fa-magnifying-glass"></i>Read More!</button>
+                  <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center">
+                    <i class="fa-solid fa-magnifying-glass"></i><span data-i18n="read_more">Read More!</span>
+                  </button>
                 </a>
               </div>
 
               <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4" data-category="statis">
                 <img src="asset/pzn_cloning.png" alt="picture" class="text-center" />
                 <h4 class="text-center font-bold">(cloningUI) Web Programer</h4>
-                <p class="text-center">This application was built using HTML and CSS, created solely for layout practice purposes.</p>
+                <p class="text-center" data-i18n="proj_cloning">This application was built using HTML and CSS, created solely for layout practice purposes.</p>
                 <a href="https://money-trancker.vercel.app/" target="_blank" class="text-center flex justify-center">
-                  <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center"><i class="fa-solid fa-magnifying-glass"></i>Read More!</button>
+                  <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center">
+                    <i class="fa-solid fa-magnifying-glass"></i><span data-i18n="read_more">Read More!</span>
+                  </button>
                 </a>
               </div>
 
               <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4" data-category="statis">
                 <img src="asset/portofolioreact.png" alt="picture" class="text-center" />
                 <h4 class="text-center font-bold">Personal Portofolio_(ReactJs)</h4>
-                <p class="text-center">This portfolio is built using React JS and TailwindCSS using the vite package. Suitable for formal portfolios.</p>
+                <p class="text-center" data-i18n="proj_portofolioreact">This portfolio is built using React JS and TailwindCSS using the vite package. Suitable for formal portfolios.</p>
                 <a href="https://portofolio-rijal-react.vercel.app/" target="_blank" class="text-center flex justify-center">
-                  <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center"><i class="fa-solid fa-magnifying-glass"></i>Read More!</button>
+                  <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center">
+                    <i class="fa-solid fa-magnifying-glass"></i><span data-i18n="read_more">Read More!</span>
+                  </button>
                 </a>
               </div>
 
               <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4" data-category="dinamis">
                 <img src="asset/kopi.png" alt="picture" class="text-center" />
                 <h4 class="text-center font-bold">E-commerce Coffe</h4>
-                <p class="text-center">This application was built using React Js & TailwindCSS, equipped with payment features.</p>
+                <p class="text-center" data-i18n="proj_kopi">This application was built using React Js & TailwindCSS, equipped with payment features.</p>
                 <a href="https://e-commerce-coffe-apps.vercel.app/#home" target="_blank" class="text-center flex justify-center">
-                  <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center"><i class="fa-solid fa-magnifying-glass"></i>Read More!</button>
+                  <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center">
+                    <i class="fa-solid fa-magnifying-glass"></i><span data-i18n="read_more">Read More!</span>
+                  </button>
                 </a>
               </div>
             </div>
@@ -482,48 +509,65 @@
 
     <!-- CONTACT SECTION -->
     <div id="contact" class="contact-container bg-b pt-28 pb-20 px-6 transition-colors duration-300">
-      <h2 class="text-2xl md:text-4xl font-bold py-12 text-center mb-10 accent-text">Contact <span class="text-neutral-900 dark:text-white">Us</span></h2>
+      <h2 class="text-2xl md:text-4xl font-bold py-12 text-center mb-10 accent-text"><span data-i18n="contact_title_accent">Contact</span> <span class="text-neutral-900 dark:text-white" data-i18n="contact_title_rest">Us</span></h2>
 
       <div class="max-w-7xl mx-auto md:flex justify-center gap-8 p-4 md:p-8 rounded-xl">
         <div class="w-full md:w-100 bg-a p-8 rounded-xl shadow-lg mb-8 md:mb-0 transition-colors duration-300">
-          <h3 class="text-neutral-900 dark:text-white font-medium">Contact Us</h3>
-          <h2 class="text-3xl font-bold text-neutral-900 dark:text-white mb-6">Get In Touch</h2>
+          <h3 class="text-neutral-900 dark:text-white font-medium" data-i18n="contact_subtitle">Contact Us</h3>
+          <h2 class="text-3xl font-bold text-neutral-900 dark:text-white mb-6" data-i18n="contact_heading">Get In Touch</h2>
 
           <form id="contact-form" class="p-6 rounded-lg space-y-4">
             <div>
-              <label for="from_name" class="block font-semibold mb-1 text-neutral-900 dark:text-white">Name :</label>
-              <input type="text" name="from_name" id="name" class="w-full p-2 rounded border border-neutral-300 dark:border-neutral-400 bg-a accent-focus-ring text-neutral-900 dark:text-white" placeholder="Your Name..." required />
+              <label for="from_name" class="block font-semibold mb-1 text-neutral-900 dark:text-white" data-i18n="form_name_label">Name :</label>
+              <input
+                type="text"
+                name="from_name"
+                id="name"
+                class="w-full p-2 rounded border border-neutral-300 dark:border-neutral-400 bg-a accent-focus-ring text-neutral-900 dark:text-white"
+                placeholder="Your Name..."
+                data-i18n-placeholder="form_name_placeholder"
+                required
+              />
             </div>
 
             <div>
-              <label for="from_email" class="block font-semibold mb-1 text-neutral-900 dark:text-white">Email :</label>
+              <label for="from_email" class="block font-semibold mb-1 text-neutral-900 dark:text-white" data-i18n="form_email_label">Email :</label>
               <input type="email" name="from_email" id="email" class="w-full p-2 rounded border border-neutral-300 dark:border-neutral-400 bg-a accent-focus-ring text-neutral-900 dark:text-white" placeholder="example@gmail.com" required />
             </div>
 
             <div>
-              <label for="subject" class="block font-semibold mb-1 text-neutral-900 dark:text-white">Subject :</label>
-              <input type="text" name="subject" id="subject" class="w-full p-2 rounded border border-neutral-300 dark:border-neutral-400 bg-a accent-focus-ring text-neutral-900 dark:text-white" placeholder="Title..." required />
+              <label for="subject" class="block font-semibold mb-1 text-neutral-900 dark:text-white" data-i18n="form_subject_label">Subject :</label>
+              <input
+                type="text"
+                name="subject"
+                id="subject"
+                class="w-full p-2 rounded border border-neutral-300 dark:border-neutral-400 bg-a accent-focus-ring text-neutral-900 dark:text-white"
+                placeholder="Title..."
+                data-i18n-placeholder="form_subject_placeholder"
+                required
+              />
             </div>
 
             <div>
-              <label for="message" class="block font-semibold mb-1 text-neutral-900 dark:text-white">Message :</label>
+              <label for="message" class="block font-semibold mb-1 text-neutral-900 dark:text-white" data-i18n="form_message_label">Message :</label>
               <textarea
                 name="message"
                 id="message"
                 rows="5"
                 class="w-full p-2 rounded border border-neutral-300 dark:border-neutral-400 bg-a accent-focus-ring text-neutral-900 dark:text-white"
                 placeholder="Your Message.."
+                data-i18n-placeholder="form_message_placeholder"
                 required
               ></textarea>
             </div>
 
-            <button type="submit" id="btn-send" class="w-full accent-bg font-bold py-3 px-6 rounded transition duration-300 cursor-pointer">Send Message</button>
+            <button type="submit" id="btn-send" class="w-full accent-bg font-bold py-3 px-6 rounded transition duration-300" data-i18n="form_send">Send Message</button>
           </form>
         </div>
 
         <div class="w-full md:w-1/2 flex flex-col gap-6">
           <div>
-            <p class="text-neutral-600 dark:text-gray-300 leading-relaxed">
+            <p class="text-neutral-600 dark:text-gray-300 leading-relaxed" data-i18n="contact_intro">
               I value communication and am committed to providing excellent service. Please feel free to contact me using the information provided below, and I will be happy to assist you.
             </p>
           </div>
@@ -531,25 +575,25 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div class="bg-b p-4 rounded-lg text-center shadow transition-colors duration-300">
               <i class="fa-solid fa-phone text-2xl accent-text mb-2"></i>
-              <h4 class="font-bold text-neutral-900 dark:text-white">Phone Number</h4>
+              <h4 class="font-bold text-neutral-900 dark:text-white" data-i18n="contact_phone_label">Phone Number</h4>
               <p class="text-sm text-neutral-600 dark:text-gray-200">+62 838 0566 0475</p>
             </div>
 
             <div class="bg-b p-4 rounded-lg text-center shadow transition-colors duration-300">
               <i class="fa-regular fa-envelope text-2xl accent-text mb-2"></i>
-              <h4 class="font-bold text-neutral-900 dark:text-white">Email Address</h4>
+              <h4 class="font-bold text-neutral-900 dark:text-white" data-i18n="contact_email_label">Email Address</h4>
               <p class="text-sm text-neutral-600 dark:text-gray-200 break-all">rijalpratama216@gmail.com</p>
             </div>
 
             <div class="bg-b p-4 rounded-lg text-center shadow transition-colors duration-300">
               <i class="fa-brands fa-whatsapp text-2xl accent-text mb-2"></i>
-              <h4 class="font-bold text-neutral-900 dark:text-white">Whatsapp</h4>
+              <h4 class="font-bold text-neutral-900 dark:text-white" data-i18n="contact_whatsapp_label">Whatsapp</h4>
               <p class="text-sm text-neutral-600 dark:text-gray-200">+62 838 0566 0475</p>
             </div>
 
             <div class="bg-b p-4 rounded-lg text-center shadow transition-colors duration-300">
               <i class="fa-solid fa-location-crosshairs text-2xl accent-text mb-2"></i>
-              <h4 class="font-bold text-neutral-900 dark:text-white">My Locations</h4>
+              <h4 class="font-bold text-neutral-900 dark:text-white" data-i18n="contact_location_label">My Locations</h4>
               <p class="text-sm text-neutral-600 dark:text-gray-200">Jln. babakan assalafiah 1 , 2340</p>
             </div>
           </div>
@@ -571,11 +615,12 @@
     <!-- FOOTER SECTION -->
     <footer class="footer">
       <div class="accent-bg h-12 md:h-15 flex justify-center items-center">
-        <a href=""><p class="text-sm md:text-lg font-semibold text-center px-4">&copy; 2024 Rijal Pratama. All rights reserved.</p></a>
+        <a href=""><p class="text-sm md:text-lg font-semibold text-center px-4" data-i18n="footer_text">&copy; 2024 Rijal Pratama. All rights reserved.</p></a>
       </div>
     </footer>
 
     <!-- javascript link -->
+    <script src="js/translations.js"></script>
     <script src="js/script.js"></script>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -597,24 +642,20 @@
           return;
         }
 
-        // --- KUNCI RAHASIA ANDA (SUDAH DIPERBAIKI) ---
-        // Hapus huruf 'M' yang tidak sengaja tertulis sebelumnya
         emailjs.init('EkFk-HEW5dMAYZduy');
 
         form.addEventListener('submit', function (event) {
-          event.preventDefault(); // Mencegah refresh halaman
+          event.preventDefault();
 
           const btn = document.getElementById('btn-send');
           const originalText = btn.innerHTML;
           btn.innerHTML = 'Sending...';
 
-          // Service ID dan Template ID Anda
           const serviceID = 'service_0p20itm';
           const templateID = 'template_msnre0s';
 
           emailjs.sendForm(serviceID, templateID, this).then(
             function () {
-              // Jika SUKSES
               btn.innerHTML = originalText;
               document.getElementById('contact-form').reset();
               Swal.fire({
@@ -625,7 +666,6 @@
               });
             },
             function (error) {
-              // Jika GAGAL
               btn.innerHTML = originalText;
               Swal.fire({
                 icon: 'error',

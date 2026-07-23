@@ -29,6 +29,59 @@ themeToggleBtn.addEventListener('click', () => {
   localStorage.setItem('theme', !isDark ? 'dark' : 'light');
 });
 
+// ============================
+// LANGUAGE TOGGLE (EN <-> ID)
+// ============================
+const langToggleBtn = document.getElementById('langToggle');
+const langLabel = document.getElementById('langLabel');
+let currentLang = localStorage.getItem('lang') || 'id'; // default: id kalau belum pernah pilih
+
+function setLanguage(lang) {
+  // translations diambil dari js/translations.js (harus dimuat sebelum script.js)
+  if (typeof translations === 'undefined' || !translations[lang]) return;
+
+  currentLang = lang;
+  const dict = translations[lang];
+
+  // 1) Ganti semua teks yang punya atribut data-i18n
+  document.querySelectorAll('[data-i18n]').forEach((el) => {
+    const key = el.getAttribute('data-i18n');
+    if (dict[key] !== undefined) {
+      el.textContent = dict[key];
+    }
+  });
+
+  // 2) Ganti semua placeholder yang punya atribut data-i18n-placeholder
+  document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    if (dict[key] !== undefined) {
+      el.setAttribute('placeholder', dict[key]);
+    }
+  });
+
+  // 3) Update label kecil di tombol (nampilin bahasa AKTIF)
+  if (langLabel) {
+    langLabel.textContent = lang.toUpperCase();
+  }
+
+  // 4) Sinkronkan atribut lang di <html> (bagus untuk aksesibilitas & SEO)
+  document.documentElement.setAttribute('lang', lang);
+
+  // 5) Restart efek typewriter pakai teks sesuai bahasa terpilih
+  restartTypewriter(lang);
+}
+
+langToggleBtn.addEventListener('click', () => {
+  const nextLang = currentLang === 'en' ? 'id' : 'en';
+  setLanguage(nextLang);
+  localStorage.setItem('lang', nextLang);
+});
+
+// Terapkan bahasa tersimpan (atau default) begitu halaman siap
+document.addEventListener('DOMContentLoaded', () => {
+  setLanguage(currentLang);
+});
+
 // Menangani klik pada hamburger menu
 hamburgerMenu.addEventListener('click', (event) => {
   event.stopPropagation();
@@ -60,40 +113,50 @@ mobileNavLinks.forEach((link) => {
   });
 });
 
-// Typewriter Effect Loop Sederhana - Hanya 1 Teks
-document.addEventListener('DOMContentLoaded', function () {
-  const typewriterElement = document.querySelector('.typewriter-animation');
+// ============================
+// Typewriter Effect (kini mendukung ganti bahasa)
+// ============================
+let typewriterTimeoutId = null;
+let typewriterRunId = 0; // dipakai untuk "membatalkan" loop lama saat bahasa berganti
 
+function restartTypewriter(lang) {
+  const typewriterElement = document.querySelector('.typewriter-animation');
   if (!typewriterElement) return;
 
-  const text = 'Frontend Developer';
+  // Hentikan loop yang sedang berjalan
+  typewriterRunId++;
+  const myRunId = typewriterRunId;
+  if (typewriterTimeoutId) clearTimeout(typewriterTimeoutId);
+
+  const text = lang === 'id' ? 'Pengembang Frontend' : 'Frontend Developer';
   let charIndex = 0;
   let isDeleting = false;
   const typingSpeed = 120;
   const deletingSpeed = 60;
   const pauseBetween = 1500;
 
+  typewriterElement.textContent = '';
+
   function typeWriter() {
+    // Kalau ada run baru yang mulai (bahasa ganti lagi), hentikan yang lama
+    if (myRunId !== typewriterRunId) return;
+
     if (!isDeleting && charIndex < text.length) {
-      // Mengetik maju
       typewriterElement.textContent = text.substring(0, charIndex + 1);
       charIndex++;
-      setTimeout(typeWriter, typingSpeed);
+      typewriterTimeoutId = setTimeout(typeWriter, typingSpeed);
     } else if (isDeleting && charIndex > 0) {
-      // Menghapus
       typewriterElement.textContent = text.substring(0, charIndex - 1);
       charIndex--;
-      setTimeout(typeWriter, deletingSpeed);
+      typewriterTimeoutId = setTimeout(typeWriter, deletingSpeed);
     } else {
-      // Switch between typing and deleting
       isDeleting = !isDeleting;
-      setTimeout(typeWriter, isDeleting ? pauseBetween : 500);
+      typewriterTimeoutId = setTimeout(typeWriter, isDeleting ? pauseBetween : 500);
     }
   }
 
-  // Mulai animasi
-  setTimeout(typeWriter, 1000);
-});
+  typewriterTimeoutId = setTimeout(typeWriter, 300);
+}
 
 // Kelas untuk tombol filter portofolio, mengikuti skema warna:
 // aktif -> biru (light) / kuning (dark), non-aktif -> abu-abu netral
@@ -105,26 +168,21 @@ function filterProjects(category, btnElement) {
   projects.forEach((project) => {
     const projectCategory = project.getAttribute('data-category');
 
-    // Animasi fade out sedikit sebelum hilang (opsional, tapi bagus untuk UX)
     if (category === 'all' || projectCategory === category) {
       project.classList.remove('hidden');
-      // Tambahkan animasi fade-in
       project.classList.add('fade-in-up');
     } else {
       project.classList.add('hidden');
     }
   });
 
-  // 2. Logika Warna Tombol (Agar tombol yang aktif berwarna sesuai tema: biru di light mode, kuning di dark mode)
   const buttons = document.querySelectorAll('.filter-btn');
 
-  // Reset semua tombol ke warna netral (inactive)
   buttons.forEach((btn) => {
     btn.classList.remove(...FILTER_ACTIVE_CLASSES);
     btn.classList.add(...FILTER_INACTIVE_CLASSES);
   });
 
-  // Set tombol yang diklik menjadi warna aktif
   btnElement.classList.remove(...FILTER_INACTIVE_CLASSES);
   btnElement.classList.add(...FILTER_ACTIVE_CLASSES);
 }
@@ -146,15 +204,6 @@ function setActiveNav(targetSectionId) {
   });
 }
 
-// Deteksi section yang sedang aktif memakai IntersectionObserver.
-// Ini lebih tahan banting dibanding hitung manual offsetTop, karena
-// browser sendiri yang terus memantau posisi tiap section relatif
-// terhadap layar -- tidak peduli section itu tinggi (seperti #home)
-// atau kecil (seperti <h2 id="skill">).
-//
-// rootMargin '-30% 0px -60% 0px' membuat "garis deteksi" jadi pita
-// tipis di sekitar 30%-40% dari atas layar. Section dianggap aktif
-// begitu pita itu menyentuhnya.
 const sectionObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
@@ -172,9 +221,6 @@ const sectionObserver = new IntersectionObserver(
 
 sections.forEach((section) => sectionObserver.observe(section));
 
-// Highlight langsung saat nav diklik, sebelum smooth-scroll selesai
-// (IntersectionObserver akan otomatis menyesuaikan lagi setelah
-// scroll berhenti, jadi hasil akhirnya tetap konsisten).
 navLinks.forEach((link) => {
   link.addEventListener('click', () => {
     const target = link.dataset.section;
