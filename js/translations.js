@@ -20,6 +20,7 @@ const translations = {
     about_desc:
       'Hello I am Rijal Pratama, I am a FrontEnd developer with 2 years of experience. I have a strong ability to create attractive and functional interfaces. With basic skills in HTML, CSS, and JavaScript, I am also ready to work in a team. Besides that, I have a strong desire to continue learning web development in the future.',
     about_download_cv: 'Download CV!',
+    sertifications: "Sertifications!",
 
     // Skill
     skill_tagline: '~skills and tools that I have mastered~',
@@ -89,6 +90,7 @@ const translations = {
     about_desc:
       'Halo, saya Rijal Pratama, seorang FrontEnd developer dengan pengalaman 2 tahun. Saya memiliki kemampuan yang baik dalam membuat tampilan yang menarik dan fungsional. Dengan keahlian dasar HTML, CSS, dan JavaScript, saya juga siap bekerja dalam tim. Selain itu, saya memiliki keinginan kuat untuk terus belajar pengembangan web di masa depan.',
     about_download_cv: 'Unduh CV!',
+    sertifications: 'Sertifikat!',
 
     // Skill
     skill_tagline: '~keahlian dan tools yang telah saya kuasai~',
