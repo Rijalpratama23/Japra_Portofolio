@@ -20,7 +20,7 @@ const translations = {
     about_desc:
       'Hello I am Rijal Pratama, I am a FrontEnd developer with 2 years of experience. I have a strong ability to create attractive and functional interfaces. With basic skills in HTML, CSS, and JavaScript, I am also ready to work in a team. Besides that, I have a strong desire to continue learning web development in the future.',
     about_download_cv: 'Download CV!',
-    sertifications: "Sertifications!",
+    sertifications: 'Sertifications!',
 
     // Skill
     skill_tagline: '~skills and tools that I have mastered~',
@@ -113,6 +113,7 @@ const translations = {
     proj_flood:
       'Website ini digunakan untuk mengidentifikasi daerah rawan banjir di setiap kecamatan di Kabupaten Sukabumi, beserta tingkat kerentanannya. Teknologi yang digunakan meliputi HTML, CSS, JavaScript, dan beberapa library seperti Open Streetmap dan Leaflite.js.',
     proj_todo: 'Aplikasi ini dibuat menggunakan HTML, CSS, dan JavaScript. Ini adalah aplikasi daftar tugas (to-do list).',
+    proj_emply: 'Employa,website ini di bangun untuk sebuah pengolahan data karyawan di peruhaaan. dan menggunakan php native, taillwindcss dan MySql sebagai database',
     proj_kalkulator: 'Aplikasi ini dibuat menggunakan HTML, CSS, JavaScript, dan sedikit implementasi local storage.',
     proj_cloning: 'Aplikasi ini dibuat menggunakan HTML dan CSS, dibuat khusus untuk latihan layout.',
     proj_portofolioreact: 'Portofolio ini dibuat menggunakan React JS dan TailwindCSS dengan package vite. Cocok untuk portofolio formal.',
