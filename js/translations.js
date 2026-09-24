@@ -38,15 +38,16 @@ const translations = {
     read_more: 'Read More!',
 
     proj_moneytracker: 'This application is built using HTML, CSS, and JavaScript. Manage your money, from expenses to income.',
-    proj_veggiezz: 'This website is an e-commerce website dedicated to vegetables. It was built using React + Tailwind CSS (frontend), Node/Express (backend), and MySQL (database).',
-    proj_nutrifit: 'Nutrifit is an education- and consultation-based health website, built using Next.js, Supabase, and Tailwind CSS.',
-    proj_flood:
-      'This website is used to identify flood-prone areas in each sub-district in Sukabumi Regency, along with their vulnerability levels. The technologies used include HTML, CSS, JavaScript, and several libraries such as Open Streetmap and Leaflite.js.',
-    proj_todo: "This application is built using HTML, CSS, and JavaScript. It's a todo list application.",
+    proj_veggiezz: 'TA dedicated vegetable e-commerce platform that lets consumers buy fresh produce online, built with React, Tailwind CSS, Node/Express, and MySQL.',
+    proj_nutrifit: 'A health platform offering education and online consultation, built with Next.js, Supabase, and Tailwind CSS.',
+    proj_flood: 'An interactive map showing flood-prone areas and vulnerability levels across sub-districts in Sukabumi Regency, built with HTML, CSS, JavaScript, OpenStreetMap, and Leaflet.js.',
+    proj_todo: 'A simple to-do list app for recording and managing daily tasks, built with HTML, CSS, and JavaScript.',
+    proj_emply: "An employee data management system that helps companies manage data centrally, built with native PHP, Tailwind CSS, and MySQL.",
     proj_kalkulator: 'This application is built using HTML, CSS, JavaScript, and a little local storage implementation.',
     proj_cloning: 'This application was built using HTML and CSS, created solely for layout practice purposes.',
     proj_portofolioreact: 'This portfolio is built using React JS and TailwindCSS using the vite package. Suitable for formal portfolios.',
     proj_kopi: 'This application was built using React Js & TailwindCSS, equipped with payment features.',
+    proj_studyFlow: 'This app helps students focus better on their studies without distractions for a set period of time.',
 
     // Contact
     contact_title_accent: 'Contact',
@@ -107,17 +108,17 @@ const translations = {
     filter_statis: 'Statis',
     read_more: 'Selengkapnya!',
 
-    proj_moneytracker: 'Aplikasi ini dibuat menggunakan HTML, CSS, dan JavaScript. Kelola keuangan Anda, mulai dari pengeluaran hingga pemasukan.',
-    proj_veggiezz: 'Website ini adalah website e-commerce khusus sayuran. Dibangun menggunakan React + Tailwind CSS (frontend), Node/Express (backend), dan MySQL (database).',
-    proj_nutrifit: 'Nutrifit adalah website kesehatan berbasis edukasi dan konsultasi, dibangun menggunakan Next.js, Supabase, dan Tailwind CSS.',
-    proj_flood:
-      'Website ini digunakan untuk mengidentifikasi daerah rawan banjir di setiap kecamatan di Kabupaten Sukabumi, beserta tingkat kerentanannya. Teknologi yang digunakan meliputi HTML, CSS, JavaScript, dan beberapa library seperti Open Streetmap dan Leaflite.js.',
-    proj_todo: 'Aplikasi ini dibuat menggunakan HTML, CSS, dan JavaScript. Ini adalah aplikasi daftar tugas (to-do list).',
-    proj_emply: 'Employa,website ini di bangun untuk sebuah pengolahan data karyawan di peruhaaan. dan menggunakan php native, taillwindcss dan MySql sebagai database',
+    proj_moneytracker: 'Aplikasi pencatat keuangan yang membantu pengguna memantau pengeluaran dan pemasukan harian dalam satu dashboard, dibangun dengan HTML, CSS, dan JavaScript',
+    proj_veggiezz: 'Platform e-commerce khusus sayuran yang membantu konsumen membeli sayur segar secara online, dibangun dengan React, Tailwind CSS, Node/Express, dan MySQL.',
+    proj_nutrifit: 'Platform kesehatan berbasis edukasi dan konsultasi online, dibangun dengan Next.js, Supabase, dan Tailwind CSS.',
+    proj_flood: 'Peta interaktif yang menampilkan daerah rawan banjir dan tingkat kerentanannya di tiap kecamatan Kabupaten Sukabumi, dibangun dengan HTML, CSS, JavaScript, OpenStreetMap, dan Leaflet.js.',
+    proj_todo: 'Aplikasi to-do list sederhana untuk mencatat dan mengelola tugas harian, dibangun dengan HTML, CSS, dan JavaScript.',
+    proj_emply: 'Sistem pengolahan data karyawan yang membantu perusahaan mengelola data secara terpusat, dibangun dengan PHP native, Tailwind CSS, dan MySQL.',
     proj_kalkulator: 'Aplikasi ini dibuat menggunakan HTML, CSS, JavaScript, dan sedikit implementasi local storage.',
     proj_cloning: 'Aplikasi ini dibuat menggunakan HTML dan CSS, dibuat khusus untuk latihan layout.',
     proj_portofolioreact: 'Portofolio ini dibuat menggunakan React JS dan TailwindCSS dengan package vite. Cocok untuk portofolio formal.',
-    proj_kopi: 'Aplikasi ini dibuat menggunakan React Js & TailwindCSS, dilengkapi dengan fitur pembayaran.',
+    proj_kopi: 'Aplikasi website e-commerce untuk kopi, ini dibuat menggunakan React Js & TailwindCSS, dilengkapi dengan fitur pembayaran.',
+    proj_studyFlow: 'aplikasi ini membantu pelajar untuk lebih fokus belajar tanpa distraksi selama waktu yang di tentukan',
 
     // Contact
     contact_title_accent: 'Hubungi',
