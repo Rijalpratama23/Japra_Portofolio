@@ -37,12 +37,18 @@ const translations = {
     filter_statis: 'Statis',
     read_more: 'Read More!',
 
+    title_port: 'Enhancement of the SukaRobot Academy management system',
+    title_lms: 'Development of a Multi-Branch LMS Platform',
+
+    proj_lms: 'Handling setup and UI component additions—including updating documentation and fixing code bugs—to ensure users at every branch receive accurate information.',
+    proj_manajemenSub:
+      'Added and improved various features for the office management system at my internship site, including payment invoicing, student data management, and trial class registration forms. Built using Laravel 12 and MySQL.',
     proj_moneytracker: 'This application is built using HTML, CSS, and JavaScript. Manage your money, from expenses to income.',
     proj_veggiezz: 'TA dedicated vegetable e-commerce platform that lets consumers buy fresh produce online, built with React, Tailwind CSS, Node/Express, and MySQL.',
     proj_nutrifit: 'A health platform offering education and online consultation, built with Next.js, Supabase, and Tailwind CSS.',
     proj_flood: 'An interactive map showing flood-prone areas and vulnerability levels across sub-districts in Sukabumi Regency, built with HTML, CSS, JavaScript, OpenStreetMap, and Leaflet.js.',
     proj_todo: 'A simple to-do list app for recording and managing daily tasks, built with HTML, CSS, and JavaScript.',
-    proj_emply: "An employee data management system that helps companies manage data centrally, built with native PHP, Tailwind CSS, and MySQL.",
+    proj_emply: 'An employee data management system that helps companies manage data centrally, built with native PHP, Tailwind CSS, and MySQL.',
     proj_kalkulator: 'This application is built using HTML, CSS, JavaScript, and a little local storage implementation.',
     proj_cloning: 'This application was built using HTML and CSS, created solely for layout practice purposes.',
     proj_portofolioreact: 'This portfolio is built using React JS and TailwindCSS using the vite package. Suitable for formal portfolios.',
@@ -108,6 +114,12 @@ const translations = {
     filter_statis: 'Statis',
     read_more: 'Selengkapnya!',
 
+    // judul portofolio
+    title_port: 'Peningkatan Sistem Manajemen Sukarobot Academy.',
+    title_lms: 'Pengembangan Platform LMS Multi-Cabang',
+
+    proj_lms: 'Melakukan setUp & penambahan komponen UI seperti melengkapi dokumentasi dan code yang bug, supaya user dari setiap cabang memperoleh informasi yang pas.',
+    proj_manajemenSub: 'Menambahkan dan memperbaiki berbagai fitur pada sistem manajemen kantor tempat saya magang, mencakup invoice pembayaran, manajemen data siswa, dan form pendaftaran trial kelas. Dibangun dengan Laravel 12 dan MySQL.',
     proj_moneytracker: 'Aplikasi pencatat keuangan yang membantu pengguna memantau pengeluaran dan pemasukan harian dalam satu dashboard, dibangun dengan HTML, CSS, dan JavaScript',
     proj_veggiezz: 'Platform e-commerce khusus sayuran yang membantu konsumen membeli sayur segar secara online, dibangun dengan React, Tailwind CSS, Node/Express, dan MySQL.',
     proj_nutrifit: 'Platform kesehatan berbasis edukasi dan konsultasi online, dibangun dengan Next.js, Supabase, dan Tailwind CSS.',
