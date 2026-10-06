@@ -269,7 +269,7 @@
   </head>
   <body class="bg-b transition-colors duration-300">
     <!-- HEADER SECTION -->
-    <header class="container mx-auto fixed z-50">
+    <header class="fixed top-0 inset-x-0 w-full z-50">
       <div class="w-full flex justify-between items-center h-20 py-2 px-4 sm:px-10 md:px-20 bg-a accent-border border-b-2 transition-colors duration-300">
         <div class="w-16 md:w-24 flex justify-center items-center">
           <a href="" class="hover-accent transition-colors duration-300">
@@ -401,8 +401,7 @@
         </div>
         <div class="content2 w-full md:w-200 text-center md:text-left" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
           <p class="text-base md:text-xl text-neutral-700 dark:text-white" data-i18n="about_desc">
-            Hello I am Rijal Pratama, I am a FrontEnd developer with 2 years of experience. I have a strong ability to create attractive and functional interfaces. With basic skills in HTML, CSS, and JavaScript, I am also ready to work in a
-            team. Besides that, I have a strong desire to continue learning web development in the future.
+            Hello, I am Rijal Pratama, a Frontend Developer with 3 years of experience. I have a strong ability to create attractive and functional interfaces. Beyond my solid foundation in HTML, CSS, and JavaScript, I am also proficient with frameworks and technologies such as React.js, Next.js, Laravel, and PHP, and I use Tailwind CSS and Bootstrap 5 to build responsive, modern designs. I am ready to work in a team, and I have a strong desire to keep learning and growing in web development.
           </p>
           <div class="flex flex-col md:flex-row flex-wrap justify-center md:justify-start items-center gap-3 md:gap-4 lg:gap-5 mt-6 md:mt-8">
             <a href="https://drive.google.com/drive/u/0/folders/1pPpFARP7Zv202-p2O3iYO0zLhXxXHtb7" target="_blank" class="group w-full md:w-auto"
@@ -480,178 +479,172 @@
     </div>
 
     <!-- PORTOFOLIO SECTION -->
-    <div id="portofolio" class="mx-auto min-h-screen pt-28 pb-16 px-4 sm:px-10 md:px-20 bg-a transition-colors duration-300">
-      <div>
-        <div class="text-center">
-          <p class="text-neutral-600 dark:text-gray-300" data-aos="fade-down" data-aos-duration="800" data-aos-easing="ease-out-cubic" data-i18n="portofolio_tagline">~Latest Project~</p>
-          <h2 class="text-2xl md:text-3xl font-bold text-neutral-900 dark:text-white mt-2"><span data-i18n="portofolio_title_prefix">My</span> <span class="accent-text" data-i18n="portofolio_title_accent">Portofolio</span></h2>
-        </div>
+    <!-- PORTOFOLIO SECTION -->
+<div id="portofolio" class="mx-auto min-h-screen pt-28 pb-16 px-4 sm:px-10 md:px-20 bg-a transition-colors duration-300">
+  <div class="text-center">
+    <p class="text-neutral-600 dark:text-gray-300" data-aos="fade-down" data-aos-duration="800" data-aos-easing="ease-out-cubic" data-i18n="portofolio_tagline">~Latest Project~</p>
+    <h2 class="text-2xl md:text-3xl font-bold text-neutral-900 dark:text-white mt-2">
+      <span data-i18n="portofolio_title_prefix">My</span>
+      <span class="accent-text" data-i18n="portofolio_title_accent">Portofolio</span>
+    </h2>
+  </div>
 
-        <div class="flex justify-center gap-4 mt-8" data-aos="fade-in">
-          <button onclick="filterProjects('all', this)" class="filter-btn px-5 py-2 accent-bg accent-ring-active font-bold rounded-lg shadow-md hover:scale-105 transition-all duration-300 md:p-3 p-2" data-i18n="filter_all">All</button>
-          <button
-            onclick="filterProjects('dinamis', this)"
-            class="filter-btn px-5 py-2 bg-gray-200 dark:bg-neutral-600 text-neutral-900 dark:text-white font-bold rounded-lg shadow-md hover:bg-gray-300 dark:hover:bg-neutral-500 hover:scale-105 transition-all duration-300 md:p-3 p-2"
-            data-i18n="filter_dinamis"
-          >
-            Dinamis
-          </button>
-          <button
-            onclick="filterProjects('statis', this)"
-            class="filter-btn px-5 py-2 bg-gray-200 dark:bg-neutral-600 text-neutral-900 dark:text-white font-bold rounded-lg shadow-md hover:bg-gray-300 dark:hover:bg-neutral-500 hover:scale-105 transition-all duration-300 md:p-3 p-2"
-            data-i18n="filter_statis"
-          >
-            Statis
-          </button>
-        </div>
+  <!-- Filter -->
+  <div class="flex flex-wrap justify-center gap-3 md:gap-4 mt-8" data-aos="fade-in">
+    <button onclick="filterProjects('all', this)" class="filter-btn px-5 py-2 accent-bg accent-ring-active font-bold rounded-lg shadow-md hover:scale-105 transition-all duration-300" data-i18n="filter_all">All</button>
+    <button onclick="filterProjects('dinamis', this)" class="filter-btn px-5 py-2 bg-gray-200 dark:bg-neutral-600 text-neutral-900 dark:text-white font-bold rounded-lg shadow-md hover:bg-gray-300 dark:hover:bg-neutral-500 hover:scale-105 transition-all duration-300" data-i18n="filter_dinamis">Dinamis</button>
+    <button onclick="filterProjects('statis', this)" class="filter-btn px-5 py-2 bg-gray-200 dark:bg-neutral-600 text-neutral-900 dark:text-white font-bold rounded-lg shadow-md hover:bg-gray-300 dark:hover:bg-neutral-500 hover:scale-105 transition-all duration-300" data-i18n="filter_statis">Statis</button>
+  </div>
 
-        <div class="mt-8 md:mt-12 text-center">
-          <div class="container-content flex flex-wrap justify-center gap-12 mx-5 my-5">
-            <div class="container-content flex flex-wrap justify-center gap-12 mx-5 my-5">
+  <!-- Daftar project (hanya SATU container) -->
+  <div class="container-content flex flex-wrap justify-center gap-8 md:gap-12 mt-8 md:mt-12 mx-auto max-w-7xl">
 
-              <!-- Mulai tambahkan project disini -->
-               <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4 flex flex-col" data-category="dinamis">
-                <img src="asset/subotManajemen.png" alt="picture aplikasi money tracker" class="text-center" />
-                <h4 class="text-center font-bold" data-i18n="title_port">Peningkatan Sistem Manajemen Sukarobot Academy.</h4>
-                <p class="text-center flex-grow" data-i18n="proj_manajemenSub">Added and improved various features for the office management system at my internship site, including payment invoicing, student data management, and trial class registration forms. Built using Laravel 12 and MySQL.</p>
-                <a href="https://www.sukarobot.id/" target="_blank" class="text-center flex justify-center">
-                  <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center">
-                    <i class="fa-solid fa-magnifying-glass"></i><span data-i18n="read_more">Read More!</span>
-                  </button>
-                </a>
-              </div>
-
-               <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4 flex flex-col" data-category="dinamis">
-                <img src="asset/lms.png" alt="picture aplikasi money tracker" class="text-center" />
-                <h4 class="text-center font-bold" data-i18n="title_port">Pengembangan Platform LMS Multi-Cabang</h4>
-                <p class="text-center flex-grow" data-i18n="proj_lms">Added and improved various features for the office management system at my internship site, including payment invoicing, student data management, and trial class registration forms. Built using Laravel 12 and MySQL.</p>
-                <a href="https://sukarobot.com/" target="_blank" class="text-center flex justify-center">
-                  <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center">
-                    <i class="fa-solid fa-magnifying-glass"></i><span data-i18n="read_more">Read More!</span>
-                  </button>
-                </a>
-              </div>
-
-              <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4 flex flex-col" data-category="dinamis">
-                <img src="asset/employa.png" alt="picture website nutrifit" class="text-center" />
-                <h4 class="text-center font-bold">Employa</h4>
-                <p class="text-center flex-grow" data-i18n="proj_emply">Employa,This website was built for employee data processing within a company, utilizing native PHP, Tailwind CSS, and MySQL as the database.</p>
-                <a href="https://employi.ct.ws/" target="_blank" class="text-center flex justify-center">
-                  <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center">
-                    <i class="fa-solid fa-magnifying-glass"></i><span data-i18n="read_more">Read More!</span>
-                  </button>
-                </a>
-              </div>
-
-              <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4 flex flex-col" data-category="dinamis">
-                <img src="asset/nutrifit.png" alt="picture website nutrifit" class="text-center" />
-                <h4 class="text-center font-bold">Nutrifit</h4>
-                <p class="text-center flex-grow" data-i18n="proj_nutrifit">Nutrifit is an education- and consultation-based health website, built using Next.js, Supabase, and Tailwind CSS.</p>
-                <a href="https://nutrifit-web-app-opal.vercel.app/" target="_blank" class="text-center flex justify-center">
-                  <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center">
-                    <i class="fa-solid fa-magnifying-glass"></i><span data-i18n="read_more">Read More!</span>
-                  </button>
-                </a>
-              </div>
-
-              <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4 flex flex-col" data-category="dinamis">
-                <img src="asset/moneytracker.png" alt="picture aplikasi money tracker" class="text-center" />
-                <h4 class="text-center font-bold">Money Tracker</h4>
-                <p class="text-center flex-grow" data-i18n="proj_moneytracker">A financial tracking application built with HTML, CSS, and JavaScript that helps users monitor daily expenses and income on a single dashboard.</p>
-                <a href="https://money-trancker.vercel.app/" target="_blank" class="text-center flex justify-center">
-                  <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center">
-                    <i class="fa-solid fa-magnifying-glass"></i><span data-i18n="read_more">Read More!</span>
-                  </button>
-                </a>
-              </div>
-
-              <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4 flex flex-col" data-category="dinamis">
-                <img src="asset/studyFlow.png" alt="picture aplikasi money tracker" class="text-center" />
-                <h4 class="text-center font-bold">StudyFlow</h4>
-                <p class="text-center flex-grow" data-i18n="proj_studyFlow">This application is built using HTML, CSS (vanila), and JavaScript. a system to help improve learning focus, free from distractions</p>
-                <a href="https://study-flow-drab-three.vercel.app/" target="_blank" class="text-center flex justify-center">
-                  <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center">
-                    <i class="fa-solid fa-magnifying-glass"></i><span data-i18n="read_more">Read More!</span>
-                  </button>
-                </a>
-              </div>
-
-
-               <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4 flex flex-col" data-category="dinamis">
-                <img src="asset/veggiez.png" alt="picture website veggiez" class="text-center" />
-                <h4 class="text-center font-bold">Veggiezz (e-commerce)</h4>
-                <p class="text-center flex-grow" data-i18n="proj_veggiezz">This website is an e-commerce website dedicated to vegetables. It was built using React + Tailwind CSS (frontend), Node/Express (backend), and MySQL (database).</p>
-                <a href="https://www.sakaproject.com/frontend_veggiezz" target="_blank" class="text-center flex justify-center">
-                  <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center">
-                    <i class="fa-solid fa-magnifying-glass"></i><span data-i18n="read_more">Read More!</span>
-                  </button>
-                </a>
-              </div>
-
-              
-
-              <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4 flex flex-col" data-category="dinamis">
-                <img src="asset/flood.png" alt="picture pemetaan rawan banjir di sukabumi" class="text-center" />
-                <h4 class="text-center font-bold">Flood-Prone</h4>
-                <p class="text-center flex-grow" data-i18n="proj_flood">
-                  This website is used to identify flood-prone areas in each sub-district in Sukabumi Regency, along with their vulnerability levels. The technologies used include HTML, CSS, JavaScript, and several libraries such as Open
-                  Streetmap and Leaflite.js.
-                </p>
-                <a href="https://flood-prone.vercel.app/" target="_blank" class="text-center flex justify-center">
-                  <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center">
-                    <i class="fa-solid fa-magnifying-glass"></i><span data-i18n="read_more">Read More!</span>
-                  </button>
-                </a>
-              </div>
-
-              <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4 flex flex-col" data-category="statis">
-                <img src="asset/kalkulator.png" alt="picture calculator" class="text-center" />
-                <h4 class="text-center font-bold">Kalkulator App</h4>
-                <p class="text-center flex-grow" data-i18n="proj_kalkulator">This application is built using HTML, CSS, JavaScript, and a little local storage implementation.</p>
-                <a href="https://app-kalkulator.vercel.app/" target="_blank" class="text-center flex justify-center">
-                  <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center">
-                    <i class="fa-solid fa-magnifying-glass"></i><span data-i18n="read_more">Read More!</span>
-                  </button>
-                </a>
-              </div>
-
-              <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4 flex flex-col" data-category="statis">
-                <img src="asset/pzn_cloning.png" alt="picture cloning web pzn" class="text-center" />
-                <h4 class="text-center font-bold">(cloningUI) Web Programer</h4>
-                <p class="text-center flex-grow" data-i18n="proj_cloning">This application was built using HTML and CSS, created solely for layout practice purposes.</p>
-                <a href="https://money-trancker.vercel.app/" target="_blank" class="text-center flex justify-center">
-                  <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center">
-                    <i class="fa-solid fa-magnifying-glass"></i><span data-i18n="read_more">Read More!</span>
-                  </button>
-                </a>
-              </div>
-
-              <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4 flex flex-col" data-category="statis">
-                <img src="asset/portofolioreact.png" alt="picture personal web" class="text-center" />
-                <h4 class="text-center font-bold">Personal Portofolio_(ReactJs)</h4>
-                <p class="text-center flex-grow" data-i18n="proj_portofolioreact">This portfolio is built using React JS and TailwindCSS using the vite package. Suitable for formal portfolios.</p>
-                <a href="https://portofolio-rijal-react.vercel.app/" target="_blank" class="text-center flex justify-center">
-                  <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center">
-                    <i class="fa-solid fa-magnifying-glass"></i><span data-i18n="read_more">Read More!</span>
-                  </button>
-                </a>
-              </div>
-
-              <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4 flex flex-col" data-category="statis">
-                <img src="asset/kopi.png" alt="picture coffe" class="text-center" />
-                <h4 class="text-center font-bold">E-commerce Coffe</h4>
-                <p class="text-center flex-grow" data-i18n="proj_kopi">This application was built using React Js & TailwindCSS, equipped with payment features.</p>
-                <a href="https://e-commerce-coffe-apps.vercel.app/#home" target="_blank" class="text-center flex justify-center">
-                  <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center">
-                    <i class="fa-solid fa-magnifying-glass"></i><span data-i18n="read_more">Read More!</span>
-                  </button>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <!-- 1. Sukarobot -->
+    <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4 flex flex-col" data-category="dinamis">
+      <img src="asset/subotManajemen.png" alt="Sukarobot Academy management system" class="w-full aspect-video object-cover rounded-md" />
+      <h4 class="text-center font-bold mt-3 md:min-h-14" data-i18n="title_sukarobot">Enhancement of the SukaRobot Academy management system</h4>
+      <p class="text-center grow mt-2" data-i18n="proj_manajemenSub">Added and improved various features for the office management system at my internship site, including payment invoicing, student data management, and trial class registration forms. Built using Laravel 12 and MySQL.</p>
+      <a href="https://www.sukarobot.id/" target="_blank" rel="noopener noreferrer" class="mt-auto flex justify-center">
+        <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center">
+          <i class="fa-solid fa-magnifying-glass"></i><span data-i18n="read_more">Read More!</span>
+        </button>
+      </a>
     </div>
+
+    <!-- 2. LMS -->
+    <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4 flex flex-col" data-category="dinamis">
+      <img src="asset/lms.png" alt="Platform LMS multi-cabang Sukarobot" class="w-full aspect-video object-cover rounded-md" />
+      <h4 class="text-center font-bold mt-3 md:min-h-14" data-i18n="title_lms">Multi-Branch LMS Platform Development</h4>
+      <p class="text-center grow mt-2" data-i18n="proj_lms">Handling setup and UI component additions, including updating documentation and fixing code bugs, to ensure users at every branch receive accurate information.</p>
+      <a href="https://sukarobot.com/" target="_blank" rel="noopener noreferrer" class="mt-auto flex justify-center">
+        <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center">
+          <i class="fa-solid fa-magnifying-glass"></i><span data-i18n="read_more">Read More!</span>
+        </button>
+      </a>
+    </div>
+
+    <!-- 3. Employa -->
+    <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4 flex flex-col" data-category="dinamis">
+      <img src="asset/employa.png" alt="Website Employa" class="w-full aspect-video object-cover rounded-md" />
+      <h4 class="text-center font-bold mt-3 md:min-h-14">Employa</h4>
+      <p class="text-center grow mt-2" data-i18n="proj_emply">Employa, this website was built for employee data processing within a company, utilizing native PHP, Tailwind CSS, and MySQL as the database.</p>
+      <a href="https://employi.ct.ws/" target="_blank" rel="noopener noreferrer" class="mt-auto flex justify-center">
+        <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center">
+          <i class="fa-solid fa-magnifying-glass"></i><span data-i18n="read_more">Read More!</span>
+        </button>
+      </a>
+    </div>
+
+    <!-- 4. Nutrifit -->
+    <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4 flex flex-col" data-category="dinamis">
+      <img src="asset/nutrifit.png" alt="Website Nutrifit" class="w-full aspect-video object-cover rounded-md" />
+      <h4 class="text-center font-bold mt-3 md:min-h-14">Nutrifit</h4>
+      <p class="text-center grow mt-2" data-i18n="proj_nutrifit">Nutrifit is an education- and consultation-based health website, built using Next.js, Supabase, and Tailwind CSS.</p>
+      <a href="https://nutrifit-web-app-opal.vercel.app/" target="_blank" rel="noopener noreferrer" class="mt-auto flex justify-center">
+        <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center">
+          <i class="fa-solid fa-magnifying-glass"></i><span data-i18n="read_more">Read More!</span>
+        </button>
+      </a>
+    </div>
+
+    <!-- 5. Money Tracker -->
+    <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4 flex flex-col" data-category="dinamis">
+      <img src="asset/moneytracker.png" alt="Aplikasi Money Tracker" class="w-full aspect-video object-cover rounded-md" />
+      <h4 class="text-center font-bold mt-3 md:min-h-14">Money Tracker</h4>
+      <p class="text-center grow mt-2" data-i18n="proj_moneytracker">A financial tracking application built with HTML, CSS, and JavaScript that helps users monitor daily expenses and income on a single dashboard.</p>
+      <a href="https://money-trancker.vercel.app/" target="_blank" rel="noopener noreferrer" class="mt-auto flex justify-center">
+        <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center">
+          <i class="fa-solid fa-magnifying-glass"></i><span data-i18n="read_more">Read More!</span>
+        </button>
+      </a>
+    </div>
+
+    <!-- 6. StudyFlow -->
+    <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4 flex flex-col" data-category="dinamis">
+      <img src="asset/studyFlow.png" alt="Aplikasi StudyFlow" class="w-full aspect-video object-cover rounded-md" />
+      <h4 class="text-center font-bold mt-3 md:min-h-14">StudyFlow</h4>
+      <p class="text-center grow mt-2" data-i18n="proj_studyFlow">This application is built using HTML, CSS (vanilla), and JavaScript. A system to help improve learning focus, free from distractions.</p>
+      <a href="https://study-flow-drab-three.vercel.app/" target="_blank" rel="noopener noreferrer" class="mt-auto flex justify-center">
+        <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center">
+          <i class="fa-solid fa-magnifying-glass"></i><span data-i18n="read_more">Read More!</span>
+        </button>
+      </a>
+    </div>
+
+    <!-- 7. Veggiezz -->
+    <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4 flex flex-col" data-category="dinamis">
+      <img src="asset/veggiez.png" alt="Website e-commerce Veggiezz" class="w-full aspect-video object-cover rounded-md" />
+      <h4 class="text-center font-bold mt-3 md:min-h-14">Veggiezz (e-commerce)</h4>
+      <p class="text-center grow mt-2" data-i18n="proj_veggiezz">This website is an e-commerce website dedicated to vegetables. It was built using React + Tailwind CSS (frontend), Node/Express (backend), and MySQL (database).</p>
+      <a href="https://www.sakaproject.com/frontend_veggiezz" target="_blank" rel="noopener noreferrer" class="mt-auto flex justify-center">
+        <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center">
+          <i class="fa-solid fa-magnifying-glass"></i><span data-i18n="read_more">Read More!</span>
+        </button>
+      </a>
+    </div>
+
+    <!-- 8. Flood-Prone -->
+    <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4 flex flex-col" data-category="dinamis">
+      <img src="asset/flood.png" alt="Pemetaan rawan banjir di Sukabumi" class="w-full aspect-video object-cover rounded-md" />
+      <h4 class="text-center font-bold mt-3 md:min-h-14">Flood-Prone</h4>
+      <p class="text-center grow mt-2" data-i18n="proj_flood">This website is used to identify flood-prone areas in each sub-district in Sukabumi Regency, along with their vulnerability levels. The technologies used include HTML, CSS, JavaScript, and several libraries such as OpenStreetMap and Leaflet.js.</p>
+      <a href="https://flood-prone.vercel.app/" target="_blank" rel="noopener noreferrer" class="mt-auto flex justify-center">
+        <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center">
+          <i class="fa-solid fa-magnifying-glass"></i><span data-i18n="read_more">Read More!</span>
+        </button>
+      </a>
+    </div>
+
+    <!-- 9. Kalkulator -->
+    <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4 flex flex-col" data-category="statis">
+      <img src="asset/kalkulator.png" alt="Aplikasi kalkulator" class="w-full aspect-video object-cover rounded-md" />
+      <h4 class="text-center font-bold mt-3 md:min-h-14">Kalkulator App</h4>
+      <p class="text-center grow mt-2" data-i18n="proj_kalkulator">This application is built using HTML, CSS, JavaScript, and a little local storage implementation.</p>
+      <a href="https://app-kalkulator.vercel.app/" target="_blank" rel="noopener noreferrer" class="mt-auto flex justify-center">
+        <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center">
+          <i class="fa-solid fa-magnifying-glass"></i><span data-i18n="read_more">Read More!</span>
+        </button>
+      </a>
+    </div>
+
+    <!-- 10. Cloning UI -->
+    <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4 flex flex-col" data-category="statis">
+      <img src="asset/pzn_cloning.png" alt="Cloning web Programmer Zaman Now" class="w-full aspect-video object-cover rounded-md" />
+      <h4 class="text-center font-bold mt-3 md:min-h-14">(cloningUI) Web Programer</h4>
+      <p class="text-center grow mt-2" data-i18n="proj_cloning">This application was built using HTML and CSS, created solely for layout practice purposes.</p>
+      <a href="https://money-trancker.vercel.app/" target="_blank" rel="noopener noreferrer" class="mt-auto flex justify-center">
+        <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center">
+          <i class="fa-solid fa-magnifying-glass"></i><span data-i18n="read_more">Read More!</span>
+        </button>
+      </a>
+    </div>
+
+    <!-- 11. Portofolio React -->
+    <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4 flex flex-col" data-category="statis">
+      <img src="asset/portofolioreact.png" alt="Portofolio versi ReactJs" class="w-full aspect-video object-cover rounded-md" />
+      <h4 class="text-center font-bold mt-3 md:min-h-14">Personal Portofolio (ReactJs)</h4>
+      <p class="text-center grow mt-2" data-i18n="proj_portofolioreact">This portfolio is built using React JS and TailwindCSS using the Vite package. Suitable for formal portfolios.</p>
+      <a href="https://portofolio-rijal-react.vercel.app/" target="_blank" rel="noopener noreferrer" class="mt-auto flex justify-center">
+        <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center">
+          <i class="fa-solid fa-magnifying-glass"></i><span data-i18n="read_more">Read More!</span>
+        </button>
+      </a>
+    </div>
+
+    <!-- 12. E-commerce Coffee -->
+    <div class="project-item content w-70 p-3 bg-gray-300 rounded-lg transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-4 flex flex-col" data-category="statis">
+      <img src="asset/kopi.png" alt="E-commerce kopi" class="w-full aspect-video object-cover rounded-md" />
+      <h4 class="text-center font-bold mt-3 md:min-h-14">E-commerce Coffee</h4>
+      <p class="text-center grow mt-2" data-i18n="proj_kopi">This application was built using React JS & TailwindCSS, equipped with payment features.</p>
+      <a href="https://e-commerce-coffe-apps.vercel.app/#home" target="_blank" rel="noopener noreferrer" class="mt-auto flex justify-center">
+        <button class="text-lg flex font-semibold m-3 p-3 accent-bg rounded-lg cursor-pointer hover:shadow-xl gap-2.5 justify-center items-center">
+          <i class="fa-solid fa-magnifying-glass"></i><span data-i18n="read_more">Read More!</span>
+        </button>
+      </a>
+    </div>
+
+  </div>
+</div>
 
     <!-- CONTACT SECTION -->
     <div id="contact" class="contact-container bg-b pt-28 pb-20 px-6 transition-colors duration-300">

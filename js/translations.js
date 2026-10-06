@@ -18,7 +18,7 @@ const translations = {
     about_title_accent: 'About',
     about_title_rest: 'Me',
     about_desc:
-      'Hello I am Rijal Pratama, I am a FrontEnd developer with 2 years of experience. I have a strong ability to create attractive and functional interfaces. With basic skills in HTML, CSS, and JavaScript, I am also ready to work in a team. Besides that, I have a strong desire to continue learning web development in the future.',
+      ' Hello, I am Rijal Pratama, a Frontend Developer with 3 years of experience. I have a strong ability to create attractive and functional interfaces. Beyond my solid foundation in HTML, CSS, and JavaScript, I am also proficient with frameworks and technologies such as React.js, Next.js, Laravel, and PHP, and I use Tailwind CSS and Bootstrap 5 to build responsive, modern designs. I am ready to work in a team, and I have a strong desire to keep learning and growing in web development.',
     about_download_cv: 'Download CV!',
     sertifications: 'Sertifications!',
 
@@ -95,7 +95,7 @@ const translations = {
     about_title_accent: 'Tentang',
     about_title_rest: 'Saya',
     about_desc:
-      'Halo, saya Rijal Pratama, seorang FrontEnd developer dengan pengalaman 2 tahun. Saya memiliki kemampuan yang baik dalam membuat tampilan yang menarik dan fungsional. Dengan keahlian dasar HTML, CSS, dan JavaScript, saya juga siap bekerja dalam tim. Selain itu, saya memiliki keinginan kuat untuk terus belajar pengembangan web di masa depan.',
+      'Halo, saya Rijal Pratama, seorang Frontend Developer dengan pengalaman 3 tahun. Saya memiliki kemampuan yang kuat dalam membuat antarmuka yang menarik dan fungsional. Selain menguasai dasar HTML, CSS, dan JavaScript, saya juga mahir menggunakan framework dan teknologi seperti React.js, Next.js, Laravel, dan PHP, serta memakai Tailwind CSS dan Bootstrap 5 untuk membangun desain yang responsif dan modern. Saya siap bekerja dalam tim, dan saya memiliki keinginan kuat untuk terus belajar dan berkembang di bidang pengembangan web.',
     about_download_cv: 'Unduh CV!',
     sertifications: 'Sertifikat!',
 
