@@ -67,8 +67,6 @@ function setLanguage(lang) {
   // 4) Sinkronkan atribut lang di <html> (bagus untuk aksesibilitas & SEO)
   document.documentElement.setAttribute('lang', lang);
 
-  // 5) Restart efek typewriter pakai teks sesuai bahasa terpilih
-  restartTypewriter(lang);
 }
 
 langToggleBtn.addEventListener('click', () => {
@@ -85,21 +83,18 @@ document.addEventListener('DOMContentLoaded', () => {
 // Menangani klik pada hamburger menu
 hamburgerMenu.addEventListener('click', (event) => {
   event.stopPropagation();
-  const isOpen = navbarMobile.classList.contains('open');
+  const isOpen = !navbarMobile.classList.contains('hidden');
 
-  if (isOpen) {
-    navbarMobile.classList.remove('open');
-    body.classList.remove('overflow-hidden');
-  } else {
-    navbarMobile.classList.add('open');
-    body.classList.add('overflow-hidden');
-  }
+  navbarMobile.classList.toggle('hidden', isOpen);
+  hamburgerMenu.setAttribute('aria-expanded', String(!isOpen));
+  body.classList.toggle('overflow-hidden', !isOpen);
 });
 
 // Tutup menu ketika klik di luar
 document.addEventListener('click', (event) => {
   if (!navbarMobile.contains(event.target) && !hamburgerMenu.contains(event.target)) {
-    navbarMobile.classList.remove('open');
+    navbarMobile.classList.add('hidden');
+    hamburgerMenu.setAttribute('aria-expanded', 'false');
     body.classList.remove('overflow-hidden');
   }
 });
@@ -108,55 +103,11 @@ document.addEventListener('click', (event) => {
 const mobileNavLinks = navbarMobile.querySelectorAll('a[href^="#"], a[href="#"]');
 mobileNavLinks.forEach((link) => {
   link.addEventListener('click', () => {
-    navbarMobile.classList.remove('open');
+    navbarMobile.classList.add('hidden');
+    hamburgerMenu.setAttribute('aria-expanded', 'false');
     body.classList.remove('overflow-hidden');
   });
 });
-
-// ============================
-// Typewriter Effect (kini mendukung ganti bahasa)
-// ============================
-let typewriterTimeoutId = null;
-let typewriterRunId = 0; // dipakai untuk "membatalkan" loop lama saat bahasa berganti
-
-function restartTypewriter(lang) {
-  const typewriterElement = document.querySelector('.typewriter-animation');
-  if (!typewriterElement) return;
-
-  // Hentikan loop yang sedang berjalan
-  typewriterRunId++;
-  const myRunId = typewriterRunId;
-  if (typewriterTimeoutId) clearTimeout(typewriterTimeoutId);
-
-  const text = lang === 'id' ? 'Pengembang Fullstack' : 'Fullstack Developer';
-  let charIndex = 0;
-  let isDeleting = false;
-  const typingSpeed = 120;
-  const deletingSpeed = 60;
-  const pauseBetween = 1500;
-
-  typewriterElement.textContent = '';
-
-  function typeWriter() {
-    // Kalau ada run baru yang mulai (bahasa ganti lagi), hentikan yang lama
-    if (myRunId !== typewriterRunId) return;
-
-    if (!isDeleting && charIndex < text.length) {
-      typewriterElement.textContent = text.substring(0, charIndex + 1);
-      charIndex++;
-      typewriterTimeoutId = setTimeout(typeWriter, typingSpeed);
-    } else if (isDeleting && charIndex > 0) {
-      typewriterElement.textContent = text.substring(0, charIndex - 1);
-      charIndex--;
-      typewriterTimeoutId = setTimeout(typeWriter, deletingSpeed);
-    } else {
-      isDeleting = !isDeleting;
-      typewriterTimeoutId = setTimeout(typeWriter, isDeleting ? pauseBetween : 500);
-    }
-  }
-
-  typewriterTimeoutId = setTimeout(typeWriter, 300);
-}
 
 // Kelas tombol filter mengikuti token warna aktif dan netral.
 const FILTER_ACTIVE_CLASSES = ['bg-brand', 'text-on-brand', 'hover:bg-brand-hover', 'ring-2', 'ring-brand'];
@@ -189,16 +140,26 @@ function filterProjects(category, btnElement) {
 // update link aktif
 const navLinks = document.querySelectorAll('.nav-link');
 const sections = document.querySelectorAll('#home, #about, #skill, #portofolio, #contact');
+const headerBar = document.getElementById('headerBar');
+
+function updateHeaderBorder() {
+  if (!headerBar) return;
+  headerBar.classList.toggle('border-line', window.scrollY > 8);
+  headerBar.classList.toggle('border-transparent', window.scrollY <= 8);
+}
+
+window.addEventListener('scroll', updateHeaderBorder, { passive: true });
+updateHeaderBorder();
 
 function setActiveNav(targetSectionId) {
   navLinks.forEach((link) => {
     const target = link.dataset.section;
     if (target === targetSectionId) {
-      link.classList.add('text-brand', 'font-semibold', 'active');
-      link.classList.remove('text-ink');
+      link.classList.remove('border-transparent', 'text-ink');
+      link.classList.add('border-brand', 'text-ink', 'active');
     } else {
-      link.classList.remove('text-brand', 'font-semibold', 'active');
-      link.classList.add('text-ink');
+      link.classList.remove('border-brand', 'active');
+      link.classList.add('border-transparent', 'text-ink');
     }
   });
 }

@@ -52,31 +52,6 @@
         display: block;
       }
 
-      .typewriter-animation {
-        display: inline-block;
-        position: relative;
-      }
-
-      .typewriter-animation::after {
-        content: '';
-        position: absolute;
-        right: -2px;
-        top: 0;
-        bottom: 0;
-        width: 2px;
-        background-color: var(--brand);
-        animation: blink-caret 0.75s step-end infinite;
-      }
-
-      @keyframes blink-caret {
-        from,
-        to {
-          opacity: 0;
-        }
-        50% {
-          opacity: 1;
-        }
-      }
       .h-dvh {
         height: 100dvh;
       }
@@ -97,32 +72,19 @@
         scroll-margin-top: 6rem;
       }
 
-      #navbarMobile {
-        position: fixed;
-        top: 50%;
-        left: 0;
-        right: auto;
-        width: 220px;
-        transform: translateY(-50%) translateX(-100%);
-        transform-origin: left center;
-        z-index: 1000;
-        transition: transform 0.3s ease-in-out;
-      }
+      .lang-label { font-size: 13px; line-height: 1; }
 
-      #navbarMobile.open {
-        transform: translateY(-50%) translateX(0);
+      .hero-enter {
+        animation: hero-enter 450ms ease-out both;
       }
+      .hero-enter-delay-1 { animation-delay: 60ms; }
+      .hero-enter-delay-2 { animation-delay: 120ms; }
+      .hero-enter-delay-3 { animation-delay: 180ms; }
+      .hero-enter-delay-4 { animation-delay: 240ms; }
 
-      /* Label kode bahasa (EN/ID) di tombol toggle bahasa */
-      .lang-label {
-        font-size: 9px;
-        line-height: 1;
-        margin-top: 1px;
-      }
-      @media (min-width: 768px) {
-        .lang-label {
-          font-size: 10px;
-        }
+      @keyframes hero-enter {
+        from { opacity: 0; transform: translateY(12px); }
+        to { opacity: 1; transform: translateY(0); }
       }
 
       /* whatssap style */
@@ -219,32 +181,31 @@
   </head>
   <body class="bg-canvas transition-colors duration-300">
     <!-- HEADER SECTION -->
-    <header class="fixed top-0 inset-x-0 w-full z-50">
-      <div class="w-full flex justify-between items-center h-20 py-2 px-4 sm:px-10 md:px-20 bg-surface border-line border-b transition-colors duration-300">
-        <div class="w-16 md:w-24 flex justify-center items-center">
-          <a href="" class="hover:text-brand transition-colors duration-300">
-            <img src="asset/biru.png" alt="Rijal Logo biru" class="w-12 md:w-20 logo-light" />
-            <img src="asset/logo.png" alt="Rijal Logo putih" class="w-12 md:w-20 logo-dark" />
+    <header class="fixed inset-x-0 top-0 z-50">
+      <div id="headerBar" class="mx-auto flex h-16 w-full items-center justify-between px-5 sm:px-8 lg:px-12 bg-canvas/85 backdrop-blur border-b border-transparent transition-[border-color,background-color] duration-200">
+        <div class="flex h-10 w-10 items-center">
+          <a href="#home" aria-label="Kembali ke awal" class="transition-opacity duration-200 hover:opacity-80">
+            <img src="asset/biru.png" alt="Logo Rijal" class="h-10 w-10 object-contain" />
           </a>
         </div>
 
-        <div class="flex items-center gap-4 md:gap-6">
+        <div class="flex items-center gap-2 md:gap-4">
           <nav class="hidden md:flex justify-center items-center">
-            <ul class="flex">
-              <li class="mx-3 lg:mx-6">
-                <a href="#home" class="nav-link font-bold text-ink text-base lg:text-lg hover:text-brand transition-colors duration-300" data-section="home" data-i18n="nav_home">Home</a>
+            <ul class="flex items-center gap-6 lg:gap-8">
+              <li>
+                <a href="#home" class="nav-link relative inline-flex h-16 items-center border-b-2 border-transparent text-[15px]/[1] font-medium text-ink transition-colors duration-200 hover:text-brand" data-section="home" data-i18n="nav_home">Beranda</a>
               </li>
-              <li class="mx-3 lg:mx-6">
-                <a href="#about" class="nav-link font-bold text-ink text-base lg:text-lg hover:text-brand transition-colors duration-300" data-section="about" data-i18n="nav_about">About</a>
+              <li>
+                <a href="#portofolio" class="nav-link relative inline-flex h-16 items-center border-b-2 border-transparent text-[15px]/[1] font-medium text-ink transition-colors duration-200 hover:text-brand" data-section="portofolio" data-i18n="nav_portofolio">Proyek</a>
               </li>
-              <li class="mx-3 lg:mx-6">
-                <a href="#skill" class="nav-link font-bold text-ink text-base lg:text-lg hover:text-brand transition-colors duration-300" data-section="skill" data-i18n="nav_skill">Skill</a>
+              <li>
+                <a href="#about" class="nav-link relative inline-flex h-16 items-center border-b-2 border-transparent text-[15px]/[1] font-medium text-ink transition-colors duration-200 hover:text-brand" data-section="about" data-i18n="nav_about">Tentang</a>
               </li>
-              <li class="mx-3 lg:mx-6">
-                <a href="#portofolio" class="nav-link font-bold text-ink text-base lg:text-lg hover:text-brand transition-colors duration-300" data-section="portofolio" data-i18n="nav_portofolio">Portofolio</a>
+              <li>
+                <a href="#skill" class="nav-link relative inline-flex h-16 items-center border-b-2 border-transparent text-[15px]/[1] font-medium text-ink transition-colors duration-200 hover:text-brand" data-section="skill" data-i18n="nav_skill">Keahlian</a>
               </li>
-              <li class="mx-3 lg:mx-6">
-                <a href="#contact" class="nav-link font-bold text-ink text-base lg:text-lg hover:text-brand transition-colors duration-300" data-section="contact" data-i18n="nav_contact">Contact</a>
+              <li>
+                <a href="#contact" class="nav-link relative inline-flex h-16 items-center border-b-2 border-transparent text-[15px]/[1] font-medium text-ink transition-colors duration-200 hover:text-brand" data-section="contact" data-i18n="nav_contact">Kontak</a>
               </li>
             </ul>
           </nav>
@@ -254,7 +215,7 @@
             id="langToggle"
             type="button"
             aria-label="Change language"
-            class="w-9 h-9 md:w-10 md:h-10 flex flex-col justify-center items-center rounded-full bg-surface-2 hover:bg-brand-tint hover:text-ink transition-colors duration-300 cursor-pointer shrink-0"
+            class="flex h-9 w-9 shrink-0 flex-col items-center justify-center rounded-full text-ink-3 transition-colors duration-200 hover:bg-surface-2 hover:text-ink"
           >
             <i class="fa-solid fa-language text-ink-3 text-sm md:text-base leading-none"></i>
             <span id="langLabel" class="lang-label font-bold text-ink-3">EN</span>
@@ -265,42 +226,32 @@
             id="themeToggle"
             type="button"
             aria-label="Toggle dark mode"
-            class="w-9 h-9 md:w-10 md:h-10 flex justify-center items-center rounded-full bg-surface-2 hover:bg-brand-tint hover:text-ink transition-colors duration-300 cursor-pointer shrink-0"
+            class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-ink-3 transition-colors duration-200 hover:bg-surface-2 hover:text-ink"
           >
             <i id="themeIcon" class="fa-solid fa-moon text-ink-3 text-sm md:text-base"></i>
           </button>
 
-          <div id="hamburgerMenu" class="hamburger-menu flex md:hidden justify-center items-center">
-            <i class="fa-solid fa-bars font-bold text-lg text-ink hover:text-brand transition-colors duration-300 cursor-pointer"></i>
-          </div>
+          <button id="hamburgerMenu" type="button" aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="navbarMobile" class="flex h-9 w-9 items-center justify-center rounded-full text-ink md:hidden">
+            <i class="fa-solid fa-bars text-lg"></i>
+          </button>
         </div>
 
-        <nav id="navbarMobile" class="linknavigasi fixed md:hidden top-1/2 left-0 z-50 shadow-2xl flex-col bg-surface w-[220px] rounded-xl transition-transform duration-300 ease-in-out">
-          <ul class="block p-5 ml-0">
-            <li class="mt-4 lg:mx-6">
-              <a href="#home" data-section="home" class="nav-link font-bold flex items-center gap-3 text-ink text-base lg:text-lg hover:text-brand transition-colors duration-300"
-                ><i class="fa-solid fa-house text-xl font-semibold flex items-center"></i><span data-i18n="nav_home">Home</span></a
-              >
+        <nav id="navbarMobile" class="absolute inset-x-0 top-16 hidden border-b border-line bg-canvas/95 px-5 backdrop-blur md:hidden">
+          <ul class="mx-auto max-w-6xl py-2">
+            <li>
+              <a href="#home" data-section="home" class="nav-link flex min-h-12 items-center border-b-2 border-transparent px-2 text-[15px] font-medium text-ink" data-i18n="nav_home">Beranda</a>
             </li>
-            <li class="mt-8 lg:mx-6">
-              <a href="#about" data-section="about" class="nav-link font-bold text-ink flex items-center gap-3 text-base lg:text-lg hover:text-brand transition-colors duration-300"
-                ><i class="fa-solid fa-address-card text-xl font-semibold flex items-center"></i><span data-i18n="nav_about">About</span></a
-              >
+            <li>
+              <a href="#portofolio" data-section="portofolio" class="nav-link flex min-h-12 items-center border-b-2 border-transparent px-2 text-[15px] font-medium text-ink" data-i18n="nav_portofolio">Proyek</a>
             </li>
-            <li class="mt-8 lg:mx-6">
-              <a href="#skill" data-section="skill" class="nav-link font-bold flex items-center gap-3 text-ink text-base lg:text-lg hover:text-brand transition-colors duration-300"
-                ><i class="fa-solid fa-code text-xl font-semibold flex items-center"></i><span data-i18n="nav_skill">Skill</span></a
-              >
+            <li>
+              <a href="#about" data-section="about" class="nav-link flex min-h-12 items-center border-b-2 border-transparent px-2 text-[15px] font-medium text-ink" data-i18n="nav_about">Tentang</a>
             </li>
-            <li class="mt-8 lg:mx-6">
-              <a href="#portofolio" data-section="portofolio" class="nav-link font-bold flex items-center gap-3 text-ink text-base lg:text-lg hover:text-brand transition-colors duration-300"
-                ><i class="fa-solid fa-diagram-project text-xl font-semibold flex items-center"></i><span data-i18n="nav_portofolio">Portofolio</span></a
-              >
+            <li>
+              <a href="#skill" data-section="skill" class="nav-link flex min-h-12 items-center border-b-2 border-transparent px-2 text-[15px] font-medium text-ink" data-i18n="nav_skill">Keahlian</a>
             </li>
-            <li class="mt-8 mb-4 lg:mx-6">
-              <a href="#contact" data-section="contact" class="nav-link font-bold flex items-center gap-3 text-ink text-base lg:text-lg hover:text-brand transition-colors duration-300"
-                ><i class="fa-solid fa-phone text-xl font-semibold flex items-center"></i><span data-i18n="nav_contact">Contact</span></a
-              >
+            <li>
+              <a href="#contact" data-section="contact" class="nav-link flex min-h-12 items-center border-b-2 border-transparent px-2 text-[15px] font-medium text-ink" data-i18n="nav_contact">Kontak</a>
             </li>
           </ul>
         </nav>
@@ -308,127 +259,53 @@
     </header>
 
     <!-- HERO SECTION -->
-    <section id="home" class="mx-auto h-screen md:h-screen pt-32 md:pt-52 px-4 sm:px-10 md:px-20 bg-canvas transition-colors duration-300">
-      <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
-        <div class="content-paragraf p-2 md:p-5 order-2 md:order-1 text-center md:text-left" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="400">
-          <div class="kontent1 pb-3">
-            <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-ink">
-              <span data-i18n="hero_greeting">Hallo I'm Rijal Pratama</span> <br />
-              <span data-i18n="hero_role_prefix">I'm a</span> <span class="text-brand typewriter-animation"></span>
-            </h1>
+    <section id="home" class="flex min-h-[calc(100dvh-4rem)] items-center bg-canvas px-5 py-20 sm:px-8 md:py-16">
+      <div class="mx-auto grid w-full max-w-6xl items-center gap-10 md:grid-cols-12 md:gap-8">
+        <div class="text-left md:col-span-6">
+          <div class="hero-enter mb-4 flex items-center gap-3">
+            <img src="asset/asli1.jpg" alt="Foto profil Rijal Pratama" width="56" height="56" class="h-14 w-14 shrink-0 rounded-full object-cover" />
+            <p class="text-sm font-medium text-ink-3" data-i18n="hero_eyebrow">Rijal Pratama · Fullstack Developer</p>
           </div>
-          <div class="kontent2 w-full md:w-98 pb-5 text-ink-2">
-            <p class="text-base md:text-lg" data-i18n="hero_desc">I am a Software Engineering (FrontEnd development). Welcome to my website. all about me/my history can be seen here!</p>
+          <h1 class="hero-enter hero-enter-delay-1 max-w-[14ch] text-display text-ink" data-i18n="hero_title">Saya membangun antarmuka web yang rapi dan mudah dipakai.</h1>
+          <p class="hero-enter hero-enter-delay-2 mt-5 max-w-[65ch] text-lead text-ink-2" data-i18n="hero_desc">Saya mengerjakan frontend hingga backend untuk membangun website yang responsif dan mudah dipakai.</p>
+          <div class="hero-enter hero-enter-delay-3 mt-7 flex flex-wrap gap-3">
+            <a href="#portofolio" class="inline-flex h-11 items-center justify-center rounded-control bg-brand px-5 text-base font-semibold text-on-brand transition-colors duration-200 hover:bg-brand-hover" data-i18n="hero_projects">Lihat proyek</a>
+            <a href="https://drive.google.com/drive/u/0/folders/1pPpFARP7Zv202-p2O3iYO0zLhXxXHtb7" target="_blank" rel="noopener noreferrer" class="inline-flex h-11 items-center justify-center rounded-control border border-ink-3 px-5 text-base font-semibold text-ink transition-colors duration-200 hover:border-ink" data-i18n="hero_cv">Unduh CV</a>
           </div>
-          <div class="media-social flex gap-4 md:gap-6 text-2xl md:text-3xl justify-center md:justify-start">
-            <a href="https://web.facebook.com/rijal.pratama.1865904?locale=id_ID" class="group transition-transform duration-300 group-hover:scale-105" target="_blank"
-              ><i class="fa-brands fa-facebook text-blue-600 group-hover:scale-120" target="_blank"></i
-            ></a>
-            <a href="https://www.instagram.com/rijalprtmaa_a/" class="group transition-transform duration-300 group-hover:scale-105" target="_blank"
-              ><i class="fa-brands fa-instagram text-2xl md:text-3xl bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 rounded-4xl text-white group-hover:scale-120"></i
-            ></a>
-            <a href="https://github.com/Rijalpratama23" class="group transition-transform duration-300 group-hover:scale-105" target="_blank"><i class="fa-brands fa-github text-ink group-hover:scale-120"></i></a>
-            <a href="https://www.linkedin.com/in/rijal-pratama-6a4a28327/" class="group transition-transform duration-300 group-hover:scale-105" target="_blank"><i class="fa-brands fa-linkedin text-blue-500 group-hover:scale-120"></i></a>
+          <div class="hero-enter hero-enter-delay-4 mt-6 flex gap-4 text-xl">
+            <a href="https://github.com/Rijalpratama23" target="_blank" rel="noopener noreferrer" aria-label="GitHub Rijal Pratama" class="text-ink-3 transition-colors duration-200 hover:text-ink">
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/rijal-pratama-6a4a28327/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Rijal Pratama" class="text-ink-3 transition-colors duration-200 hover:text-ink">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
           </div>
         </div>
 
-        <div
-          class="content-img mb-8 md:mb-0 order-1 md:order-2 shadow-2xl border-2 border-brand rounded-full group w-48 h-48 md:w-auto md:h-auto transition-all duration-300 delay-100"
-          data-aos="fade-up"
-          data-aos-duratios="1000"
-        >
-          <img src="asset/asli2.jpg" alt="picture1" class="rounded-full w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer" />
+        <div class="hero-enter hero-enter-delay-4 relative mx-auto min-h-[17rem] w-full max-w-[35rem] md:col-span-6 md:min-h-[26rem]">
+          <a href="https://sukarobot.com/" target="_blank" rel="noopener noreferrer" class="relative z-10 ml-auto block w-[88%] overflow-hidden rounded-card border border-line bg-surface transition-[border-color] duration-200 hover:border-ink-3" aria-label="Lihat LMS SukaRobot">
+            <div class="flex h-9 items-center gap-1.5 border-b border-line px-3" aria-hidden="true">
+              <span class="h-2 w-2 rounded-full bg-ink-3"></span>
+              <span class="h-2 w-2 rounded-full bg-ink-3"></span>
+              <span class="h-2 w-2 rounded-full bg-ink-3"></span>
+              <span class="ml-2 text-caption text-ink-3">lms.sukarobot</span>
+            </div>
+            <img src="asset/lms.png" alt="Tangkapan layar platform LMS SukaRobot" width="1261" height="676" loading="eager" class="block aspect-[16/10] w-full object-cover object-top" />
+          </a>
+
+          <a href="https://nutrifit-web-app-opal.vercel.app/" target="_blank" rel="noopener noreferrer" class="absolute bottom-0 left-0 z-0 hidden w-[78%] overflow-hidden rounded-card border border-line bg-surface transition-[border-color] duration-200 hover:border-ink-3 md:block" aria-label="Lihat proyek Nutrifit">
+            <div class="flex h-9 items-center gap-1.5 border-b border-line px-3" aria-hidden="true">
+              <span class="h-2 w-2 rounded-full bg-ink-3"></span>
+              <span class="h-2 w-2 rounded-full bg-ink-3"></span>
+              <span class="h-2 w-2 rounded-full bg-ink-3"></span>
+              <span class="ml-2 text-caption text-ink-3">nutrifit</span>
+            </div>
+            <img src="asset/nutrifit.png" alt="Tangkapan layar website Nutrifit" width="1261" height="700" loading="eager" class="block aspect-[16/10] w-full object-cover object-top" />
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- ABOUT SECTION -->
-    <div id="about" class="mx-auto min-h-screen pt-28 pb-16 px-4 sm:px-10 md:px-20 bg-canvas transition-colors duration-300">
-      <h2 class="text-center font-bold text-2xl md:text-3xl text-ink"><span class="text-brand" data-i18n="about_title_accent">About</h2>
-      <div class="container mx-auto mt-10 md:mt-20 flex flex-col md:flex-row justify-between items-center gap-8 md:gap-13">
-        <div class="content-img w-48 h-48 md:w-auto md:h-auto shadow-2xl border-2 border-brand transition-all duration-300 delay-100 rounded-full group" data-aos="fade-down" data-aos-duratios="1000">
-          <img src="asset/asli1.jpg" alt="picture" class="rounded-full w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer" />
-        </div>
-        <div class="content2 w-full md:w-200 text-center md:text-left" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
-          <p class="text-base md:text-xl text-ink-2" data-i18n="about_desc">
-            Hello, I am Rijal Pratama, a Frontend Developer with 3 years of experience. I have a strong ability to create attractive and functional interfaces. Beyond my solid foundation in HTML, CSS, and JavaScript, I am also proficient with frameworks and technologies such as React.js, Next.js, Laravel, and PHP, and I use Tailwind CSS and Bootstrap 5 to build responsive, modern designs. I am ready to work in a team, and I have a strong desire to keep learning and growing in web development.
-          </p>
-          <div class="flex flex-col md:flex-row flex-wrap justify-center md:justify-start items-center gap-3 md:gap-4 lg:gap-5 mt-6 md:mt-8">
-            <a href="https://drive.google.com/drive/u/0/folders/1pPpFARP7Zv202-p2O3iYO0zLhXxXHtb7" target="_blank" class="group w-full md:w-auto"
-              ><button class="w-full md:w-auto text-base md:text-lg font-bold bg-brand text-on-brand hover:bg-brand-hover p-2 md:p-3 rounded-lg cursor-pointer transition-colors duration-300" data-i18n="about_download_cv">Download CV!</button></a
-            >
-            <a href="https://drive.google.com/drive/folders/1h_k-FJF2ZJFt8JD8dKY8oBlPnsef8SIE?hl=ID" target="_blank" class="group w-full md:w-auto">
-              <button class="w-full md:w-auto text-base md:text-lg font-bold bg-brand text-on-brand hover:bg-brand-hover p-2 md:p-3 rounded-lg cursor-pointer transition-colors duration-300" data-i18n="sertifications">Sertifications!</button>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SKILL SECTION -->
-    <div id="skill" class="mx-auto min-h-screen pt-28 pb-16 px-4 bg-canvas sm:px-10 md:px-20 transition-colors duration-300">
-      <div class="block justify-center">
-        <div class="container-text text-center mb-2 md:mb-13 text-ink-3" data-aos="fade-down" data-aos-duration="800" data-aos-easing="ease-out-back">
-          <p class="text-base md:text-xl font-semibold" data-i18n="skill_tagline">~skills and tools that I have mastered~</p>
-          <h2 class="text-2xl md:text-3xl font-bold text-ink mt-2"><span data-i18n="skill_title_prefix">My</span> <span class="text-brand" data-i18n="skill_title_accent">Skill</span></h2>
-          <p class="text-base md:text-xl font-semibold mt-2" data-i18n="skill_desc">
-            the tools I use to build a professional website and <br class="hidden sm:block" />
-            deliver an interactive experience.
-          </p>
-        </div>
-        <div class="container-cta flex justify-center" data-aos="fade-in" data-aos-duration="600" data-aos-easing="ease-out-cubic" data-aos-delay="100">
-          <div class="container-content flex flex-wrap p-4 md:p-10 justify-center items-center w-full md:w-230 gap-4 md:gap-10">
-            <a href="" class="group">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108" />
-            </a>
-            <a href="" class="group">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108" />
-            </a>
-            <a href="" class="group"
-              ><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108"
-            /></a>
-            <a href="" class="group">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108" />
-            </a>
-            <a href="" class="group">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108" />
-            </a>
-            <a href="" class="group"
-              ><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108"
-            /></a>
-            <a href="" class="group">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/reactnative/reactnative-original-wordmark.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108" />
-            </a>
-            <a href="" class="group">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108" />
-            </a>
-            <a href="" class="group"
-              ><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108"
-            /></a>
-            <a href="" class="group">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108" />
-            </a>
-            <a href="" class="group">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108" />
-            </a>
-            <a href="" class="group">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108" />
-            </a>
-            <a href="" class="group">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108" />
-            </a>
-            <a href="" class="group">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108" />
-            </a>
-             <a href="" class="group">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108" />
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- PORTOFOLIO SECTION -->
     <!-- PORTOFOLIO SECTION -->
 <div id="portofolio" class="mx-auto min-h-screen pt-28 pb-16 px-4 sm:px-10 md:px-20 bg-canvas transition-colors duration-300">
   <div class="text-center">
@@ -595,6 +472,92 @@
 
   </div>
 </div>
+
+        <!-- ABOUT SECTION -->
+    <div id="about" class="mx-auto min-h-screen pt-28 pb-16 px-4 sm:px-10 md:px-20 bg-canvas transition-colors duration-300">
+      <h2 class="text-center font-bold text-2xl md:text-3xl text-ink"><span class="text-brand" data-i18n="about_title_accent">About</h2>
+      <div class="container mx-auto mt-10 md:mt-20 flex flex-col md:flex-row justify-between items-center gap-8 md:gap-13">
+        <div class="content-img w-48 h-48 md:w-auto md:h-auto shadow-2xl border-2 border-brand transition-all duration-300 delay-100 rounded-full group" data-aos="fade-down" data-aos-duratios="1000">
+          <img src="asset/asli1.jpg" alt="picture" class="rounded-full w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer" />
+        </div>
+        <div class="content2 w-full md:w-200 text-center md:text-left" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
+          <p class="text-base md:text-xl text-ink-2" data-i18n="about_desc">
+            Hello, I am Rijal Pratama, a Frontend Developer with 3 years of experience. I have a strong ability to create attractive and functional interfaces. Beyond my solid foundation in HTML, CSS, and JavaScript, I am also proficient with frameworks and technologies such as React.js, Next.js, Laravel, and PHP, and I use Tailwind CSS and Bootstrap 5 to build responsive, modern designs. I am ready to work in a team, and I have a strong desire to keep learning and growing in web development.
+          </p>
+          <div class="flex flex-col md:flex-row flex-wrap justify-center md:justify-start items-center gap-3 md:gap-4 lg:gap-5 mt-6 md:mt-8">
+            <a href="https://drive.google.com/drive/u/0/folders/1pPpFARP7Zv202-p2O3iYO0zLhXxXHtb7" target="_blank" class="group w-full md:w-auto"
+              ><button class="w-full md:w-auto text-base md:text-lg font-bold bg-brand text-on-brand hover:bg-brand-hover p-2 md:p-3 rounded-lg cursor-pointer transition-colors duration-300" data-i18n="about_download_cv">Download CV!</button></a
+            >
+            <a href="https://drive.google.com/drive/folders/1h_k-FJF2ZJFt8JD8dKY8oBlPnsef8SIE?hl=ID" target="_blank" class="group w-full md:w-auto">
+              <button class="w-full md:w-auto text-base md:text-lg font-bold bg-brand text-on-brand hover:bg-brand-hover p-2 md:p-3 rounded-lg cursor-pointer transition-colors duration-300" data-i18n="sertifications">Sertifications!</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SKILL SECTION -->
+    <div id="skill" class="mx-auto min-h-screen pt-28 pb-16 px-4 bg-canvas sm:px-10 md:px-20 transition-colors duration-300">
+      <div class="block justify-center">
+        <div class="container-text text-center mb-2 md:mb-13 text-ink-3" data-aos="fade-down" data-aos-duration="800" data-aos-easing="ease-out-back">
+          <p class="text-base md:text-xl font-semibold" data-i18n="skill_tagline">~skills and tools that I have mastered~</p>
+          <h2 class="text-2xl md:text-3xl font-bold text-ink mt-2"><span data-i18n="skill_title_prefix">My</span> <span class="text-brand" data-i18n="skill_title_accent">Skill</span></h2>
+          <p class="text-base md:text-xl font-semibold mt-2" data-i18n="skill_desc">
+            the tools I use to build a professional website and <br class="hidden sm:block" />
+            deliver an interactive experience.
+          </p>
+        </div>
+        <div class="container-cta flex justify-center" data-aos="fade-in" data-aos-duration="600" data-aos-easing="ease-out-cubic" data-aos-delay="100">
+          <div class="container-content flex flex-wrap p-4 md:p-10 justify-center items-center w-full md:w-230 gap-4 md:gap-10">
+            <a href="" class="group">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108" />
+            </a>
+            <a href="" class="group">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108" />
+            </a>
+            <a href="" class="group"
+              ><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108"
+            /></a>
+            <a href="" class="group">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108" />
+            </a>
+            <a href="" class="group">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108" />
+            </a>
+            <a href="" class="group"
+              ><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108"
+            /></a>
+            <a href="" class="group">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/reactnative/reactnative-original-wordmark.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108" />
+            </a>
+            <a href="" class="group">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108" />
+            </a>
+            <a href="" class="group"
+              ><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108"
+            /></a>
+            <a href="" class="group">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108" />
+            </a>
+            <a href="" class="group">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108" />
+            </a>
+            <a href="" class="group">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108" />
+            </a>
+            <a href="" class="group">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108" />
+            </a>
+            <a href="" class="group">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108" />
+            </a>
+             <a href="" class="group">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" class="w-16 md:w-24 lg:w-30 cursor-pointer group transition-transform duration-300 group-hover:scale-108" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- CONTACT SECTION -->
     <div id="contact" class="contact-container bg-canvas pt-28 pb-20 px-6 transition-colors duration-300">

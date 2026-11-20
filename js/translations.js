@@ -10,9 +10,11 @@ const translations = {
     nav_contact: 'Contact',
 
     // Hero
-    hero_greeting: "Hallo I'm Rijal Pratama",
-    hero_role_prefix: "I'm a",
-    hero_desc: 'I am a Software Engineering (FrontEnd development). Welcome to my website. all about me/my history can be seen here!',
+    hero_eyebrow: 'Rijal Pratama · Fullstack Developer',
+    hero_title: 'I build clean, easy-to-use web interfaces.',
+    hero_desc: 'I work from frontend to backend, building responsive websites that are easy to use.',
+    hero_projects: 'View projects',
+    hero_cv: 'Download CV',
 
     // About
     about_title_accent: 'About',
@@ -87,9 +89,11 @@ const translations = {
     nav_contact: 'Kontak',
 
     // Hero
-    hero_greeting: 'Halo, saya Rijal Pratama',
-    hero_role_prefix: 'Saya seorang',
-    hero_desc: 'Saya seorang Software Engineer (FrontEnd Development). Selamat datang di website saya. Semua tentang saya/riwayat saya bisa dilihat di sini!',
+    hero_eyebrow: 'Rijal Pratama · Pengembang Fullstack',
+    hero_title: 'Saya membangun antarmuka web yang rapi dan mudah dipakai.',
+    hero_desc: 'Saya mengerjakan frontend hingga backend untuk membangun website yang responsif dan mudah dipakai.',
+    hero_projects: 'Lihat proyek',
+    hero_cv: 'Unduh CV',
 
     // About
     about_title_accent: 'Tentang',
