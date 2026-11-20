@@ -128,7 +128,7 @@ function restartTypewriter(lang) {
   const myRunId = typewriterRunId;
   if (typewriterTimeoutId) clearTimeout(typewriterTimeoutId);
 
-  const text = lang === 'id' ? 'Pengembang Frontend' : 'Frontend Developer';
+  const text = lang === 'id' ? 'Pengembang Fullstack' : 'Fullstack Developer';
   let charIndex = 0;
   let isDeleting = false;
   const typingSpeed = 120;
@@ -158,10 +158,9 @@ function restartTypewriter(lang) {
   typewriterTimeoutId = setTimeout(typeWriter, 300);
 }
 
-// Kelas untuk tombol filter portofolio, mengikuti skema warna:
-// aktif -> biru (light) / kuning (dark), non-aktif -> abu-abu netral
-const FILTER_ACTIVE_CLASSES = ['accent-bg', 'accent-ring-active'];
-const FILTER_INACTIVE_CLASSES = ['bg-gray-200', 'dark:bg-neutral-600', 'text-neutral-900', 'dark:text-white'];
+// Kelas tombol filter mengikuti token warna aktif dan netral.
+const FILTER_ACTIVE_CLASSES = ['bg-brand', 'text-on-brand', 'hover:bg-brand-hover', 'ring-2', 'ring-brand'];
+const FILTER_INACTIVE_CLASSES = ['bg-surface-2', 'text-ink', 'hover:bg-surface'];
 
 // function pergantian project dinamis || statis
 function filterProjects(category, btnElement) {
@@ -195,11 +194,11 @@ function setActiveNav(targetSectionId) {
   navLinks.forEach((link) => {
     const target = link.dataset.section;
     if (target === targetSectionId) {
-      link.classList.add('text-yellow-300', 'font-semibold', 'active');
-      link.classList.remove('text-neutral-900', 'dark:text-white');
+      link.classList.add('text-brand', 'font-semibold', 'active');
+      link.classList.remove('text-ink');
     } else {
-      link.classList.remove('text-yellow-300', 'font-semibold', 'active');
-      link.classList.add('text-neutral-900', 'dark:text-white');
+      link.classList.remove('text-brand', 'font-semibold', 'active');
+      link.classList.add('text-ink');
     }
   });
 }

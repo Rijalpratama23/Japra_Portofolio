@@ -1,1 +1,83 @@
 @import "tailwindcss";
+
+/* Important: without this, dark: follows the OS setting instead of the theme toggle. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --canvas: #F5F7FA;   --surface: #FFFFFF;   --surface-2: #EBEFF5;
+  --line: #D9DFE8;
+  --ink: #0F1A2E;      --ink-2: #39455B;     --ink-3: #5A667C;
+  --brand: #1B56CC;    --brand-hover: #1546A8; --brand-tint: #E6EEFC;
+  --on-brand: #FFFFFF;
+  --signal: #12805C;   --danger: #C43D3D;
+  --deep: #0F1A2E;
+}
+.dark {
+  --canvas: #0C1424;   --surface: #131D31;   --surface-2: #1A2640;
+  --line: #27344F;
+  --ink: #EEF2F9;      --ink-2: #C3CCDB;     --ink-3: #8F9BB1;
+  --brand: #7AA2FF;    --brand-hover: #A0BDFF; --brand-tint: #1B2C52;
+  --on-brand: #0C1424;
+  --signal: #3DD6A0;   --danger: #FF8A8A;
+  --deep: #070D19;
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-brand: var(--brand);
+  --color-brand-hover: var(--brand-hover);
+  --color-brand-tint: var(--brand-tint);
+  --color-on-brand: var(--on-brand);
+  --color-signal: var(--signal);
+  --color-danger: var(--danger);
+  --color-deep: var(--deep);
+  --color-on-deep: #EEF2F9;
+  --color-on-deep-muted: #B4BED1;
+  --color-brand-on-deep: #7AA2FF;
+}
+
+@theme {
+  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-control: 0.5rem;
+  --radius-card: 1rem;
+
+  --text-display: clamp(2.5rem, 1.6rem + 4vw, 4.25rem);
+  --text-display--line-height: 1.05;
+  --text-display--letter-spacing: -0.03em;
+  --text-display--font-weight: 700;
+
+  --text-title: clamp(1.875rem, 1.4rem + 1.8vw, 2.75rem);
+  --text-title--line-height: 1.1;
+  --text-title--letter-spacing: -0.025em;
+  --text-title--font-weight: 700;
+
+  --text-heading: 1.375rem;
+  --text-heading--line-height: 1.3;
+  --text-heading--letter-spacing: -0.01em;
+  --text-heading--font-weight: 600;
+
+  --text-lead: clamp(1.125rem, 1.05rem + 0.3vw, 1.3125rem);
+  --text-lead--line-height: 1.6;
+
+  --text-caption: 0.8125rem;
+  --text-caption--line-height: 1.45;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-canvas font-sans text-base leading-[1.7] text-ink-2 antialiased; }
+  h1, h2, h3 { @apply font-display text-ink; }
+  :focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
